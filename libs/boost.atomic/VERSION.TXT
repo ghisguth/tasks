@@ -1,0 +1,3 @@
+unknown
+
+http://www.chaoticmind.net/~hcb/projects/boost.atomic/
