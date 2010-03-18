@@ -1,3 +1,4 @@
 tasks
 =======================
-boost tasks tests
+task shcheduling experiments with boost.task
+boost.task library (cmake) compiled using cmake
