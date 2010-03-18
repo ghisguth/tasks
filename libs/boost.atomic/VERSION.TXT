@@ -1,3 +1,5 @@
 unknown
 
 http://www.chaoticmind.net/~hcb/projects/boost.atomic/
+
+memory_order.hpp taken from boost 1.42.0 becouse library requires memory_order_consume constant
