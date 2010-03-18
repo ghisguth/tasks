@@ -1,0 +1,419 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Task Management</title>
+<link rel="stylesheet" href="../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../index.html" title="Task">
+<link rel="up" href="../index.html" title="Task">
+<link rel="prev" href="overview.html" title="Overview">
+<link rel="next" href="task_management/task.html" title="Class template task">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overview.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="task_management/task.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="task.task_management"></a><a class="link" href="task_management.html" title="Task Management"> Task Management</a>
+</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="task_management/task.html"> Class template <code class="computeroutput"><span class="identifier">task</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="task_management/task/default_constructor.html"> <code class="computeroutput"><span class="identifier">task</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/constructor.html"> <code class="computeroutput"><span class="identifier">task</span><span class="special">(</span> <span class="identifier">R</span><span class="special">(</span> <span class="special">*</span>
+        <span class="identifier">fn</span><span class="special">)())</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/constructor_2.html"> <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Fn</span> <span class="special">&gt;</span> <span class="identifier">task</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">fn</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/multi_argument_constructor.html">
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Fn</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">A0</span><span class="special">,</span> <span class="special">...</span>
+        <span class="special">&gt;</span> <span class="identifier">task</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">A0</span> <span class="identifier">a0</span><span class="special">,</span> <span class="special">...)</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/operator.html"> <code class="computeroutput"><span class="keyword">operator</span><span class="special">()()</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/swap.html"> <code class="computeroutput"><span class="identifier">swap</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/unspec_operator.html"> <code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified_bool_type</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/not_operator.html"> <code class="computeroutput"><span class="keyword">operator</span><span class="special">!()</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/task/non_member_make_task.html"> Non-member
+        template function <code class="computeroutput"><span class="identifier">make_task</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="task_management/this_task.html"> Namespace <code class="computeroutput"><span class="identifier">this_task</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="task_management/this_task/block.html"> Non-member function
+        <code class="computeroutput"><span class="identifier">yield</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/this_task/runs_in_pool.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">runs_in_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="task_management/this_task/worker_id.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">worker_id</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+</dl></div>
+<a name="task.task_management.synopsis"></a><h4>
+<a name="id538646"></a>
+      <a class="link" href="task_management.html#task.task_management.synopsis">Synopsis</a>
+    </h4>
+<p>
+      A task is a chunk of code that can be executed independently and parallel.
+    </p>
+<p>
+      <a class="link" href="task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+      represents a <span class="emphasis"><em>callable</em></span> (provides <code class="computeroutput"><span class="keyword">operator</span><span class="special">()()</span></code>) object containing the unit of code to
+      be execute by a <a class="link" href="async_execution/execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>.
+      Function <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">()</span></code> accepts a <a class="link" href="task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+      and an <a class="link" href="async_execution/execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>
+      and returns a <a class="link" href="async_execution/async_completion_token.html" title="Asynchronous Completion Token"><span class="emphasis"><em>asynchronous-completion-token</em></span></a>
+      allowing to wait for the completion of the computation of the task, for getting
+      the result of a computation or for transfering exceptions. Objects of type
+      <a class="link" href="task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+      are moveable.
+    </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">int</span> <span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">(</span> <span class="identifier">parallel_fib</span><span class="special">,</span> <span class="number">10</span><span class="special">);</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">int</span> <span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">;</span> <span class="comment">// not-a-task
+</span><span class="identifier">t2</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t1</span><span class="special">);</span>
+</pre>
+<a name="task.task_management.launching"></a><h4>
+<a name="id538891"></a>
+      <a class="link" href="task_management.html#task.task_management.launching">Launching</a>
+    </h4>
+<p>
+      A new task is launched by passing an object of a callable type that can be
+      invoked with no parameters to the constructor and passing the task to function
+      <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">()</span></code>. The object is then copied into internal
+      storage of the <a class="link" href="async_execution/execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>,
+      and invoked on the newly created task.
+    </p>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">callable</span>
+<span class="special">{</span> <span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()();</span> <span class="special">};</span>
+
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span> <span class="identifier">copies_are_safe</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">callable</span> <span class="identifier">x</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">(</span> <span class="identifier">x</span><span class="special">);</span>
+<span class="special">}</span> <span class="comment">// x is destroyed, but the newly-created task has a copy, so this is OK
+</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span> <span class="identifier">oops</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">callable</span> <span class="identifier">x</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">ref</span><span class="special">(</span> <span class="identifier">x</span><span class="special">)</span> <span class="special">);</span>
+<span class="special">}</span> <span class="comment">// x is destroyed, but the newly-created task still has a reference
+</span>  <span class="comment">// this leads to undefined behaviour
+</span></pre>
+<p>
+      If you wish to construct an instance of <a class="link" href="task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+      with a function or callable object that requires arguments to be supplied,
+      this can be done by passing additional arguments to the <a class="link" href="task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+      constructor:
+    </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">find_the_question</span><span class="special">(</span> <span class="keyword">int</span> <span class="identifier">the_answer</span><span class="special">);</span>
+
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span> <span class="identifier">deep_thought_2</span><span class="special">(</span> <span class="identifier">find_the_question</span><span class="special">,</span> <span class="number">42</span><span class="special">);</span>
+
+<span class="comment">// asynchr. execution
+</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">depp_thought_2</span><span class="special">)</span> <span class="special">);</span>
+</pre>
+<p>
+      The arguments are <span class="emphasis"><em>copied</em></span> into the internal task structure:
+      if a reference is required, use <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">ref</span></code>, just
+      as for references to callable functions.
+    </p>
+<p>
+      For convinience <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">make_task</span><span class="special">()</span></code> is provided:
+    </p>
+<pre class="programlisting"><span class="comment">// asynchr. execution 
+</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">make_task</span><span class="special">(</span> <span class="identifier">find_the_question</span><span class="special">,</span> <span class="number">42</span><span class="special">)</span> <span class="special">),</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">new_thread</span><span class="special">()</span> <span class="special">);</span>
+</pre>
+<a name="task.task_management.completion"></a><h4>
+<a name="id539527"></a>
+      <a class="link" href="task_management.html#task.task_management.completion">Completion</a>
+    </h4>
+<p>
+      In order to wait for the completion <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;::</span><span class="identifier">wait</span><span class="special">()</span></code> as
+      to be called on the <a class="link" href="async_execution/async_completion_token/handle.html" title="Class template handle"><span class="emphasis"><em>handle</em></span></a>
+      associated with the task. The fucntion returns if the task has completed. The
+      result of the task can be accessed via <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;::</span><span class="identifier">get</span><span class="special">()</span></code>.
+    </p>
+<a name="task.task_management.interruption"></a><h4>
+<a name="id539648"></a>
+      <a class="link" href="task_management.html#task.task_management.interruption">Interruption</a>
+    </h4>
+<p>
+      Sometimes it is desired to stop a running task if it is no longer needed. In
+      this case the thread is not killed - it stops only at well-defined points (<span class="emphasis"><em>interruption-points</em></span>)
+      its execution. A task can be <span class="emphasis"><em>interrupted</em></span> by invoking the
+      <code class="computeroutput"><span class="identifier">interrupt</span><span class="special">()</span></code>
+      member function from <a class="link" href="async_execution/async_completion_token.html" title="Asynchronous Completion Token"><span class="emphasis"><em>asynchronous-completion-token</em></span></a>
+      . When the interrupted task next executes one of the specified <span class="emphasis"><em>interruption-points</em></span>
+      (or if it is currently <span class="emphasis"><em>blocked</em></span> whilst executing one) with
+      interruption enabled, then a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">task_interrupted</span></code> exception will be thrown
+      in the interrupted task. In the context of <span class="emphasis"><em>task-interruption</em></span>
+      a task is known as cooperative if it checks for an interruption request between
+      two <span class="emphasis"><em>interruption-points</em></span> via <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">interruption_requested</span><span class="special">()</span></code>
+      <sup>[<a name="id539756" href="#ftn.id539756" class="footnote">1</a>]</sup>
+      .
+    </p>
+<a name="task.task_management.predefined_interruption_points"></a><h4>
+<a name="id539773"></a>
+      <a class="link" href="task_management.html#task.task_management.predefined_interruption_points">Predefined
+      Interruption Points</a>
+    </h4>
+<p>
+      The following functions are <span class="emphasis"><em>interruption points</em></span>, which
+      will throw <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">task_interrupted</span></code>
+      if interruption is enabled for the current fiber, and interruption is requested
+      for the current fiber:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread</span><span class="special">::</span><span class="identifier">join</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread</span><span class="special">::</span><span class="identifier">timed_join</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">condition_variable</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">condition_variable</span><span class="special">::</span><span class="identifier">timed_wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">condition_variable_any</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">condition_variable_any</span><span class="special">::</span><span class="identifier">timed_wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">timed_wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">auto_reset_event</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">auto_reset_event</span><span class="special">::</span><span class="identifier">timed_wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">manual_reset_event</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">manual_reset_event</span><span class="special">::</span><span class="identifier">timed_wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">count_down_event</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">spin</span><span class="special">::</span><span class="identifier">count_down_event</span><span class="special">::</span><span class="identifier">timed_wait</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">sleep</span><span class="special">()</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">interruption_point</span><span class="special">()</span></code></li>
+</ul></div>
+<p>
+      A <span class="emphasis"><em>interruption-point</em></span> throws <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">task_interrupted</span></code> if an interruption was requested.
+    </p>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">cooperative</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="comment">// interruption point
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">interruption_point</span><span class="special">();</span>
+	
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">0</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">1</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="keyword">long</span> <span class="identifier">k1</span><span class="special">(</span> <span class="number">1</span><span class="special">),</span> <span class="identifier">k2</span><span class="special">(</span> <span class="number">0</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span> <span class="keyword">int</span> <span class="identifier">i</span><span class="special">(</span> <span class="number">2</span><span class="special">);</span> <span class="identifier">i</span> <span class="special">&lt;=</span> <span class="identifier">n</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="comment">// check if interruption was requested
+</span>		<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">interruption_requested</span><span class="special">()</span> <span class="special">)</span>
+			<span class="keyword">return</span><span class="special">;</span>
+			
+		<span class="keyword">long</span> <span class="identifier">tmp</span><span class="special">(</span> <span class="identifier">k1</span><span class="special">);</span>
+		<span class="identifier">k1</span> <span class="special">=</span> <span class="identifier">k1</span> <span class="special">+</span> <span class="identifier">k2</span><span class="special">;</span>
+		<span class="identifier">k2</span> <span class="special">=</span> <span class="identifier">tmp</span><span class="special">;</span>
+	<span class="special">}</span>
+	
+	<span class="comment">// interruption point
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_thread</span><span class="special">::</span><span class="identifier">interruption_point</span><span class="special">();</span>
+	
+	<span class="keyword">return</span> <span class="identifier">k1</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// task for computing fibonacci-number
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">(</span> <span class="identifier">cooperative</span><span class="special">,</span> <span class="number">10</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// execute task in new thread
+</span>	<span class="comment">// move task ownership to executor
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t</span><span class="special">),</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">new_thread</span><span class="special">()</span> <span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// interrupt task an wait until
+</span>	<span class="comment">// the task is removed by the worker-thread
+</span>	<span class="identifier">h</span><span class="special">.</span><span class="identifier">interrupt_and_wait</span><span class="special">();</span>
+
+	<span class="comment">// access the result
+</span>	<span class="comment">// throws boost::task_interrupted
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(10) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      If a task wishes to avoid being interrupted, it can create an instance of
+      <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">disable_interruption</span></code>. The effects of an instance
+      of <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">disable_interruption</span></code> can be temporarily reversed
+      by constructing an instance of <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">restore_interruption</span></code>,
+      passing in the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">disable_interruption</span></code> object in question.
+      This will restore the interruption state to what it was when the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">disable_interruption</span></code>
+      object was constructed, and then disable interruption again when the <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">restore_interruption</span></code>
+      object is destroyed.
+    </p>
+<a name="task.task_management.exceptions"></a><h4>
+<a name="id541443"></a>
+      <a class="link" href="task_management.html#task.task_management.exceptions">Exceptions</a>
+    </h4>
+<p>
+      Exceptions thrown by the function or callable object passed to the <a class="link" href="task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+      constructor are consumed by the thes associated <a class="link" href="async_execution/async_completion_token.html" title="Asynchronous Completion Token"><span class="emphasis"><em>asynchronous-completion-token</em></span></a>.
+      The exception will be re-thrown by the associated <a class="link" href="async_execution/async_completion_token/handle.html" title="Class template handle"><span class="emphasis"><em>handle</em></span></a>.
+    </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">throwing</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="special">...</span>
+	<span class="keyword">throw</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">domain_error</span><span class="special">(</span><span class="string">"domain error"</span><span class="special">);</span>
+	<span class="special">...</span>
+<span class="special">}</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// create task throwing std::domain_error
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span> <span class="keyword">void</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">(</span> <span class="identifier">throwing</span><span class="special">);</span>
+
+	<span class="comment">// execute task asynchron
+</span>	<span class="comment">// move task ownership to executor
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">void</span> <span class="special">&gt;</span> <span class="identifier">h</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t</span><span class="special">),</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">new_thread</span><span class="special">()</span> <span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// wait for task completion
+</span>	<span class="comment">// throws std::domain_error
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">h</span><span class="special">.</span><span class="identifier">wait</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Exceptions rethrown by type are:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_cast</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_exception</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_typeid</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">domain_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">invalid_argument</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">ios_base</span><span class="special">::</span><span class="identifier">failure</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">length_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">logic_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">out_of_range</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">overflow_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">range_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">runtime_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">underflow_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">exception</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_already_set</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_cancel</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">invalid_thread_argument</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">lock_error</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">broken_task</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">pool_moved</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_already_executed</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_interrupted</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_moved</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_interrupted</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_task_rejected</span></code></li>
+<li><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_unitialized</span></code></li>
+</ul></div>
+<div class="warning"><table border="0" summary="Warning">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" src="../../../../../doc/html/images/warning.png"></td>
+<th align="left">Warning</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        Don't use the sjlj exception model.
+      </p></td></tr>
+</table></div>
+<a name="task.task_management.parent_task"></a><h4>
+<a name="id542392"></a>
+      <a class="link" href="task_management.html#task.task_management.parent_task">Parent Task</a>
+    </h4>
+<p>
+      Top-level tasks have no parent. A parent task can create child tasks when it
+      creates another task by using <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">as_sub_task</span></code> as <a class="link" href="async_execution/execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>.
+      These children are implicitly treated as <span class="emphasis"><em>sub-tasks</em></span> of
+      the parent task. It is assumed that that <span class="emphasis"><em>sub-tasks</em></span> can
+      be executed in any order because only overall operation speed matters (enabling
+      strategies for fast execution of unordered <span class="emphasis"><em>work-items</em></span>
+      as <a class="link" href="async_execution/execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing">
+      <a class="link" href="async_execution/execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing"><span class="emphasis"><em>work-stealing</em></span></a></a>).
+    </p>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span><span class="special">(</span> <span class="identifier">n</span> <span class="special">&lt;</span> <span class="number">2</span><span class="special">)</span> <span class="keyword">return</span> <span class="identifier">n</span><span class="special">;</span>
+	<span class="keyword">else</span> <span class="keyword">return</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="identifier">n</span> <span class="special">-</span> <span class="number">1</span><span class="special">)</span> <span class="special">+</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="identifier">n</span> <span class="special">-</span> <span class="number">2</span><span class="special">);</span>
+<span class="special">}</span>
+
+<span class="keyword">long</span> <span class="identifier">parallel_fib</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">,</span> <span class="keyword">long</span> <span class="identifier">cutof</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">&lt;</span> <span class="identifier">cutof</span><span class="special">)</span> <span class="keyword">return</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="identifier">n</span><span class="special">);</span>
+	<span class="keyword">else</span>
+	<span class="special">{</span>
+		<span class="comment">// sub-task for computing fibonacci(n-1)
+</span>		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">(</span>
+			<span class="identifier">parallel_fib</span><span class="special">,</span>
+			<span class="identifier">n</span> <span class="special">-</span> <span class="number">1</span><span class="special">,</span>
+			<span class="identifier">cutof</span><span class="special">);</span>
+		<span class="comment">// sub-task for computing fibonacci(n-2)
+</span>		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">(</span>
+			<span class="identifier">parallel_fib</span><span class="special">,</span>
+			<span class="identifier">n</span> <span class="special">-</span> <span class="number">2</span><span class="special">,</span>
+			<span class="identifier">cutof</span><span class="special">);</span>
+
+		<span class="comment">// submit a sub-tasks to thread-pool
+</span>		<span class="comment">// move task ownership to executor
+</span>		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h1</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+				<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t1</span><span class="special">)</span> <span class="special">);</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h2</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+				<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t2</span><span class="special">)</span> <span class="special">);</span>
+
+		<span class="comment">// computing fibonacci(n) by
+</span>		<span class="comment">// joining results of both sub-tasks
+</span>		<span class="keyword">return</span> <span class="identifier">h1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">h2</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// create thread-pool with five worker-threads
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">unbounded_fifo</span> <span class="special">&gt;</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">5</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// create task computing fibonacci-number for 10
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">(</span>
+		<span class="identifier">parallel_fib</span><span class="special">,</span>
+		<span class="number">10</span><span class="special">,</span>
+		<span class="number">5</span><span class="special">);</span>
+
+	<span class="comment">// execute task asynchron in thread-pool
+</span>	<span class="comment">// move task ownership to executor
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// access result
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(10) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<div class="footnotes">
+<br><hr width="100" align="left">
+<div class="footnote"><p><sup>[<a name="ftn.id539756" href="#id539756" class="para">1</a>] </sup>
+          see <a href="http://www.ddj.com/architect/207100682" target="_top">'Interrupt Politely'</a>,
+          Herb Sutter
+        </p></div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overview.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="task_management/task.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

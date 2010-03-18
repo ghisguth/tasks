@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Non-member function async()</title>
+<link rel="stylesheet" href="../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../index.html" title="Task">
+<link rel="up" href="../async_execution.html" title="Asynchronous Execution">
+<link rel="prev" href="../async_execution.html" title="Asynchronous Execution">
+<link rel="next" href="async/async.html" title="Non-member function async()">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../async_execution.html"><img src="../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_execution.html"><img src="../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="async/async.html"><img src="../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="task.async_execution.async"></a><a class="link" href="async.html" title="Non-member function async()"> Non-member function <code class="computeroutput"><span class="identifier">async</span><span class="special">()</span></code></a>
+</h3></div></div></div>
+<div class="toc"><dl><dt><span class="section"><a href="async/async.html"> Non-member function
+        <code class="computeroutput"><span class="identifier">async</span><span class="special">()</span></code></a></span></dt></dl></div>
+<p>
+        Function <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">()</span></code>
+        applies the moved <a class="link" href="../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+        to the <a class="link" href="execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>
+        which executes the <a class="link" href="../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+        (for this purpose <a class="link" href="execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>
+        is required to provide <code class="computeroutput"><span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="keyword">operator</span><span class="special">()(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;&amp;</span>
+        <span class="identifier">t</span><span class="special">)</span></code>).
+        The function returns a <a class="link" href="async_completion_token/handle.html" title="Class template handle"><span class="emphasis"><em>handle</em></span></a>
+        which controls the submitted <a class="link" href="../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>.
+      </p>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">fibonacci</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">0</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">1</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="keyword">long</span> <span class="identifier">k1</span><span class="special">(</span> <span class="number">1</span><span class="special">),</span> <span class="identifier">k2</span><span class="special">(</span> <span class="number">0</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span> <span class="keyword">int</span> <span class="identifier">i</span><span class="special">(</span> <span class="number">2</span><span class="special">);</span> <span class="identifier">i</span> <span class="special">&lt;=</span> <span class="identifier">n</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">long</span> <span class="identifier">tmp</span><span class="special">(</span> <span class="identifier">k1</span><span class="special">);</span>
+		<span class="identifier">k1</span> <span class="special">=</span> <span class="identifier">k1</span> <span class="special">+</span> <span class="identifier">k2</span><span class="special">;</span>
+		<span class="identifier">k2</span> <span class="special">=</span> <span class="identifier">tmp</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">return</span> <span class="identifier">k1</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// task computing fibonacci(10)
+</span>	<span class="comment">// move the task to executor
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h1</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			 <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">make_task</span><span class="special">(</span> <span class="identifier">fibonacci</span><span class="special">,</span> <span class="number">10</span><span class="special">)</span> <span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// task computing fibonacci(5)
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">(</span> <span class="identifier">fibonacci</span><span class="special">,</span> <span class="number">5</span><span class="special">);</span>
+	<span class="comment">// move the task to executor
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h2</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			 <span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t</span><span class="special">)</span> <span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// access the results
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(10) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(5) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../async_execution.html"><img src="../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_execution.html"><img src="../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="async/async.html"><img src="../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

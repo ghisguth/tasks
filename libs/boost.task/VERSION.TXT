@@ -1,0 +1,3 @@
+boost.task-0.4.2
+
+http://www.boostpro.com/vault/index.php?directory=Concurrent%20Programming

@@ -1,0 +1,427 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Class template handle</title>
+<link rel="stylesheet" href="../../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../../index.html" title="Task">
+<link rel="up" href="../async_completion_token.html" title="Asynchronous Completion Token">
+<link rel="prev" href="../async_completion_token.html" title="Asynchronous Completion Token">
+<link rel="next" href="../execution_policy.html" title="Execution Policies">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../async_completion_token.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_completion_token.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../execution_policy.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="task.async_execution.async_completion_token.handle"></a><a class="link" href="handle.html" title="Class template handle">
+        Class template <code class="computeroutput"><span class="identifier">handle</span></code></a>
+</h4></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._handle___"><code class="computeroutput"><span class="identifier">handle</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._template__typename_f___handle__f_const___context_const___"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">F</span>
+          <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">(</span> <span class="identifier">F</span> <span class="keyword">const</span><span class="special">&amp;,</span> <span class="identifier">context</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._bool_interruption_requested___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interruption_requested</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._void_interrupt___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._void_interrupt_and_wait___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt_and_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._bool_interrupt_and_wait_until__system_time_const___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interrupt_and_wait_until</span><span class="special">(</span> <span class="identifier">system_time</span>
+          <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._template__typename_timeduration___interrupt_and_wait_for__timeduration_const___"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span>
+          <span class="special">&gt;</span> <span class="identifier">interrupt_and_wait_for</span><span class="special">(</span> <span class="identifier">TimeDuration</span>
+          <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._r_get___"><code class="computeroutput"><span class="identifier">R</span> <span class="identifier">get</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._void_wait___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._template__typename_timeduration___wait_for__timeduration_const___"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span>
+          <span class="special">&gt;</span> <span class="identifier">wait_for</span><span class="special">(</span> <span class="identifier">TimeDuration</span>
+          <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._bool_wait_until__system_time_const__abs_time__const_"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">wait_until</span><span class="special">(</span> <span class="identifier">system_time</span>
+          <span class="keyword">const</span><span class="special">&amp;</span>
+          <span class="identifier">abs_time</span><span class="special">)</span>
+          <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._bool_is_ready___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._bool_has_value___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._bool_has_exception___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle._void_swap__handle__r_____other__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="handle.html#task.async_execution.async_completion_token.handle.non_member_function__wait_for_all___">Non-member
+          function <code class="computeroutput"><span class="identifier">wait_for_all</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">task</span><span class="special">/</span><span class="identifier">handle</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">R</span> <span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">handle</span>
+<span class="special">{</span>
+	<span class="identifier">handle</span><span class="special">();</span>
+
+	<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">F</span> <span class="special">&gt;</span>
+	<span class="identifier">handle</span><span class="special">(</span> <span class="identifier">F</span> <span class="keyword">const</span><span class="special">&amp;,</span> <span class="identifier">context</span> <span class="keyword">const</span><span class="special">&amp;);</span>
+
+	<span class="keyword">void</span> <span class="identifier">interrupt</span><span class="special">();</span>
+	<span class="keyword">void</span> <span class="identifier">interrupt_and_wait</span><span class="special">();</span>
+	<span class="keyword">void</span> <span class="identifier">interrupt_and_wait_until</span><span class="special">(</span> <span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">abs_time</span><span class="special">);</span>
+	<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span> <span class="special">&gt;</span>
+	<span class="keyword">void</span> <span class="identifier">interrupt_and_wait_for</span><span class="special">(</span> <span class="identifier">Duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">rel_time</span><span class="special">);</span>
+	<span class="keyword">bool</span> <span class="identifier">interruption_requested</span><span class="special">();</span>
+
+	<span class="identifier">R</span> <span class="identifier">get</span><span class="special">();</span>
+	<span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+	<span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="identifier">wait_until</span><span class="special">(</span> <span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">abs_time</span><span class="special">);</span>
+	<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span> <span class="special">&gt;</span>
+	<span class="keyword">bool</span> <span class="identifier">wait_for</span><span class="special">(</span> <span class="identifier">TimeDuration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">rel_time</span><span class="special">);</span>
+
+	<span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+<span class="special">};</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Iterator</span> <span class="special">&gt;</span>
+<span class="keyword">friend</span> <span class="keyword">void</span> <span class="identifier">waitfor_all</span><span class="special">(</span> <span class="identifier">Iterator</span> <span class="identifier">begin</span><span class="special">,</span> <span class="identifier">Iterator</span> <span class="identifier">end</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T2</span> <span class="special">&gt;</span>
+<span class="keyword">friend</span> <span class="keyword">void</span> <span class="identifier">waitfor_all</span><span class="special">(</span> <span class="identifier">T1</span> <span class="special">&amp;</span> <span class="identifier">t1</span><span class="special">,</span> <span class="identifier">T2</span> <span class="special">&amp;</span> <span class="identifier">t2</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T2</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T3</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T4</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T5</span> <span class="special">&gt;</span>
+<span class="keyword">friend</span> <span class="keyword">void</span> <span class="identifier">waitfor_all</span><span class="special">(</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T1</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t1</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T2</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t2</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T3</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t3</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T4</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t4</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T5</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t5</span><span class="special">);</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._handle___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._handle___" title="handle()"><code class="computeroutput"><span class="identifier">handle</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                constructs an empty (invalid) handle
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._template__typename_f___handle__f_const___context_const___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._template__typename_f___handle__f_const___context_const___" title="template&lt; typename F &gt; handle( F const&amp;, context const&amp;)"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">F</span>
+          <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">(</span> <span class="identifier">F</span> <span class="keyword">const</span><span class="special">&amp;,</span> <span class="identifier">context</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                constructs an handle associated with an future and an context
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._bool_interruption_requested___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._bool_interruption_requested___" title="bool interruption_requested()"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interruption_requested</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                checks if interruption is already requested
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._void_interrupt___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._void_interrupt___" title="void interrupt()"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                requests task interruption; doesn not block (immediatly returns)
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._void_interrupt_and_wait___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._void_interrupt_and_wait___" title="void interrupt_and_wait()"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt_and_wait</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                requests task interruption and blocks until worker-thread stops task
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._bool_interrupt_and_wait_until__system_time_const___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._bool_interrupt_and_wait_until__system_time_const___" title="bool interrupt_and_wait_until( system_time const&amp;)"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interrupt_and_wait_until</span><span class="special">(</span> <span class="identifier">system_time</span>
+          <span class="keyword">const</span><span class="special">&amp;)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                requests task interruption and blocks until worker-thread stops task
+                or time-point elapsed
+              </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                false if the the time specified by abs_time was reached, true otherwise
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._template__typename_timeduration___interrupt_and_wait_for__timeduration_const___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._template__typename_timeduration___interrupt_and_wait_for__timeduration_const___" title="template&lt; typename TimeDuration &gt; interrupt_and_wait_for( TimeDuration const&amp;)"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span>
+          <span class="special">&gt;</span> <span class="identifier">interrupt_and_wait_for</span><span class="special">(</span> <span class="identifier">TimeDuration</span>
+          <span class="keyword">const</span><span class="special">&amp;)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                requests task interruption and blocks until worker-thread stops task
+                or time-duration elapsed
+              </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                false if the the time specified by rel_time was reached, true otherwise
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._r_get___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._r_get___" title="R get()"><code class="computeroutput"><span class="identifier">R</span> <span class="identifier">get</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                requests the result
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_uninialized</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">broken_task</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._void_wait___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._void_wait___" title="void wait()"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                blocks caller until task is done
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_uninialized</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">broken_task</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._template__typename_timeduration___wait_for__timeduration_const___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._template__typename_timeduration___wait_for__timeduration_const___" title="template&lt; typename TimeDuration &gt; wait_for( TimeDuration const&amp;)"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span>
+          <span class="special">&gt;</span> <span class="identifier">wait_for</span><span class="special">(</span> <span class="identifier">TimeDuration</span>
+          <span class="keyword">const</span><span class="special">&amp;)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                blocks caller until task is done
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_uninialized</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">broken_task</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._bool_wait_until__system_time_const__abs_time__const_"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._bool_wait_until__system_time_const__abs_time__const_" title="bool wait_until( system_time const&amp; abs_time) const"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">wait_until</span><span class="special">(</span> <span class="identifier">system_time</span>
+          <span class="keyword">const</span><span class="special">&amp;</span>
+          <span class="identifier">abs_time</span><span class="special">)</span>
+          <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                blocks caller until task is done
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_uninialized</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">broken_task</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._bool_is_ready___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._bool_is_ready___" title="bool is_ready()"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                checks if task is done
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._bool_has_value___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._bool_has_value___" title="bool has_value()"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                checks if task is done and a result value is set
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._bool_has_exception___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._bool_has_exception___" title="bool has_exception()"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                checks if task is done and an exception is set
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle._void_swap__handle__r_____other__"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle._void_swap__handle__r_____other__" title="void swap( handle&lt; R &gt; &amp; other)"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                swapps handle
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.async_completion_token.handle.non_member_function__wait_for_all___"></a><a class="link" href="handle.html#task.async_execution.async_completion_token.handle.non_member_function__wait_for_all___" title="Non-member function wait_for_all()">Non-member
+          function <code class="computeroutput"><span class="identifier">wait_for_all</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Iterator</span> <span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">waitfor_all</span><span class="special">(</span> <span class="identifier">Iterator</span> <span class="identifier">begin</span><span class="special">,</span> <span class="identifier">Iterator</span> <span class="identifier">end</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T2</span> <span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">waitfor_all</span><span class="special">(</span> <span class="identifier">T1</span> <span class="special">&amp;</span> <span class="identifier">t1</span><span class="special">,</span> <span class="identifier">T2</span> <span class="special">&amp;</span> <span class="identifier">t2</span><span class="special">);</span>
+<span class="special">...</span>
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T2</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T3</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T4</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">T5</span> <span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">waitfor_all</span><span class="special">(</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T1</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t1</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T2</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t2</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T3</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t3</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T4</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t4</span><span class="special">,</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">T5</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">t5</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                waits for all handles to become ready
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../async_completion_token.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_completion_token.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../execution_policy.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

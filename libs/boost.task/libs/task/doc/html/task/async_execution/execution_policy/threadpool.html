@@ -1,0 +1,1636 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Execute in Thread-Pool</title>
+<link rel="stylesheet" href="../../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../../index.html" title="Task">
+<link rel="up" href="../execution_policy.html" title="Execution Policies">
+<link rel="prev" href="as_sub_task.html" title="Execute as Sub-Task">
+<link rel="next" href="../../spin_synchronization.html" title="Synchronization">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="as_sub_task.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../execution_policy.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../../spin_synchronization.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="task.async_execution.execution_policy.threadpool"></a><a class="link" href="threadpool.html" title="Execute in Thread-Pool">
+        Execute in Thread-Pool</a>
+</h4></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool">
+          Thread-Pool with fixed </a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool">
+            Class template <code class="computeroutput"><span class="identifier">static_pool</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool__static_pool_____"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___operator___static_pool_____"><code class="computeroutput"><span class="identifier">static_pool</span> <span class="special">&amp;</span>
+              <span class="keyword">operator</span><span class="special">=(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.__static_pool___"><code class="computeroutput"><span class="special">~</span><span class="identifier">static_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.___unspec_type___bind_to_processors___"><code class="computeroutput"><span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;</span> <span class="identifier">bind_to_processors</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_size___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown_now___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown_now</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_interrupt_all_worker___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt_all_worker</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_closed___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">closed</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_upper_bound___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">upper_bound</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_upper_bound__high_watermark_const__hwm__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">upper_bound</span><span class="special">(</span> <span class="identifier">high_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">hwm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_lower_bound___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">lower_bound</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_lower_bound__low_watermark_const__lwm__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">lower_bound</span><span class="special">(</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r___handle__r___submit__task__r___t__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">submit</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r__typename_attr___handle__r___submit__task__r___t__attr_const__attr__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span><span class="special">,</span> <span class="keyword">typename</span>
+              <span class="identifier">Attr</span> <span class="special">&gt;</span>
+              <span class="identifier">handle</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">submit</span><span class="special">(</span>
+              <span class="identifier">task</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">t</span><span class="special">,</span>
+              <span class="identifier">Attr</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">attr</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_swap__static_pool___other__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">static_pool</span>
+              <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._operator_unspecified_bool_type___const_"><code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified_bool_type</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_operator____const_"><code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions">
+          Meta functions</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.has_attribute">
+            Meta function <code class="computeroutput"><span class="identifier">has_attribute</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.attribute_type">
+            Meta function <code class="computeroutput"><span class="identifier">attribute_type</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.queue">
+          Global Queue</a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.pool_shutdown">
+          Shutdown</a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.processor_binding">
+          Processor binding</a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.workstealing">
+          Work-Stealing</a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.forkjoin">
+          Fork/Join</a></span></dt>
+</dl></div>
+<a name="task.async_execution.execution_policy.threadpool.synopsis"></a><h6>
+<a name="id558039"></a>
+          <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.synopsis">Synopsis</a>
+        </h6>
+<p>
+          Instead of creating a new thread and quickly throwing it away after the
+          task is done, the overhead related to thread creation and destruction can
+          be avoided by running the <span class="emphasis"><em>work-items</em></span> on a <a class="link" href="threadpool.html" title="Execute in Thread-Pool"><span class="emphasis"><em>thread-pool</em></span></a>
+          (reusing an existing <span class="emphasis"><em>worker-thread</em></span> instead).
+        </p>
+<p>
+          A <a class="link" href="threadpool.html" title="Execute in Thread-Pool"><span class="emphasis"><em>thread-pool</em></span></a>
+          maintains a global queue of <span class="emphasis"><em>work-items</em></span> to be processed,
+          and a pool of <span class="emphasis"><em>worker-threads</em></span> which execute <span class="emphasis"><em>work-items</em></span>
+          from the global queue.
+        </p>
+<p>
+          <span class="bold"><strong>Boost.Task</strong></span> provides <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">()</span></code> with support of executing an <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+          in <a class="link" href="threadpool.html" title="Execute in Thread-Pool"><span class="emphasis"><em>thread-pool</em></span></a>:
+        </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">echo</span><span class="special">(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">msg</span><span class="special">)</span>
+<span class="special">{</span> <span class="keyword">return</span> <span class="identifier">msg</span><span class="special">;</span> <span class="special">}</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// create a thread-pool with
+</span>	<span class="comment">// five worker-threads
+</span>	<span class="comment">// FIFO schduling of queued tasks
+</span>	<span class="comment">// and unlimited size of internal queue
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">unbounded_fifo</span> <span class="special">&gt;</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">5</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// create task
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">(</span> <span class="identifier">echo</span><span class="special">,</span> <span class="string">"Hello World!"</span><span class="special">);</span>
+
+	<span class="comment">// move task to executor
+</span>	<span class="comment">// let the task be executed by the thread-pool
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&gt;</span> <span class="identifier">h</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// access the result
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">h</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<div class="important"><table border="0" summary="Important">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="../../../../../../../doc/html/images/important.png"></td>
+<th align="left">Important</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+            Tasks should not be too small (performance overhead dominates) and avoid
+            blocking tasks
+            <sup>[<a name="id558713" href="#ftn.id558713" class="footnote">4</a>]</sup>
+            .
+          </p></td></tr>
+</table></div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool" title="Thread-Pool with fixed">
+          Thread-Pool with fixed </a>
+</h5></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool">
+            Class template <code class="computeroutput"><span class="identifier">static_pool</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool__static_pool_____"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___operator___static_pool_____"><code class="computeroutput"><span class="identifier">static_pool</span> <span class="special">&amp;</span>
+              <span class="keyword">operator</span><span class="special">=(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.__static_pool___"><code class="computeroutput"><span class="special">~</span><span class="identifier">static_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.___unspec_type___bind_to_processors___"><code class="computeroutput"><span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;</span> <span class="identifier">bind_to_processors</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_size___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown_now___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown_now</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_interrupt_all_worker___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt_all_worker</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_closed___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">closed</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_upper_bound___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">upper_bound</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_upper_bound__high_watermark_const__hwm__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">upper_bound</span><span class="special">(</span> <span class="identifier">high_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">hwm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_lower_bound___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">lower_bound</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_lower_bound__low_watermark_const__lwm__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">lower_bound</span><span class="special">(</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r___handle__r___submit__task__r___t__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">submit</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r__typename_attr___handle__r___submit__task__r___t__attr_const__attr__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span><span class="special">,</span> <span class="keyword">typename</span>
+              <span class="identifier">Attr</span> <span class="special">&gt;</span>
+              <span class="identifier">handle</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">submit</span><span class="special">(</span>
+              <span class="identifier">task</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">t</span><span class="special">,</span>
+              <span class="identifier">Attr</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">attr</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_swap__static_pool___other__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">static_pool</span>
+              <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._operator_unspecified_bool_type___const_"><code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified_bool_type</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_operator____const_"><code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span></code></a></span></dt>
+</dl></dd>
+</dl></div>
+<p>
+            <span class="bold"><strong>Boost.Task</strong></span> provides <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">static_pool</span></code>
+            - which contains an fixed set of pre-forked <span class="emphasis"><em>worker-threads</em></span>
+            (the size of the pool doesn't change during its lifetime). <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">static_pool</span></code> supports move semantics.
+          </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">_static_pool</span><span class="special">&lt;</span>					 <span class="comment">// pool type
+</span>        <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_fifo</span>  <span class="comment">// queue where application threads enqueue tasks
+</span><span class="special">&gt;</span> <span class="identifier">pool</span><span class="special">(</span>
+        <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">6</span><span class="special">),</span>                         <span class="comment">// pool with 6 pre-forked worker-threads
+</span>        <span class="identifier">boost</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">50</span><span class="special">),</span>  <span class="comment">// time to sleep if no work-item available
+</span>        <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">scanns</span><span class="special">(</span> <span class="number">10</span><span class="special">)</span> <span class="special">);</span>                        <span class="comment">// iterations over local-queues before sleep
+</span></pre>
+<p>
+            The first argument of the constructor specifies how many <span class="emphasis"><em>worker-threads</em></span>
+            the pool will contain. The second and third argument are used by the
+            <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing">
+            <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing"><span class="emphasis"><em>work-stealing</em></span></a></a>
+            algorithm.
+          </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../../../../../../doc/html/images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+              If <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">bounded_queue</span></code> is used as queuing
+              policy the constructor has two additional arguments .
+            </p></td></tr>
+</table></div>
+<p>
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">static_pool</span></code> provides functionality
+            to check the status of the pool - <code class="computeroutput"><span class="identifier">close</span><span class="special">()</span></code> returns true when the pool was shutdown
+            and __fn<span class="underline">size</span>_returns the number
+            of <span class="emphasis"><em>worker-threads</em></span>.
+          </p>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool" title="Class template static_pool">
+            Class template <code class="computeroutput"><span class="identifier">static_pool</span></code></a>
+</h6></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool__static_pool_____"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___operator___static_pool_____"><code class="computeroutput"><span class="identifier">static_pool</span> <span class="special">&amp;</span>
+              <span class="keyword">operator</span><span class="special">=(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.__static_pool___"><code class="computeroutput"><span class="special">~</span><span class="identifier">static_pool</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.___unspec_type___bind_to_processors___"><code class="computeroutput"><span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;</span> <span class="identifier">bind_to_processors</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_size___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown_now___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown_now</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_interrupt_all_worker___"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt_all_worker</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_closed___"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">closed</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_upper_bound___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">upper_bound</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_upper_bound__high_watermark_const__hwm__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">upper_bound</span><span class="special">(</span> <span class="identifier">high_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">hwm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_lower_bound___"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">lower_bound</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_lower_bound__low_watermark_const__lwm__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">lower_bound</span><span class="special">(</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r___handle__r___submit__task__r___t__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">submit</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r__typename_attr___handle__r___submit__task__r___t__attr_const__attr__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span><span class="special">,</span> <span class="keyword">typename</span>
+              <span class="identifier">Attr</span> <span class="special">&gt;</span>
+              <span class="identifier">handle</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">submit</span><span class="special">(</span>
+              <span class="identifier">task</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">t</span><span class="special">,</span>
+              <span class="identifier">Attr</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">attr</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_swap__static_pool___other__"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">static_pool</span>
+              <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._operator_unspecified_bool_type___const_"><code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified_bool_type</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_operator____const_"><code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">task</span><span class="special">/</span><span class="identifier">static_pool</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Channel</span> <span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">static_pool</span> <span class="special">:</span> <span class="keyword">private</span> <span class="identifier">noncopyable</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+	<span class="identifier">static_pool</span><span class="special">();</span>
+
+	<span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span>
+		<span class="identifier">poolsize</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">psize</span><span class="special">,</span>
+		<span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span> <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span>
+		<span class="identifier">scanns</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">scns</span> <span class="special">=</span> <span class="identifier">scanns</span><span class="special">(</span> <span class="number">20</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span>
+		<span class="identifier">poolsize</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">psize</span><span class="special">,</span>
+		<span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span>
+		<span class="identifier">low_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">lwm</span><span class="special">,</span>
+		<span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span> <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span>
+		<span class="identifier">scanns</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">scns</span> <span class="special">=</span> <span class="identifier">scanns</span><span class="special">(</span> <span class="number">20</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">static_pool</span> <span class="special">&amp;&amp;);</span>
+
+	<span class="identifier">static_pool</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span> <span class="identifier">static_pool</span> <span class="special">&amp;&amp;);</span>
+
+	<span class="preprocessor"># if</span> <span class="identifier">defined</span><span class="special">(</span><span class="identifier">BOOST_HAS_PROCESSOR_BINDINGS</span><span class="special">)</span>
+	<span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span>
+		<span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+		<span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span> <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span>
+		<span class="identifier">scanns</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">scns</span> <span class="special">=</span> <span class="identifier">scanns</span><span class="special">(</span> <span class="number">20</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span>
+		<span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+		<span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span>
+		<span class="identifier">low_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">lwm</span><span class="special">,</span>
+		<span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span> <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span>
+		<span class="identifier">scanns</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">scns</span> <span class="special">=</span> <span class="identifier">scanns</span><span class="special">(</span> <span class="number">20</span><span class="special">)</span> <span class="special">);</span>
+		
+	<span class="keyword">static</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;</span> <span class="identifier">bind_to_processors</span><span class="special">();</span>
+	<span class="preprocessor"># endif</span>
+
+	<span class="special">~</span><span class="identifier">static_pool</span><span class="special">();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">();</span>
+
+	<span class="keyword">void</span> <span class="identifier">shutdown</span><span class="special">();</span>
+	<span class="keyword">void</span> <span class="identifier">shutdown_now</span><span class="special">();</span>
+
+	<span class="keyword">bool</span> <span class="identifier">closed</span><span class="special">();</span>
+
+	<span class="keyword">void</span> <span class="identifier">interrupt_all_worker</span><span class="special">();</span>
+
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">upper_bound</span><span class="special">();</span>
+	<span class="keyword">void</span> <span class="identifier">upper_bound</span><span class="special">(</span> <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">);</span>
+	<span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">lower_bound</span><span class="special">();</span>
+	<span class="keyword">void</span> <span class="identifier">lower_bound</span><span class="special">(</span> <span class="identifier">low_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">lwm</span><span class="special">);</span>
+
+	<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">R</span> <span class="special">&gt;</span>
+	<span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="identifier">submit</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">t</span><span class="special">);</span>
+
+	<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">R</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">Attr</span> <span class="special">&gt;</span>
+	<span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="identifier">submit</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">t</span><span class="special">,</span> <span class="identifier">Attr</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">attr</span><span class="special">);</span>
+
+	<span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">static_pool</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+	<span class="keyword">operator</span> <span class="identifier">unspecified_bool_type</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+	<span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___" title="static_pool()"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    constructs an unitialized pool
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____" title="explicit static_pool( &lt;&lt;unspec-type&gt;&gt;, posix_time::time_duration const&amp; asleep = posix_time::microseconds( 10), scanns const&amp; scns = scanns( 20) )"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    operating system provides functionality for processor binding
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    constructs a pool - for each processor a worker-thread is created
+                    and bound to one processor - global-queue can queue an unlimited
+                    number of tasks
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_scanns</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_timeduration</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    constructor has to be called if a unbounded-queue is used and
+                    <code class="computeroutput"><span class="identifier">bind_to_processors</span><span class="special">()</span></code> must be set as first argument
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____posix_time__time_duration_const__asleep___posix_time__microseconds__10_____scanns_const__scns___scanns__20____" title="explicit static_pool( poolsize const&amp; psize, posix_time::time_duration const&amp; asleep = posix_time::microseconds( 10), scanns const&amp; scns = scanns( 20) )"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">microseconds</span><span class="special">(</span> <span class="number">10</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    constructs a pool containing psize worker-threads - global-queue
+                    can queue an unlimited number of tasks
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_scanns</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_timeduration</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    constructor has to be called if a unbounded-queue is used
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool______unspec_type______high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____" title="explicit static_pool( &lt;&lt;unspec-type&gt;&gt;, high_watermark const&amp; hwm, low_watermark const&amp; lwm, posix_time::time_duration const&amp; asleep = posix_time::milliseconds( 100), scanns const&amp; scns = scanns( 20) )"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    operating system provides functionality for processor binding
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    constructs a pool - for each processor a worker-thread is created
+                    and bound to one processor - global-queue can only queue a limited
+                    number of tasks
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_scanns</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_timeduration</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_watermark</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    constructor has to be called if a bounded-queue is used and
+                    <code class="computeroutput"><span class="identifier">bind_to_processors</span><span class="special">()</span></code> must be set as first argument
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._explicit_static_pool____poolsize_const__psize____high_watermark_const__hwm____low_watermark_const__lwm____posix_time__time_duration_const__asleep___posix_time__milliseconds__100_____scanns_const__scns___scanns__20____" title="explicit static_pool( poolsize const&amp; psize, high_watermark const&amp; hwm, low_watermark const&amp; lwm, posix_time::time_duration const&amp; asleep = posix_time::milliseconds( 100), scanns const&amp; scns = scanns( 20) )"><code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">static_pool</span><span class="special">(</span> <span class="identifier">poolsize</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">psize</span><span class="special">,</span>
+              <span class="identifier">high_watermark</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">,</span>
+              <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">time_duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">asleep</span>
+              <span class="special">=</span> <span class="identifier">posix_time</span><span class="special">::</span><span class="identifier">milliseconds</span><span class="special">(</span> <span class="number">100</span><span class="special">),</span> <span class="identifier">scanns</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">scns</span> <span class="special">=</span>
+              <span class="identifier">scanns</span><span class="special">(</span>
+              <span class="number">20</span><span class="special">)</span>
+              <span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    constructs a pool containing psize worker-threads - global-queue
+                    can only queue a limited number of tasks
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_resource_error</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_scanns</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_timeduration</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_watermark</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    constructor has to be called if a bounded-queue is used
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool__static_pool_____"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool__static_pool_____" title="static_pool( static_pool &amp;&amp;)"><code class="computeroutput"><span class="identifier">static_pool</span><span class="special">(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    creates an pool out of another one which gets zeroed out
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___operator___static_pool_____"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._static_pool___operator___static_pool_____" title="static_pool &amp; operator=( static_pool &amp;&amp;)"><code class="computeroutput"><span class="identifier">static_pool</span> <span class="special">&amp;</span>
+              <span class="keyword">operator</span><span class="special">=(</span>
+              <span class="identifier">static_pool</span> <span class="special">&amp;&amp;)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    creates an pool out of another one which gets zeroed out
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool.__static_pool___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.__static_pool___" title="~static_pool()"><code class="computeroutput"><span class="special">~</span><span class="identifier">static_pool</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    calls <code class="computeroutput"><span class="identifier">shutdown</span><span class="special">()</span></code> if not already called
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool.___unspec_type___bind_to_processors___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool.___unspec_type___bind_to_processors___" title="&lt;&lt;unspec-type&gt;&gt; bind_to_processors()"><code class="computeroutput"><span class="special">&lt;&lt;</span><span class="identifier">unspec</span><span class="special">-</span><span class="identifier">type</span><span class="special">&gt;&gt;</span> <span class="identifier">bind_to_processors</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    used in order to let the pool create worker-threads as cores
+                    are available and bound the threads to the cores
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_size___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_size___" title="std::size_t size()"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    returns how many worker-threads are running in the pool
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown___" title="void shutdown()"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    deactivates the queue and joins all worker-threads - the pool
+                    is closed
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">system_error</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    all pending tasks are processed
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown_now___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_shutdown_now___" title="void shutdown_now()"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">shutdown_now</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    deactivates the queue, send interruption request to all worker-threads
+                    and joins them - the pool is closed
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">thread_interrupted</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">system_error</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    pending tasks are not processed but returned
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_interrupt_all_worker___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_interrupt_all_worker___" title="void interrupt_all_worker()"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt_all_worker</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    interrupts all worker-threads without invalidating the pool
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_closed___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_closed___" title="bool closed()"><code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">closed</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    queries if the pool is closed (pool is shutdown)
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_upper_bound___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_upper_bound___" title="std::size_t upper_bound()"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">upper_bound</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    queue is of type bounded-queue
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    returns the upper bound of the bounded-queue
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    can only be used if a bounded-queue is used
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_upper_bound__high_watermark_const__hwm__"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_upper_bound__high_watermark_const__hwm__" title="void upper_bound( high_watermark const&amp; hwm)"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">upper_bound</span><span class="special">(</span> <span class="identifier">high_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">hwm</span><span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    queue is of type bounded-queue
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    sets the upper bound of the bounded-queue
+                  </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">upper_bound</span><span class="special">()</span>
+                    <span class="special">==</span> <span class="identifier">hwm</span></code>
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_watermark</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    can only be used if a bounded-queue is used
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_lower_bound___"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._std__size_t_lower_bound___" title="std::size_t lower_bound()"><code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">lower_bound</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    queue is of type bounded-queue
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    returns the lower bound of the bounded-queue
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    can only be used if a bounded-queue is used
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_lower_bound__low_watermark_const__lwm__"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_lower_bound__low_watermark_const__lwm__" title="void lower_bound( low_watermark const&amp; lwm)"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">lower_bound</span><span class="special">(</span> <span class="identifier">low_watermark</span>
+              <span class="keyword">const</span><span class="special">&amp;</span>
+              <span class="identifier">lwm</span><span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    queue is of type bounded-queue
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    sets the lower bound of the bounded-queue
+                  </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">lower_bound</span><span class="special">()</span>
+                    <span class="special">==</span> <span class="identifier">lwm</span></code>
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">invalid_watermark</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                    can only be used if a bounded-queue is used
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r___handle__r___submit__task__r___t__"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r___handle__r___submit__task__r___t__" title="template&lt; typename R &gt; handle&lt; R &gt; submit( task&lt; R &gt; t)"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">submit</span><span class="special">(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span>
+              <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    has_attribute&lt; pool &gt;::value == false &amp;&amp; ! closed()
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    moves an task to the pool and returns an associated handle
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r__typename_attr___handle__r___submit__task__r___t__attr_const__attr__"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._template__typename_r__typename_attr___handle__r___submit__task__r___t__attr_const__attr__" title="template&lt; typename R, typename Attr &gt; handle&lt; R &gt; submit( task&lt; R &gt; t, Attr const&amp; attr)"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+              <span class="keyword">typename</span> <span class="identifier">R</span><span class="special">,</span> <span class="keyword">typename</span>
+              <span class="identifier">Attr</span> <span class="special">&gt;</span>
+              <span class="identifier">handle</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">submit</span><span class="special">(</span>
+              <span class="identifier">task</span><span class="special">&lt;</span>
+              <span class="identifier">R</span> <span class="special">&gt;</span>
+              <span class="identifier">t</span><span class="special">,</span>
+              <span class="identifier">Attr</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">attr</span><span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                    has_attribute&lt; pool &gt;::value == true &amp;&amp; ! closed()
+                  </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    moves an task to the pool and returns an associated handle -
+                    task is scheduled by the attribute
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task_rejected</span></code>, <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">pool_moved</span></code>
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_swap__static_pool___other__"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._void_swap__static_pool___other__" title="void swap( static_pool &amp; other)"><code class="computeroutput"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span> <span class="identifier">static_pool</span>
+              <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    swaps pool
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._operator_unspecified_bool_type___const_"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._operator_unspecified_bool_type___const_" title="operator unspecified_bool_type() const"><code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified_bool_type</span><span class="special">()</span> <span class="keyword">const</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    is static_pool valid == does static_pool own ownership
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    Nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_operator____const_"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool._bool_operator____const_" title="bool operator!() const"><code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span></code></a>
+</h6></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                    is static_pool invalid == static_pool does not have ownership
+                  </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                    Nothing
+                  </p></dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.meta_functions"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions" title="Meta functions">
+          Meta functions</a>
+</h5></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.has_attribute">
+            Meta function <code class="computeroutput"><span class="identifier">has_attribute</span></code></a></span></dt>
+<dt><span class="section"><a href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.attribute_type">
+            Meta function <code class="computeroutput"><span class="identifier">attribute_type</span></code></a></span></dt>
+</dl></div>
+<p>
+            If the <a class="link" href="threadpool.html" title="Execute in Thread-Pool"><span class="emphasis"><em>thread-pool</em></span></a>
+            supports attributes (like priorities) <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">has_attribute</span></code>
+            evaluates to <code class="computeroutput"><span class="keyword">true</span></code> at compile-time
+            (derived from boost::mpl::bool_). The type of the attribute is determined
+            by <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">attribute_type</span></code>.
+          </p>
+<pre class="programlisting"><span class="comment">// thread-pool with priority scheduling
+</span><span class="comment">// type of priority is int
+</span><span class="identifier">typdef</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_priority</span><span class="special">&lt;</span> <span class="keyword">int</span> <span class="special">&gt;</span> <span class="special">&gt;</span> <span class="identifier">pool_type</span><span class="special">;</span>
+
+<span class="comment">// test if thread-pool supports priorities at compile time
+</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">boolalpha</span> <span class="special">&lt;&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">has_attribute</span><span class="special">&lt;</span> <span class="identifier">pool_type</span> <span class="special">&gt;::</span><span class="identifier">value</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
+
+<span class="comment">// access the type used for priority
+</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="keyword">typeid</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">attribute_type</span><span class="special">&lt;</span> <span class="identifier">pool_type</span> <span class="special">&gt;::</span><span class="identifier">type</span><span class="special">).</span><span class="identifier">name</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.meta_functions.has_attribute"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.has_attribute" title="Meta function has_attribute">
+            Meta function <code class="computeroutput"><span class="identifier">has_attribute</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">task</span><span class="special">/</span><span class="identifier">meta</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Pool</span> <span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">has_attribute</span> <span class="special">:</span> <span class="keyword">public</span> <span class="identifier">mpl</span><span class="special">::</span><span class="identifier">bool_</span><span class="special">&lt;</span>
+	<span class="identifier">is_same</span><span class="special">&lt;</span>
+		<span class="identifier">detail</span><span class="special">::</span><span class="identifier">has_priority</span><span class="special">,</span>
+		<span class="keyword">typename</span> <span class="identifier">Pool</span><span class="special">::</span><span class="identifier">scheduler_type</span><span class="special">::</span><span class="identifier">priority_tag_type</span>
+	<span class="special">&gt;::</span><span class="identifier">value</span>
+<span class="special">&gt;</span>
+<span class="special">{};</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  returns true if Pool supports attributes (priority-scheduling)
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  nothing
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.async_execution.execution_policy.threadpool.meta_functions.attribute_type"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.attribute_type" title="Meta function attribute_type">
+            Meta function <code class="computeroutput"><span class="identifier">attribute_type</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">task</span><span class="special">/</span><span class="identifier">meta</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Pool</span> <span class="special">&gt;</span>
+<span class="keyword">struct</span> <span class="identifier">attribute_type</span>
+<span class="special">{</span>
+	<span class="keyword">typedef</span> <span class="keyword">typename</span> <span class="identifier">Pool</span><span class="special">::</span><span class="identifier">scheduler_type</span><span class="special">::</span><span class="identifier">attribute_type</span>   <span class="identifier">type</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  returns type of attribute
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  nothing
+                </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.queue"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue" title="Global Queue">
+          Global Queue</a>
+</h5></div></div></div>
+<p>
+            A <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue" title="Global Queue"><span class="emphasis"><em>queue</em></span></a>
+            synchronizes the access between application threads and <span class="emphasis"><em>worker-threads</em></span>
+            and implements policies for limitating the amount of queued tasks and
+            how those tasks are scheduled ( first-in-first-out, priority ordering
+            etc.)
+          </p>
+<a name="task.async_execution.execution_policy.threadpool.queue.bounded_queues"></a><h6>
+<a name="id565506"></a>
+            <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue.bounded_queues">Bounded
+            Queues</a>
+          </h6>
+<p>
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">bounded_queue</span></code> limits the number of
+            queued (pending) tasks in order to prevent resource exhaustion. For this
+            purpose a high- and low-watermark has to be passed at construction.
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">high_watermark</span></code> sets the maximum of
+            pending tasks. If this limited is reached all threads which submit a
+            task will be set to sleep (blocked). If it is equal to <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">low_watermark</span></code> everytime a sleeping
+            producer thread will be woken up and puts its task if one worker thread
+            has taken a task from the queue. <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">low_watermark</span></code>
+            sets the threshold when blocked threads get woken up. If it is less than
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">high_watermark</span></code> all sleeping producer
+            threads will be woken up if the amount of pending tasks reaches <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">low_watermark</span></code>.
+          </p>
+<a name="task.async_execution.execution_policy.threadpool.queue.unbounded_queues"></a><h6>
+<a name="id565708"></a>
+            <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue.unbounded_queues">Unbounded
+            Queues</a>
+          </h6>
+<p>
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">unbounded_queue</span></code> allows ann unlimited
+            number of tasks to be queued. The insertion of an <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+            will never block. If the queue becomes empty <span class="emphasis"><em>worker-threads</em></span>
+            will be set to sleep until new tasks are enqueued.
+          </p>
+<a name="task.async_execution.execution_policy.threadpool.queue.task_scheduling"></a><h6>
+<a name="id565774"></a>
+            <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue.task_scheduling">Task
+            Scheduling</a>
+          </h6>
+<p>
+            For scheduling of tasks inside the queue following strategies are available:
+          </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+              fifo: first enqueued task is dequeued first
+            </li>
+<li>
+              priority: the next item dequeued from the queue depends on its associated
+              priority attribute and sorting criterion applied to the queue (template
+              arguments)
+            </li>
+</ul></div>
+<pre class="programlisting"><span class="comment">// thread-pool with priority scheduling
+</span><span class="comment">// tasks with higher priority are
+</span><span class="comment">// scheduled first
+</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_priority_queue</span><span class="special">&lt;</span> <span class="keyword">int</span> <span class="special">&gt;</span> <span class="special">&gt;</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">5</span><span class="special">)</span> <span class="special">);</span>
+
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">void</span> <span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">(</span> <span class="identifier">some_fn</span><span class="special">);</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">void</span> <span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">(</span> <span class="identifier">another_fn</span><span class="special">);</span>
+
+<span class="comment">// move task t1 with priority 5 to thread-pool
+</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t1</span><span class="special">),</span>
+	<span class="number">5</span><span class="special">,</span>
+	<span class="identifier">pool</span><span class="special">);</span>
+
+<span class="comment">// move task t2 with priority 3 to thread-pool
+</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t2</span><span class="special">),</span>
+	<span class="number">3</span><span class="special">,</span>
+	<span class="identifier">pool</span><span class="special">);</span>
+</pre>
+<div class="itemizedlist"><ul type="disc"><li>
+              smart: enqueue- and dequeue-operations are determined by the template
+              arguments und the task-attribute. The library provides an default let
+              only one kind of task stored inside the queue (gets replaced by new
+              one)
+            </li></ul></div>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">fibonacci_fn</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">0</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">1</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="keyword">long</span> <span class="identifier">k1</span><span class="special">(</span> <span class="number">1</span><span class="special">),</span> <span class="identifier">k2</span><span class="special">(</span> <span class="number">0</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span> <span class="keyword">int</span> <span class="identifier">i</span><span class="special">(</span> <span class="number">2</span><span class="special">);</span> <span class="identifier">i</span> <span class="special">&lt;=</span> <span class="identifier">n</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">long</span> <span class="identifier">tmp</span><span class="special">(</span> <span class="identifier">k1</span><span class="special">);</span>
+		<span class="identifier">k1</span> <span class="special">=</span> <span class="identifier">k1</span> <span class="special">+</span> <span class="identifier">k2</span><span class="special">;</span>
+		<span class="identifier">k2</span> <span class="special">=</span> <span class="identifier">tmp</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">return</span> <span class="identifier">k1</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="keyword">typedef</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_smart_queue</span><span class="special">&lt;</span> <span class="keyword">int</span> <span class="special">&gt;</span> <span class="special">&gt;</span> <span class="identifier">pool_type</span><span class="special">;</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">pool_type</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">1</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="special">...</span>
+
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span> <span class="identifier">fibonacci_fn</span><span class="special">,</span> <span class="number">10</span><span class="special">)</span> <span class="special">);</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">bind</span><span class="special">(</span> <span class="identifier">fibonacci_fn</span><span class="special">,</span> <span class="number">5</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// replaced by later task with same attribute == 2
+</span>	<span class="comment">// if still pending in pool
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t1</span><span class="special">),</span>
+		<span class="number">2</span><span class="special">,</span>
+		<span class="identifier">pool</span><span class="special">);</span>
+
+	<span class="comment">// will replace previous pending task with attribute == 2
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t2</span><span class="special">),</span>
+		<span class="number">2</span><span class="special">,</span>
+		<span class="identifier">pool</span><span class="special">);</span>
+<span class="special">}</span>
+</pre>
+<p>
+            <span class="bold"><strong>Boost.Task</strong></span> provides following queues:
+          </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+              bounded_fifo
+            </li>
+<li>
+              bounded_priority_queue&lt; Attr, Comp = std::less&lt; Attr &gt; &gt;
+            </li>
+<li>
+              bounded_smart_queue&lt; Attr, Comp, Enq = detail::replace_oldest, Deq
+              = detail::take_oldest &gt;
+            </li>
+<li>
+              unbounded_fifo
+            </li>
+<li>
+              unbounded_priority_queue&lt; Attr, Comp = std::less&lt; Attr &gt; &gt;
+            </li>
+<li>
+              unbounded_smart_queue&lt; Attr, Comp, Enq = detail::replace_oldest,
+              Deq = detail::take_oldest &gt;
+            </li>
+</ul></div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.pool_shutdown"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.pool_shutdown" title="Shutdown">
+          Shutdown</a>
+</h5></div></div></div>
+<p>
+            <span class="bold"><strong>Boost.Task</strong></span> allows to shutdown a <a class="link" href="threadpool.html" title="Execute in Thread-Pool"><span class="emphasis"><em>thread-pool</em></span></a>
+            explicitly via functions <code class="computeroutput"><span class="identifier">shutdown</span><span class="special">()</span></code> and <code class="computeroutput"><span class="identifier">shutdown_now</span><span class="special">()</span></code>. The destructor of the pool calls
+            <code class="computeroutput"><span class="identifier">shutdown</span><span class="special">()</span></code>
+            if not already done so that all <span class="emphasis"><em>worker-threads</em></span> are
+            joined.
+          </p>
+<p>
+            If <code class="computeroutput"><span class="identifier">shutdown</span><span class="special">()</span></code>
+            is called - the the pool is set the closed state and all <span class="emphasis"><em>worker-threads</em></span>
+            are joined until all pending tasks are processed. No futher tasks can
+            be submitted.
+          </p>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">fibonacci_fn</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">0</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">1</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="keyword">long</span> <span class="identifier">k1</span><span class="special">(</span> <span class="number">1</span><span class="special">),</span> <span class="identifier">k2</span><span class="special">(</span> <span class="number">0</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span> <span class="keyword">int</span> <span class="identifier">i</span><span class="special">(</span> <span class="number">2</span><span class="special">);</span> <span class="identifier">i</span> <span class="special">&lt;=</span> <span class="identifier">n</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">long</span> <span class="identifier">tmp</span><span class="special">(</span> <span class="identifier">k1</span><span class="special">);</span>
+		<span class="identifier">k1</span> <span class="special">=</span> <span class="identifier">k1</span> <span class="special">+</span> <span class="identifier">k2</span><span class="special">;</span>
+		<span class="identifier">k2</span> <span class="special">=</span> <span class="identifier">tmp</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">return</span> <span class="identifier">k1</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="keyword">typedef</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_fifo</span> <span class="special">&gt;</span> <span class="identifier">pool_type</span><span class="special">;</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">pool_type</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">1</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="special">...</span>
+
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">(</span> <span class="identifier">fibonacci_fn</span><span class="special">,</span> <span class="number">10</span><span class="special">);</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">(</span> <span class="identifier">fibonacci_fn</span><span class="special">,</span> <span class="number">5</span><span class="special">);</span>
+
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h1</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t1</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h2</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t2</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// waits until all pending tasks are finished
+</span>	<span class="identifier">pool</span><span class="special">.</span><span class="identifier">shutdown</span><span class="special">();</span>
+
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(10) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(5) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../../../../../../doc/html/images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+              The deconstructor calls <code class="computeroutput"><span class="identifier">shutdown</span><span class="special">()</span></code> if the pool was not shutdown yet.
+            </p></td></tr>
+</table></div>
+<p>
+            The function <code class="computeroutput"><span class="identifier">shutdown_now</span><span class="special">()</span></code> closes the pool, interrupts and then
+            joins all <span class="emphasis"><em>worker-threads</em></span>. Pending tasks are unprocessed.
+          </p>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">fibonacci_fn</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">0</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">0</span><span class="special">;</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">==</span> <span class="number">1</span><span class="special">)</span> <span class="keyword">return</span> <span class="number">1</span><span class="special">;</span>
+	<span class="keyword">long</span> <span class="identifier">k1</span><span class="special">(</span> <span class="number">1</span><span class="special">),</span> <span class="identifier">k2</span><span class="special">(</span> <span class="number">0</span><span class="special">);</span>
+	<span class="keyword">for</span> <span class="special">(</span> <span class="keyword">int</span> <span class="identifier">i</span><span class="special">(</span> <span class="number">2</span><span class="special">);</span> <span class="identifier">i</span> <span class="special">&lt;=</span> <span class="identifier">n</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+	<span class="special">{</span>
+		<span class="keyword">long</span> <span class="identifier">tmp</span><span class="special">(</span> <span class="identifier">k1</span><span class="special">);</span>
+		<span class="identifier">k1</span> <span class="special">=</span> <span class="identifier">k1</span> <span class="special">+</span> <span class="identifier">k2</span><span class="special">;</span>
+		<span class="identifier">k2</span> <span class="special">=</span> <span class="identifier">tmp</span><span class="special">;</span>
+	<span class="special">}</span>
+	<span class="keyword">return</span> <span class="identifier">k1</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="keyword">typedef</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_fifo</span> <span class="special">&gt;</span> <span class="identifier">pool_type</span><span class="special">;</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">pool_type</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">1</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="special">...</span>
+
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t1</span><span class="special">(</span> <span class="identifier">fibonacci_fn</span><span class="special">,</span> <span class="number">10</span><span class="special">);</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t2</span><span class="special">(</span> <span class="identifier">fibonacci_fn</span><span class="special">,</span> <span class="number">5</span><span class="special">);</span>
+
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h1</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t1</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h2</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t2</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// requests task interruption and
+</span>	<span class="comment">// joins all worker-threads
+</span>	<span class="identifier">pool</span><span class="special">.</span><span class="identifier">shutdown_now</span><span class="special">();</span>
+
+	<span class="comment">// accessing the result may throw task_interrupted
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(10) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(5) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h2</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.processor_binding"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.processor_binding" title="Processor binding">
+          Processor binding</a>
+</h5></div></div></div>
+<p>
+            For some applications it is convenient to bind the <span class="emphasis"><em>worker-threads</em></span>
+            to processors/cores of the system. For this purpose <code class="computeroutput"><span class="identifier">bind_to_processors</span><span class="special">()</span></code> must be given to constructor instead
+            <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">poolsize</span></code> so that a <span class="emphasis"><em>worker-thread</em></span>
+            is created an bound the the core.
+          </p>
+<p>
+            
+</p>
+<pre class="programlisting"><span class="keyword">typedef</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_queue</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">tp</span><span class="special">::</span><span class="identifier">fifo</span> <span class="special">&gt;</span>
+<span class="special">&gt;</span> <span class="identifier">pool_type</span><span class="special">;</span>
+
+<span class="comment">// constructs thread-pool with worker-threads as
+</span><span class="comment">// CPUs/Cores are available on the system
+</span><span class="identifier">pool_type</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">pool_type</span><span class="special">::</span><span class="identifier">bind_to_processors</span><span class="special">()</span> <span class="special">);</span>
+</pre>
+<p>
+          </p>
+<p>
+            The constructor takes additional arguments for the <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing">work-stealing
+            algorithm</a> and <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue" title="Global Queue">high-</a>
+            and <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.queue" title="Global Queue">low-watermark</a>
+            too.
+          </p>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../../../../../../doc/html/images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+              <span class="bold"><strong>Boost.Task</strong></span> does provide this feature
+              only for Windows, Linux, AIX, HP-UX, Solaris and FreeBSD.
+            </p></td></tr>
+</table></div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.workstealing"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing">
+          Work-Stealing</a>
+</h5></div></div></div>
+<p>
+            Traditional <a class="link" href="threadpool.html" title="Execute in Thread-Pool"><span class="emphasis"><em>thread-pools</em></span></a>
+            do not scale because they use a single global-queue protected by a global-lock.
+            The frequency at which <span class="emphasis"><em>worker-threads</em></span> aquire the
+            global-lock becomes a limiting factor for the throughput if:
+          </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+              the tasks become smaller
+            </li>
+<li>
+              more processors are added
+            </li>
+</ul></div>
+<p>
+            A <a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.workstealing" title="Work-Stealing"><span class="emphasis"><em>work-stealing</em></span></a>
+            algorithm can be used to solve this problem. It uses a special kind of
+            queue which has two ends, and allows lock-free pushes and pops from the
+            <span class="emphasis"><em>private end</em></span> (accessed by the <span class="emphasis"><em>worker-thread</em></span>
+            owning the queue), but requires synchronization from the <span class="emphasis"><em>public
+            end</em></span> (accessed by the other <span class="emphasis"><em>worker-threads</em></span>).
+            Synchronization is necessary when the queue is sufficiently small that
+            private and public operations could conflict.
+          </p>
+<p>
+            The pool contains one global-queue (<code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">bounded_queue</span></code>
+            or <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">unbounded_queue</span></code>) protected by a global-lock
+            and each <span class="emphasis"><em>worker-thread</em></span> has its own private local
+            worker-queue. If work is enqueued by a <span class="emphasis"><em>worker-thread</em></span>
+            the <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+            is stored in the worker queue. If the work is enqueued by a application
+            thread it goes into the global queue. When <span class="emphasis"><em>worker-threads</em></span>
+            are looking for work, they have following search order:
+          </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+              look into the private worker-queue - tasks can be dequeued without
+              locks
+            </li>
+<li>
+              look in the global-queue - locks are used for synchronization
+            </li>
+<li>
+              check other worker-queues ('stealing' tasks from private worker queues
+              of other <span class="emphasis"><em>worker-threads</em></span>) - requires locks
+            </li>
+</ul></div>
+<p>
+            For a lot of recursively queued tasks (so called <span class="emphasis"><em>sub-tasks</em></span>),
+            the use of a worker-queue per thread substantially reduces the synchronization
+            necessary to complete the work. There are also fewer cache effects due
+            to sharing of the global-queue information.
+          </p>
+<p>
+            Operations on the private worker queue are executed in LIFO order and
+            operations on worker queues of other <span class="emphasis"><em>worker-threads</em></span>
+            in FIFO order (steals).
+          </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+              There are chances that memory is still hot in the cache, if the tasks
+              are pushed in LIFO order into the private worker queue.
+            </li>
+<li>
+              If a <span class="emphasis"><em>worker-thread</em></span> steals work in FIFO order,
+              increases the chances that a larger 'chunk' of work will be stolen
+              (the need for other steals will be possibly reduced). Because the
+              <span class="emphasis"><em>sub-tasks</em></span> are stored in LIFO order, the oldest
+              items are closer to the <span class="emphasis"><em>public end</em></span> of the queue
+              (forming a tree). Stealing such an older <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+              also steals a (probably) larger subtree of tasks unfolded if the stolen
+              work item get executed. Since a <span class="emphasis"><em>sub-task</em></span> is just
+              part of a larger <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>,
+              we don&#8217;t need to worry about execution order.
+            </li>
+</ul></div>
+</div>
+<p>
+          / Copyright Oliver Kowalke 2009. Distributed under the Boost Software License,
+          Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt
+          ]
+        </p>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.async_execution.execution_policy.threadpool.forkjoin"></a><a class="link" href="threadpool.html#task.async_execution.execution_policy.threadpool.forkjoin" title="Fork/Join">
+          Fork/Join</a>
+</h5></div></div></div>
+<p>
+            Fork/Join algorithms are recursive divide-and-conquer algorithms which
+            repeatedly splitt into sub-tasks until they become small enough to solve
+            using simple, short sequential methods, so that they run in parallel
+            on multiple cores.
+          </p>
+<p>
+            The fork operation creates new <span class="emphasis"><em>sub-tasks</em></span> which can
+            run in parallel. The current <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+            is not proceeded in the join operation until the forked <span class="emphasis"><em>sub-tasks</em></span>
+            have completed. In the meantime the <span class="emphasis"><em>worker-thread</em></span>
+            executes other tasks from its local <span class="emphasis"><em>worker-queue</em></span>.
+          </p>
+<p>
+            
+</p>
+<pre class="programlisting"><span class="keyword">long</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span><span class="special">(</span> <span class="identifier">n</span> <span class="special">&lt;</span> <span class="number">2</span><span class="special">)</span> <span class="keyword">return</span> <span class="identifier">n</span><span class="special">;</span>
+	<span class="keyword">else</span> <span class="keyword">return</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="identifier">n</span> <span class="special">-</span> <span class="number">1</span><span class="special">)</span> <span class="special">+</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="identifier">n</span> <span class="special">-</span> <span class="number">2</span><span class="special">);</span>
+<span class="special">}</span>
+
+<span class="keyword">long</span> <span class="identifier">parallel_fib</span><span class="special">(</span> <span class="keyword">long</span> <span class="identifier">n</span><span class="special">,</span> <span class="keyword">long</span> <span class="identifier">cutof</span><span class="special">)</span>
+<span class="special">{</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">n</span> <span class="special">&lt;</span> <span class="identifier">cutof</span><span class="special">)</span> <span class="keyword">return</span> <span class="identifier">serial_fib</span><span class="special">(</span> <span class="identifier">n</span><span class="special">);</span>
+	<span class="keyword">else</span>
+	<span class="special">{</span>
+		<span class="comment">// fork sub-task by moving the task
+</span>		<span class="comment">// ownership to the thread-pool
+</span>		<span class="comment">// sub-task computes fibonacci(n-1)
+</span>		<span class="identifier">h1</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">make_task</span><span class="special">(</span>
+				<span class="identifier">parallel_fib</span><span class="special">,</span>
+				<span class="identifier">n</span> <span class="special">-</span> <span class="number">1</span><span class="special">,</span>
+				<span class="identifier">cutof</span><span class="special">)</span> <span class="special">);</span>
+
+		<span class="comment">// fork sub-task by moving the task
+</span>		<span class="comment">// ownership to the thread-pool
+</span>		<span class="comment">// sub-task computes fibonacci(n-2)
+</span>		<span class="identifier">h2</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">make_task</span><span class="special">(</span>
+				<span class="identifier">parallel_fib</span><span class="special">,</span>
+				<span class="identifier">n</span> <span class="special">-</span> <span class="number">2</span><span class="special">,</span>
+				<span class="identifier">cutof</span><span class="special">)</span> <span class="special">);</span>
+
+		<span class="comment">// join the results of both sub-tasks
+</span>		<span class="comment">// if one of the both sub-tasks is not ready
+</span>		<span class="comment">// the worker-thread does not block, it executes other
+</span>		<span class="comment">// task from its local-queue
+</span>		<span class="keyword">return</span> <span class="identifier">h1</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">+</span> <span class="identifier">h2</span><span class="special">.</span><span class="identifier">get</span><span class="special">();</span>
+	<span class="special">}</span>
+<span class="special">}</span>
+
+<span class="keyword">void</span> <span class="identifier">main</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">static_pool</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">unbounded_fifo</span> <span class="special">&gt;</span> <span class="identifier">pool</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">poolsize</span><span class="special">(</span> <span class="number">5</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// compute fibonacci-number 10
+</span>	<span class="comment">// for numbers &lt; 5 do inline calculation
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">task</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">(</span>
+		<span class="identifier">parallel_fib</span><span class="special">,</span>
+		<span class="number">10</span><span class="special">,</span>
+		<span class="number">5</span><span class="special">);</span>
+
+	<span class="comment">// move task ownership to thread-pool
+</span>	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">handle</span><span class="special">&lt;</span> <span class="keyword">long</span> <span class="special">&gt;</span> <span class="identifier">h</span><span class="special">(</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">task</span><span class="special">::</span><span class="identifier">async</span><span class="special">(</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">t</span><span class="special">),</span>
+			<span class="identifier">pool</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="comment">// access result
+</span>	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"fibonacci(10) == "</span> <span class="special">&lt;&lt;</span> <span class="identifier">h</span><span class="special">.</span><span class="identifier">get</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+          </p>
+</div>
+<div class="footnotes">
+<br><hr width="100" align="left">
+<div class="footnote"><p><sup>[<a name="ftn.id558713" href="#id558713" class="para">4</a>] </sup>
+                see <a href="http://www.ddj.com/go-parallel/article/showArticle.jhtml?articleID=216500409" target="_top">'Use
+                Thread Pools Correctly'</a>, Herb Sutter
+              </p></div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="as_sub_task.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../execution_policy.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../../spin_synchronization.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

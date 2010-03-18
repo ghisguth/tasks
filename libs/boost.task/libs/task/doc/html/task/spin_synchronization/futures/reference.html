@@ -1,0 +1,1695 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Futures Reference</title>
+<link rel="stylesheet" href="../../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../../index.html" title="Task">
+<link rel="up" href="../futures.html" title="Futures">
+<link rel="prev" href="lazy_futures.html" title="Wait Callbacks and Lazy Futures">
+<link rel="next" href="../../todo.html" title="Todo">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="lazy_futures.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../futures.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../../todo.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="task.spin_synchronization.futures.reference"></a><a class="link" href="reference.html" title="Futures Reference"> Futures
+        Reference</a>
+</h4></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.future_state">
+          <code class="computeroutput"><span class="identifier">state</span></code> enum</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future">
+          <code class="computeroutput"><span class="identifier">unique_future</span></code> class template</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.default_constructor">
+            Default Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.destructor">
+            Destructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.move_constructor">
+            Move Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.move_assignment">
+            Move Assignment Operator</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.swap">
+            Member function <code class="computeroutput"><span class="identifier">swap</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.get">
+            Member function <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.wait">
+            Member function <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.timed_wait_duration">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.timed_wait_absolute">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready">
+            Member function <code class="computeroutput"><span class="identifier">is_ready</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_value">
+            Member function <code class="computeroutput"><span class="identifier">has_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_exception">
+            Member function <code class="computeroutput"><span class="identifier">has_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state">
+            Member function <code class="computeroutput"><span class="identifier">get_state</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future">
+          <code class="computeroutput"><span class="identifier">shared_future</span></code> class template</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.default_constructor">
+            Default Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.get">
+            Member function <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.wait">
+            Member function <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.timed_wait_duration">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.timed_wait_absolute">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready">
+            Member function <code class="computeroutput"><span class="identifier">is_ready</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_value">
+            Member function <code class="computeroutput"><span class="identifier">has_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_exception">
+            Member function <code class="computeroutput"><span class="identifier">has_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state">
+            Member function <code class="computeroutput"><span class="identifier">get_state</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise">
+          <code class="computeroutput"><span class="identifier">promise</span></code> class template</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.default_constructor">
+            Default Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.move_constructor">
+            Move Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.move_assignment">
+            Move Assignment Operator</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.destructor">
+            Destructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.get_future">
+            Member Function <code class="computeroutput"><span class="identifier">get_future</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.set_value">
+            Member Function <code class="computeroutput"><span class="identifier">set_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.set_exception">
+            Member Function <code class="computeroutput"><span class="identifier">set_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.set_wait_callback">
+            Member Function <code class="computeroutput"><span class="identifier">set_wait_callback</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task">
+          <code class="computeroutput"><span class="identifier">packaged_task</span></code> class template</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.task_constructor">
+            Task Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.move_constructor">
+            Move Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.move_assignment">
+            Move Assignment Operator</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.destructor">
+            Destructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.get_future">
+            Member Function <code class="computeroutput"><span class="identifier">get_future</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.call_operator">
+            Member Function <code class="computeroutput"><span class="keyword">operator</span><span class="special">()()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.set_wait_callback">
+            Member Function <code class="computeroutput"><span class="identifier">set_wait_callback</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.wait_for_all">
+          Non-member function <code class="computeroutput"><span class="identifier">wait_for_all</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.futures.reference.future_state"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum">
+          <code class="computeroutput"><span class="identifier">state</span></code> enum</a>
+</h5></div></div></div>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">future_state</span>
+<span class="special">{</span>
+    <span class="keyword">enum</span> <span class="identifier">state</span> <span class="special">{</span><span class="identifier">uninitialized</span><span class="special">,</span> <span class="identifier">waiting</span><span class="special">,</span> <span class="identifier">ready</span><span class="special">};</span>
+<span class="special">}</span>
+</pre>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template">
+          <code class="computeroutput"><span class="identifier">unique_future</span></code> class template</a>
+</h5></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.default_constructor">
+            Default Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.destructor">
+            Destructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.move_constructor">
+            Move Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.move_assignment">
+            Move Assignment Operator</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.swap">
+            Member function <code class="computeroutput"><span class="identifier">swap</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.get">
+            Member function <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.wait">
+            Member function <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.timed_wait_duration">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.timed_wait_absolute">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready">
+            Member function <code class="computeroutput"><span class="identifier">is_ready</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_value">
+            Member function <code class="computeroutput"><span class="identifier">has_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_exception">
+            Member function <code class="computeroutput"><span class="identifier">has_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state">
+            Member function <code class="computeroutput"><span class="identifier">get_state</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">R</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">unique_future</span>
+<span class="special">{</span>
+    <span class="identifier">unique_future</span><span class="special">(</span><span class="identifier">unique_future</span> <span class="special">&amp;</span> <span class="identifier">rhs</span><span class="special">);//</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+    <span class="identifier">unique_future</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">unique_future</span><span class="special">&amp;</span> <span class="identifier">rhs</span><span class="special">);//</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="keyword">typedef</span> <span class="identifier">future_state</span><span class="special">::</span><span class="identifier">state</span> <span class="identifier">state</span><span class="special">;</span>
+
+    <span class="identifier">unique_future</span><span class="special">();</span>
+    <span class="special">~</span><span class="identifier">unique_future</span><span class="special">();</span>
+
+    <span class="comment">// move support
+</span>    <span class="identifier">unique_future</span><span class="special">(</span><span class="identifier">unique_future</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">unique_future</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">unique_future</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+    <span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span><span class="identifier">unique_future</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+    <span class="comment">// retrieving the value
+</span>    <span class="identifier">R</span><span class="special">&amp;&amp;</span> <span class="identifier">get</span><span class="special">();</span>        
+
+    <span class="comment">// functions to check state
+</span>    <span class="identifier">state</span> <span class="identifier">get_state</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>        
+    <span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>        
+    <span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>        
+
+    <span class="comment">// waiting for the result to be ready
+</span>    <span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>        
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Duration</span><span class="special">&gt;</span>
+    <span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span><span class="identifier">Duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">rel_time</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="identifier">timed_wait_until</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">abs_time</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.default_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.default_constructor" title="Default Constructor">
+            Default Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">unique_future</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs an uninitialized future.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span></code></a> returns <code class="computeroutput"><span class="keyword">false</span></code>. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">uninitialized</span></code></a>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.destructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.destructor" title="Destructor">
+            Destructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="special">~</span><span class="identifier">unique_future</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Destroys <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.move_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.move_constructor" title="Move Constructor">
+            Move Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">unique_future</span><span class="special">(</span><span class="identifier">unique_future</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs a new future, and transfers ownership of the asynchronous
+                  result associated with <code class="computeroutput"><span class="identifier">other</span></code>
+                  to <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns the value of <code class="computeroutput"><span class="identifier">other</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code> prior to the call. <code class="computeroutput"><span class="identifier">other</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">uninitialized</span></code></a>. If <code class="computeroutput"><span class="identifier">other</span></code> was associated with an
+                  asynchronous result, that result is now associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                  <code class="computeroutput"><span class="identifier">other</span></code> is not associated
+                  with any asynchronous result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  If the compiler does not support rvalue-references, this is implemented
+                  using the boost.thread move emulation.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.move_assignment"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.move_assignment" title="Move Assignment Operator">
+            Move Assignment Operator</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">unique_future</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">unique_future</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Transfers ownership of the asynchronous result associated with
+                  <code class="computeroutput"><span class="identifier">other</span></code> to <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns the value of <code class="computeroutput"><span class="identifier">other</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code> prior to the call. <code class="computeroutput"><span class="identifier">other</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">uninitialized</span></code></a>. If <code class="computeroutput"><span class="identifier">other</span></code> was associated with an
+                  asynchronous result, that result is now associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                  <code class="computeroutput"><span class="identifier">other</span></code> is not associated
+                  with any asynchronous result. If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> was associated with an asynchronous
+                  result prior to the call, that result no longer has an associated
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> instance.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  If the compiler does not support rvalue-references, this is implemented
+                  using the boost.thread move emulation.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.swap"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.swap" title="Member function swap()">
+            Member function <code class="computeroutput"><span class="identifier">swap</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span><span class="identifier">unique_future</span> <span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Swaps ownership of the asynchronous results associated with <code class="computeroutput"><span class="identifier">other</span></code> and <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns the value of <code class="computeroutput"><span class="identifier">other</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code> prior to the call. <code class="computeroutput"><span class="identifier">other</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code>
+                  returns the value of <code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code> prior to the call. If <code class="computeroutput"><span class="identifier">other</span></code> was associated with an
+                  asynchronous result, that result is now associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  otherwise <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  has no associated result. If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> was associated with an asynchronous
+                  result, that result is now associated with <code class="computeroutput"><span class="identifier">other</span></code>,
+                  otherwise <code class="computeroutput"><span class="identifier">other</span></code>
+                  has no associated result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.get"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get" title="Member function get()">
+            Member function <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">R</span><span class="special">&amp;&amp;</span> <span class="identifier">get</span><span class="special">();</span>
+<span class="identifier">R</span><span class="special">&amp;</span> <span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&amp;&gt;::</span><span class="identifier">get</span><span class="special">();</span>
+<span class="keyword">void</span> <span class="identifier">unique_future</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;::</span><span class="identifier">get</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready as-if by a call to <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.wait" title="Member function wait()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;::</span><span class="identifier">wait</span><span class="special">()</span></code></a>,
+                  and retrieves the result (whether that is a value or an exception).
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  If the result type <code class="computeroutput"><span class="identifier">R</span></code>
+                  is a reference, returns the stored reference. If <code class="computeroutput"><span class="identifier">R</span></code> is <code class="computeroutput"><span class="keyword">void</span></code>,
+                  there is no return value. Otherwise, returns an rvalue-reference
+                  to the value stored in the asynchronous result.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code>. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception stored in the asynchronous result in
+                  place of a value.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.wait"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.wait" title="Member function wait()">
+            Member function <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready. If the result is not ready on entry, and the result has
+                  a <span class="emphasis"><em>wait callback</em></span> set, that callback is invoked
+                  prior to waiting.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception thrown by the <span class="emphasis"><em>wait callback</em></span>
+                  if such a callback is called.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code>. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.timed_wait_duration"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.timed_wait_duration" title="Member function timed_wait()">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Duration</span><span class="special">&gt;</span>
+<span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span><span class="identifier">Duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">wait_duration</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready, or the time specified by <code class="computeroutput"><span class="identifier">wait_duration</span></code>
+                  has elapsed. If the result is not ready on entry, and the result
+                  has a <span class="emphasis"><em>wait callback</em></span> set, that callback is
+                  invoked prior to waiting.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, and that result is ready
+                  before the specified time has elapsed, <code class="computeroutput"><span class="keyword">false</span></code>
+                  otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception thrown by the <span class="emphasis"><em>wait callback</em></span>
+                  if such a callback is called.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  If this call returned <code class="computeroutput"><span class="keyword">true</span></code>,
+                  then <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code> and
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>. <code class="computeroutput"><span class="identifier">Duration</span></code>
+                  must be a type that meets the Boost.DateTime time duration requirements.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.timed_wait_absolute"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.timed_wait_absolute" title="Member function timed_wait()">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">wait_timeout</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready, or the time point specified by <code class="computeroutput"><span class="identifier">wait_timeout</span></code>
+                  has passed. If the result is not ready on entry, and the result
+                  has a <span class="emphasis"><em>wait callback</em></span> set, that callback is
+                  invoked prior to waiting.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, and that result is ready
+                  before the specified time has passed, <code class="computeroutput"><span class="keyword">false</span></code>
+                  otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception thrown by the <span class="emphasis"><em>wait callback</em></span>
+                  if such a callback is called.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  If this call returned <code class="computeroutput"><span class="keyword">true</span></code>,
+                  then <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code> and
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.is_ready"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.is_ready" title="Member function is_ready()">
+            Member function <code class="computeroutput"><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Checks to see if the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is set.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, and that result is ready
+                  for retrieval, <code class="computeroutput"><span class="keyword">false</span></code>
+                  otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.has_value"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_value" title="Member function has_value()">
+            Member function <code class="computeroutput"><span class="identifier">has_value</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Checks to see if the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is set with a value rather than an exception.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, that result is ready
+                  for retrieval, and the result is a stored value, <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.has_exception"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_exception" title="Member function has_exception()">
+            Member function <code class="computeroutput"><span class="identifier">has_exception</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Checks to see if the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is set with an exception rather than a value.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, that result is ready
+                  for retrieval, and the result is a stored exception, <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.unique_future.get_state"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.get_state" title="Member function get_state()">
+            Member function <code class="computeroutput"><span class="identifier">get_state</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">state</span> <span class="identifier">get_state</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Determine the state of the asynchronous result associated with
+                  <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  if any.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">uninitialized</span></code></a> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a> if the asynchronous
+                  result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> is ready for retrieval, <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">waiting</span></code></a> otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future" title="shared_future class template">
+          <code class="computeroutput"><span class="identifier">shared_future</span></code> class template</a>
+</h5></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.default_constructor">
+            Default Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.get">
+            Member function <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.wait">
+            Member function <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.timed_wait_duration">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.timed_wait_absolute">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready">
+            Member function <code class="computeroutput"><span class="identifier">is_ready</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_value">
+            Member function <code class="computeroutput"><span class="identifier">has_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_exception">
+            Member function <code class="computeroutput"><span class="identifier">has_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state">
+            Member function <code class="computeroutput"><span class="identifier">get_state</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">R</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">shared_future</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="keyword">typedef</span> <span class="identifier">future_state</span><span class="special">::</span><span class="identifier">state</span> <span class="identifier">state</span><span class="special">;</span>
+
+    <span class="identifier">shared_future</span><span class="special">();</span>
+    <span class="special">~</span><span class="identifier">shared_future</span><span class="special">();</span>
+
+    <span class="comment">// copy support
+</span>    <span class="identifier">shared_future</span><span class="special">(</span><span class="identifier">shared_future</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">shared_future</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">shared_future</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+    <span class="comment">// move support
+</span>    <span class="identifier">shared_future</span><span class="special">(</span><span class="identifier">shared_future</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">shared_future</span><span class="special">(</span><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">shared_future</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">shared_future</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">shared_future</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+    <span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span><span class="identifier">shared_future</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+    <span class="comment">// retrieving the value
+</span>    <span class="identifier">R</span> <span class="identifier">get</span><span class="special">();</span>
+    
+    <span class="comment">// functions to check state, and wait for ready
+</span>    <span class="identifier">state</span> <span class="identifier">get_state</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>
+
+    <span class="comment">// waiting for the result to be ready
+</span>    <span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span> <span class="keyword">const</span><span class="special">;</span>        
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Duration</span><span class="special">&gt;</span>
+    <span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span><span class="identifier">Duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">rel_time</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="identifier">timed_wait_until</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">abs_time</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>        
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.default_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.default_constructor" title="Default Constructor">
+            Default Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">shared_future</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs an uninitialized future.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span></code></a> returns <code class="computeroutput"><span class="keyword">false</span></code>. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">uninitialized</span></code></a>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.get"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.get" title="Member function get()">
+            Member function <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">const</span> <span class="identifier">R</span><span class="special">&amp;</span> <span class="identifier">get</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready as-if by a call to <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.wait" title="Member function wait()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;::</span><span class="identifier">wait</span><span class="special">()</span></code></a>,
+                  and returns a <code class="computeroutput"><span class="keyword">const</span></code>
+                  reference to the result.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  If the result type <code class="computeroutput"><span class="identifier">R</span></code>
+                  is a reference, returns the stored reference. If <code class="computeroutput"><span class="identifier">R</span></code> is <code class="computeroutput"><span class="keyword">void</span></code>,
+                  there is no return value. Otherwise, returns a <code class="computeroutput"><span class="keyword">const</span></code>
+                  reference to the value stored in the asynchronous result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">get</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.wait"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.wait" title="Member function wait()">
+            Member function <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready. If the result is not ready on entry, and the result has
+                  a <span class="emphasis"><em>wait callback</em></span> set, that callback is invoked
+                  prior to waiting.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception thrown by the <span class="emphasis"><em>wait callback</em></span>
+                  if such a callback is called.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code>. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.timed_wait_duration"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.timed_wait_duration" title="Member function timed_wait()">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Duration</span><span class="special">&gt;</span>
+<span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span><span class="identifier">Duration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">wait_duration</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready, or the time specified by <code class="computeroutput"><span class="identifier">wait_duration</span></code>
+                  has elapsed. If the result is not ready on entry, and the result
+                  has a <span class="emphasis"><em>wait callback</em></span> set, that callback is
+                  invoked prior to waiting.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, and that result is ready
+                  before the specified time has elapsed, <code class="computeroutput"><span class="keyword">false</span></code>
+                  otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception thrown by the <span class="emphasis"><em>wait callback</em></span>
+                  if such a callback is called.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  If this call returned <code class="computeroutput"><span class="keyword">true</span></code>,
+                  then <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code> and
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>. <code class="computeroutput"><span class="identifier">Duration</span></code>
+                  must be a type that meets the Boost.DateTime time duration requirements.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.timed_wait_absolute"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.timed_wait_absolute" title="Member function timed_wait()">
+            Member function <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">wait_timeout</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, waits until the result
+                  is ready, or the time point specified by <code class="computeroutput"><span class="identifier">wait_timeout</span></code>
+                  has passed. If the result is not ready on entry, and the result
+                  has a <span class="emphasis"><em>wait callback</em></span> set, that callback is
+                  invoked prior to waiting.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, and that result is ready
+                  before the specified time has passed, <code class="computeroutput"><span class="keyword">false</span></code>
+                  otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_uninitialized</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. __thread<span class="underline">interrupted</span>_ if the result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not ready at the point of the call, and the current thread is
+                  interrupted. Any exception thrown by the <span class="emphasis"><em>wait callback</em></span>
+                  if such a callback is called.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  If this call returned <code class="computeroutput"><span class="keyword">true</span></code>,
+                  then <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready" title="Member function is_ready()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+                  returns <code class="computeroutput"><span class="keyword">true</span></code> and
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state" title="Member function get_state()"><code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">get_state</span><span class="special">()</span></code></a>
+                  returns <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a>.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">timed_wait</span><span class="special">()</span></code>
+                  is an <span class="emphasis"><em>interruption point</em></span>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.is_ready"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.is_ready" title="Member function is_ready()">
+            Member function <code class="computeroutput"><span class="identifier">is_ready</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">is_ready</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Checks to see if the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is set.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, and that result is ready
+                  for retrieval, <code class="computeroutput"><span class="keyword">false</span></code>
+                  otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.has_value"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_value" title="Member function has_value()">
+            Member function <code class="computeroutput"><span class="identifier">has_value</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">has_value</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Checks to see if the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is set with a value rather than an exception.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, that result is ready
+                  for retrieval, and the result is a stored value, <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.has_exception"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_exception" title="Member function has_exception()">
+            Member function <code class="computeroutput"><span class="identifier">has_exception</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">bool</span> <span class="identifier">has_exception</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Checks to see if the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is set with an exception rather than a value.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is associated with an asynchronous result, that result is ready
+                  for retrieval, and the result is a stored exception, <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.shared_future.get_state"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.get_state" title="Member function get_state()">
+            Member function <code class="computeroutput"><span class="identifier">get_state</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">state</span> <span class="identifier">get_state</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Determine the state of the asynchronous result associated with
+                  <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  if any.
+                </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                  <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">uninitialized</span></code></a> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  is not associated with an asynchronous result. <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">ready</span></code></a> if the asynchronous
+                  result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> is ready for retrieval, <a class="link" href="reference.html#task.spin_synchronization.futures.reference.future_state" title="state enum"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_state</span><span class="special">::</span><span class="identifier">waiting</span></code></a> otherwise.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.futures.reference.promise"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise" title="promise class template">
+          <code class="computeroutput"><span class="identifier">promise</span></code> class template</a>
+</h5></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.default_constructor">
+            Default Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.move_constructor">
+            Move Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.move_assignment">
+            Move Assignment Operator</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.destructor">
+            Destructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.get_future">
+            Member Function <code class="computeroutput"><span class="identifier">get_future</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.set_value">
+            Member Function <code class="computeroutput"><span class="identifier">set_value</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.set_exception">
+            Member Function <code class="computeroutput"><span class="identifier">set_exception</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.promise.set_wait_callback">
+            Member Function <code class="computeroutput"><span class="identifier">set_wait_callback</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">R</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">promise</span>
+<span class="special">{</span>
+    <span class="identifier">promise</span><span class="special">(</span><span class="identifier">promise</span> <span class="special">&amp;</span> <span class="identifier">rhs</span><span class="special">);//</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+    <span class="identifier">promise</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">promise</span> <span class="special">&amp;</span> <span class="identifier">rhs</span><span class="special">);//</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="comment">// template &lt;class Allocator&gt; explicit promise(Allocator a);
+</span>
+    <span class="identifier">promise</span><span class="special">();</span>
+    <span class="special">~</span><span class="identifier">promise</span><span class="special">();</span>
+
+    <span class="comment">// Move support
+</span>    <span class="identifier">promise</span><span class="special">(</span><span class="identifier">promise</span> <span class="special">&amp;&amp;</span> <span class="identifier">rhs</span><span class="special">);</span>
+    <span class="identifier">promise</span> <span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">promise</span><span class="special">&amp;&amp;</span> <span class="identifier">rhs</span><span class="special">);</span>
+    
+    <span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span><span class="identifier">promise</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="comment">// Result retrieval
+</span>    <span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span> <span class="identifier">get_future</span><span class="special">();</span>
+
+    <span class="comment">// Set the value
+</span>    <span class="keyword">void</span> <span class="identifier">set_value</span><span class="special">(</span><span class="identifier">R</span><span class="special">&amp;</span> <span class="identifier">r</span><span class="special">);</span>
+    <span class="keyword">void</span> <span class="identifier">set_value</span><span class="special">(</span><span class="identifier">R</span><span class="special">&amp;&amp;</span> <span class="identifier">r</span><span class="special">);</span>
+    <span class="keyword">void</span> <span class="identifier">set_exception</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">e</span><span class="special">);</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F</span><span class="special">&gt;</span>
+    <span class="keyword">void</span> <span class="identifier">set_wait_callback</span><span class="special">(</span><span class="identifier">F</span> <span class="identifier">f</span><span class="special">);</span>        
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.default_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.default_constructor" title="Default Constructor">
+            Default Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">promise</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs a new <a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise" title="promise class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">promise</span></code></a> with no associated
+                  result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.move_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.move_constructor" title="Move Constructor">
+            Move Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">promise</span><span class="special">(</span><span class="identifier">promise</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs a new <a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise" title="promise class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">promise</span></code></a>, and transfers
+                  ownership of the result associated with <code class="computeroutput"><span class="identifier">other</span></code>
+                  to <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  leaving <code class="computeroutput"><span class="identifier">other</span></code> with
+                  no associated result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  If the compiler does not support rvalue-references, this is implemented
+                  using the boost.thread move emulation.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.move_assignment"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.move_assignment" title="Move Assignment Operator">
+            Move Assignment Operator</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">promise</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">promise</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Transfers ownership of the result associated with <code class="computeroutput"><span class="identifier">other</span></code> to <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>, leaving <code class="computeroutput"><span class="identifier">other</span></code>
+                  with no associated result. If there was already a result associated
+                  with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  and that result was not <span class="emphasis"><em>ready</em></span>, sets any futures
+                  associated with that result to <span class="emphasis"><em>ready</em></span> with
+                  a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">broken_promise</span></code> exception as the
+                  result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  If the compiler does not support rvalue-references, this is implemented
+                  using the boost.thread move emulation.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.destructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.destructor" title="Destructor">
+            Destructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="special">~</span><span class="identifier">promise</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Destroys <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                  If there was a result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>, and that result is not <span class="emphasis"><em>ready</em></span>,
+                  sets any futures associated with that task to <span class="emphasis"><em>ready</em></span>
+                  with a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">broken_promise</span></code> exception as the
+                  result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.get_future"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.get_future" title="Member Function get_future()">
+            Member Function <code class="computeroutput"><span class="identifier">get_future</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span> <span class="identifier">get_future</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  was not associated with a result, allocate storage for a new asynchronous
+                  result and associate it with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>. Returns a <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> associated
+                  with the result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_already_retrieved</span></code> if the
+                  future associated with the task has already been retrieved. <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code> if any memory necessary
+                  could not be allocated.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.set_value"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.set_value" title="Member Function set_value()">
+            Member Function <code class="computeroutput"><span class="identifier">set_value</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">set_value</span><span class="special">(</span><span class="identifier">R</span><span class="special">&amp;&amp;</span> <span class="identifier">r</span><span class="special">);</span>
+<span class="keyword">void</span> <span class="identifier">set_value</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">R</span><span class="special">&amp;</span> <span class="identifier">r</span><span class="special">);</span>
+<span class="keyword">void</span> <span class="identifier">promise</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&amp;&gt;::</span><span class="identifier">set_value</span><span class="special">(</span><span class="identifier">R</span><span class="special">&amp;</span> <span class="identifier">r</span><span class="special">);</span>
+<span class="keyword">void</span> <span class="identifier">promise</span><span class="special">&lt;</span><span class="keyword">void</span><span class="special">&gt;::</span><span class="identifier">set_value</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  was not associated with a result, allocate storage for a new asynchronous
+                  result and associate it with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>. Store the value <code class="computeroutput"><span class="identifier">r</span></code> in the asynchronous result
+                  associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>. Any threads blocked waiting
+                  for the asynchronous result are woken.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  All futures waiting on the asynchronous result are <span class="emphasis"><em>ready</em></span>
+                  and <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_value" title="Member function has_value()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;::</span><span class="identifier">has_value</span><span class="special">()</span></code></a>
+                  or <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_value" title="Member function has_value()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;::</span><span class="identifier">has_value</span><span class="special">()</span></code></a>
+                  for those futures shall return <code class="computeroutput"><span class="keyword">true</span></code>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">promise_already_satisfied</span></code> if
+                  the result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> is already <span class="emphasis"><em>ready</em></span>.
+                  <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code> if the memory required
+                  for storage of the result cannot be allocated. Any exception thrown
+                  by the copy or move-constructor of <code class="computeroutput"><span class="identifier">R</span></code>.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.set_exception"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.set_exception" title="Member Function set_exception()">
+            Member Function <code class="computeroutput"><span class="identifier">set_exception</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">set_exception</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">exception_ptr</span> <span class="identifier">e</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  If <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                  was not associated with a result, allocate storage for a new asynchronous
+                  result and associate it with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>. Store the exception <code class="computeroutput"><span class="identifier">e</span></code> in the asynchronous result
+                  associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>. Any threads blocked waiting
+                  for the asynchronous result are woken.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  All futures waiting on the asynchronous result are <span class="emphasis"><em>ready</em></span>
+                  and <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future.has_exception" title="Member function has_exception()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;::</span><span class="identifier">has_exception</span><span class="special">()</span></code></a>
+                  or <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future.has_exception" title="Member function has_exception()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;::</span><span class="identifier">has_exception</span><span class="special">()</span></code></a>
+                  for those futures shall return <code class="computeroutput"><span class="keyword">true</span></code>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">promise_already_satisfied</span></code> if
+                  the result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> is already <span class="emphasis"><em>ready</em></span>.
+                  <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code> if the memory required
+                  for storage of the result cannot be allocated.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.promise.set_wait_callback"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.promise.set_wait_callback" title="Member Function set_wait_callback()">
+            Member Function <code class="computeroutput"><span class="identifier">set_wait_callback</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">set_wait_callback</span><span class="special">(</span><span class="identifier">F</span> <span class="identifier">f</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                  The expression <code class="computeroutput"><span class="identifier">f</span><span class="special">(</span><span class="identifier">t</span><span class="special">)</span></code> where <code class="computeroutput"><span class="identifier">t</span></code>
+                  is a lvalue of type <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a> shall be
+                  well-formed. Invoking a copy of <code class="computeroutput"><span class="identifier">f</span></code>
+                  shall have the same effect as invoking <code class="computeroutput"><span class="identifier">f</span></code>
+                </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Store a copy of <code class="computeroutput"><span class="identifier">f</span></code>
+                  with the asynchronous result associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> as a <span class="emphasis"><em>wait callback</em></span>.
+                  This will replace any existing wait callback store alongside that
+                  result. If a thread subsequently calls one of the wait functions
+                  on a <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> or <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future" title="shared_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span></code></a> associated
+                  with this result, and the result is not <span class="emphasis"><em>ready</em></span>,
+                  <code class="computeroutput"><span class="identifier">f</span><span class="special">(*</span><span class="keyword">this</span><span class="special">)</span></code>
+                  shall be invoked.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code> if memory cannot be
+                  allocated for the required storage.
+                </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template">
+          <code class="computeroutput"><span class="identifier">packaged_task</span></code> class template</a>
+</h5></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.task_constructor">
+            Task Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.move_constructor">
+            Move Constructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.move_assignment">
+            Move Assignment Operator</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.destructor">
+            Destructor</a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.get_future">
+            Member Function <code class="computeroutput"><span class="identifier">get_future</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.call_operator">
+            Member Function <code class="computeroutput"><span class="keyword">operator</span><span class="special">()()</span></code></a></span></dt>
+<dt><span class="section"><a href="reference.html#task.spin_synchronization.futures.reference.packaged_task.set_wait_callback">
+            Member Function <code class="computeroutput"><span class="identifier">set_wait_callback</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">R</span><span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">packaged_task</span>
+<span class="special">{</span>
+    <span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">packaged_task</span><span class="special">&amp;);//</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+    <span class="identifier">packaged_task</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">packaged_task</span><span class="special">&amp;);//</span> <span class="special">=</span> <span class="keyword">delete</span><span class="special">;</span>
+    
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="comment">// construction and destruction
+</span>    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">F</span><span class="special">&gt;</span>
+    <span class="keyword">explicit</span> <span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">F</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">f</span><span class="special">);</span>
+
+    <span class="keyword">explicit</span> <span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">R</span><span class="special">(*</span><span class="identifier">f</span><span class="special">)());</span>
+    
+    <span class="keyword">template</span> <span class="special">&lt;</span><span class="keyword">class</span> <span class="identifier">F</span><span class="special">&gt;</span>
+    <span class="keyword">explicit</span> <span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">F</span><span class="special">&amp;&amp;</span> <span class="identifier">f</span><span class="special">);</span>
+
+    <span class="comment">// template &lt;class F, class Allocator&gt;
+</span>    <span class="comment">// explicit packaged_task(F const&amp; f, Allocator a);
+</span>    <span class="comment">// template &lt;class F, class Allocator&gt;
+</span>    <span class="comment">// explicit packaged_task(F&amp;&amp; f, Allocator a);
+</span>
+    <span class="special">~</span><span class="identifier">packaged_task</span><span class="special">()</span>
+    <span class="special">{}</span>
+
+    <span class="comment">// move support
+</span>    <span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">packaged_task</span><span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="identifier">packaged_task</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">packaged_task</span><span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+
+    <span class="keyword">void</span> <span class="identifier">swap</span><span class="special">(</span><span class="identifier">packaged_task</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+    <span class="comment">// result retrieval
+</span>    <span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span> <span class="identifier">get_future</span><span class="special">();</span>        
+
+    <span class="comment">// execution
+</span>    <span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()();</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F</span><span class="special">&gt;</span>
+    <span class="keyword">void</span> <span class="identifier">set_wait_callback</span><span class="special">(</span><span class="identifier">F</span> <span class="identifier">f</span><span class="special">);</span>        
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.task_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.task_constructor" title="Task Constructor">
+            Task Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F</span><span class="special">&gt;</span>
+<span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">F</span> <span class="keyword">const</span> <span class="special">&amp;</span><span class="identifier">f</span><span class="special">);</span>
+
+<span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">R</span><span class="special">(*</span><span class="identifier">f</span><span class="special">)());</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F</span><span class="special">&gt;</span>
+<span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">F</span><span class="special">&amp;&amp;</span><span class="identifier">f</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">f</span><span class="special">()</span></code>
+                  is a valid expression with a return type convertible to <code class="computeroutput"><span class="identifier">R</span></code>. Invoking a copy of <code class="computeroutput"><span class="identifier">f</span></code> shall behave the same as invoking
+                  <code class="computeroutput"><span class="identifier">f</span></code>.
+                </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs a new <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a> with a copy
+                  of <code class="computeroutput"><span class="identifier">f</span></code> stored as
+                  the associated task.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Any exceptions thrown by the copy (or move) constructor of <code class="computeroutput"><span class="identifier">f</span></code>. <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">bad_alloc</span></code>
+                  if memory for the internal data structures could not be allocated.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.move_constructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.move_constructor" title="Move Constructor">
+            Move Constructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">packaged_task</span><span class="special">(</span><span class="identifier">packaged_task</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Constructs a new <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a>, and transfers
+                  ownership of the task associated with <code class="computeroutput"><span class="identifier">other</span></code>
+                  to <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  leaving <code class="computeroutput"><span class="identifier">other</span></code> with
+                  no associated task.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  If the compiler does not support rvalue-references, this is implemented
+                  using the boost.thread move emulation.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.move_assignment"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.move_assignment" title="Move Assignment Operator">
+            Move Assignment Operator</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">packaged_task</span><span class="special">&amp;</span> <span class="keyword">operator</span><span class="special">=(</span><span class="identifier">packaged_task</span> <span class="special">&amp;&amp;</span> <span class="identifier">other</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Transfers ownership of the task associated with <code class="computeroutput"><span class="identifier">other</span></code>
+                  to <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  leaving <code class="computeroutput"><span class="identifier">other</span></code> with
+                  no associated task. If there was already a task associated with
+                  <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>,
+                  and that task has not been invoked, sets any futures associated
+                  with that task to <span class="emphasis"><em>ready</em></span> with a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">broken_promise</span></code> exception as the
+                  result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                  If the compiler does not support rvalue-references, this is implemented
+                  using the boost.thread move emulation.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.destructor"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.destructor" title="Destructor">
+            Destructor</a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="special">~</span><span class="identifier">packaged_task</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Destroys <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                  If there was a task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>, and that task has not been
+                  invoked, sets any futures associated with that task to <span class="emphasis"><em>ready</em></span>
+                  with a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">broken_promise</span></code> exception as the
+                  result.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  Nothing.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.get_future"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.get_future" title="Member Function get_future()">
+            Member Function <code class="computeroutput"><span class="identifier">get_future</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="identifier">unique_future</span><span class="special">&lt;</span><span class="identifier">R</span><span class="special">&gt;</span> <span class="identifier">get_future</span><span class="special">();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Returns a <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> associated
+                  with the result of the task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_moved</span></code> if ownership of the
+                  task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> has been moved to another instance
+                  of <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a>. <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">future_already_retrieved</span></code> if the
+                  future associated with the task has already been retrieved.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.call_operator"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.call_operator" title="Member Function operator()()">
+            Member Function <code class="computeroutput"><span class="keyword">operator</span><span class="special">()()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()();</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Invoke the task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> and store the result in the
+                  corresponding future. If the task returns normally, the return
+                  value is stored as the asynchronous result, otherwise the exception
+                  thrown is stored. Any threads blocked waiting for the asynchronous
+                  result associated with this task are woken.
+                </p></dd>
+<dt><span class="term">Postconditions:</span></dt>
+<dd><p>
+                  All futures waiting on the asynchronous result are <span class="emphasis"><em>ready</em></span>
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_moved</span></code> if ownership of the
+                  task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> has been moved to another instance
+                  of <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a>. <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_already_started</span></code> if the task
+                  has already been invoked.
+                </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h6 class="title">
+<a name="task.spin_synchronization.futures.reference.packaged_task.set_wait_callback"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task.set_wait_callback" title="Member Function set_wait_callback()">
+            Member Function <code class="computeroutput"><span class="identifier">set_wait_callback</span><span class="special">()</span></code></a>
+</h6></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">set_wait_callback</span><span class="special">(</span><span class="identifier">F</span> <span class="identifier">f</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                  The expression <code class="computeroutput"><span class="identifier">f</span><span class="special">(</span><span class="identifier">t</span><span class="special">)</span></code> where <code class="computeroutput"><span class="identifier">t</span></code>
+                  is a lvalue of type <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a> shall be
+                  well-formed. Invoking a copy of <code class="computeroutput"><span class="identifier">f</span></code>
+                  shall have the same effect as invoking <code class="computeroutput"><span class="identifier">f</span></code>
+                </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                  Store a copy of <code class="computeroutput"><span class="identifier">f</span></code>
+                  with the task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> as a <span class="emphasis"><em>wait callback</em></span>.
+                  This will replace any existing wait callback store alongside that
+                  task. If a thread subsequently calls one of the wait functions
+                  on a <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> or <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future" title="shared_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span></code></a> associated
+                  with this task, and the result of the task is not <span class="emphasis"><em>ready</em></span>,
+                  <code class="computeroutput"><span class="identifier">f</span><span class="special">(*</span><span class="keyword">this</span><span class="special">)</span></code>
+                  shall be invoked.
+                </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">task_moved</span></code> if ownership of the
+                  task associated with <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> has been moved to another instance
+                  of <a class="link" href="reference.html#task.spin_synchronization.futures.reference.packaged_task" title="packaged_task class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">packaged_task</span></code></a>.
+                </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.futures.reference.wait_for_all"></a><a class="link" href="reference.html#task.spin_synchronization.futures.reference.wait_for_all" title="Non-member function wait_for_all()">
+          Non-member function <code class="computeroutput"><span class="identifier">wait_for_all</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">Iterator</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">wait_for_all</span><span class="special">(</span><span class="identifier">Iterator</span> <span class="identifier">begin</span><span class="special">,</span><span class="identifier">Iterator</span> <span class="identifier">end</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F1</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F2</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">wait_for_all</span><span class="special">(</span><span class="identifier">F1</span><span class="special">&amp;</span> <span class="identifier">f1</span><span class="special">,</span><span class="identifier">F2</span><span class="special">&amp;</span> <span class="identifier">f2</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F1</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F2</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F3</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">wait_for_all</span><span class="special">(</span><span class="identifier">F1</span><span class="special">&amp;</span> <span class="identifier">f1</span><span class="special">,</span><span class="identifier">F2</span><span class="special">&amp;</span> <span class="identifier">f2</span><span class="special">,</span><span class="identifier">F3</span><span class="special">&amp;</span> <span class="identifier">f3</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F1</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F2</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F3</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F4</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">wait_for_all</span><span class="special">(</span><span class="identifier">F1</span><span class="special">&amp;</span> <span class="identifier">f1</span><span class="special">,</span><span class="identifier">F2</span><span class="special">&amp;</span> <span class="identifier">f2</span><span class="special">,</span><span class="identifier">F3</span><span class="special">&amp;</span> <span class="identifier">f3</span><span class="special">,</span><span class="identifier">F4</span><span class="special">&amp;</span> <span class="identifier">f4</span><span class="special">);</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span><span class="keyword">typename</span> <span class="identifier">F1</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F2</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F3</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F4</span><span class="special">,</span><span class="keyword">typename</span> <span class="identifier">F5</span><span class="special">&gt;</span>
+<span class="keyword">void</span> <span class="identifier">wait_for_all</span><span class="special">(</span><span class="identifier">F1</span><span class="special">&amp;</span> <span class="identifier">f1</span><span class="special">,</span><span class="identifier">F2</span><span class="special">&amp;</span> <span class="identifier">f2</span><span class="special">,</span><span class="identifier">F3</span><span class="special">&amp;</span> <span class="identifier">f3</span><span class="special">,</span><span class="identifier">F4</span><span class="special">&amp;</span> <span class="identifier">f4</span><span class="special">,</span><span class="identifier">F5</span><span class="special">&amp;</span> <span class="identifier">f5</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Preconditions:</span></dt>
+<dd><p>
+                The types <code class="computeroutput"><span class="identifier">Fn</span></code> shall
+                be specializations of <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> or <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future" title="shared_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span></code></a>, and <code class="computeroutput"><span class="identifier">Iterator</span></code> shall be a forward iterator
+                with a <code class="computeroutput"><span class="identifier">value_type</span></code>
+                which is a specialization of <a class="link" href="reference.html#task.spin_synchronization.futures.reference.unique_future" title="unique_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_future</span></code></a> or <a class="link" href="reference.html#task.spin_synchronization.futures.reference.shared_future" title="shared_future class template"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_future</span></code></a>.
+              </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Waits until all of the specified futures are <span class="emphasis"><em>ready</em></span>.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Any exceptions thrown by a call to <code class="computeroutput"><span class="identifier">wait</span><span class="special">()</span></code> on the specified futures.
+              </p></dd>
+<dt><span class="term">Notes:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">wait_for_all</span><span class="special">()</span></code>
+                is an <span class="emphasis"><em>interruption point</em></span>.
+              </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="lazy_futures.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../futures.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../../todo.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Execution Policies</title>
+<link rel="stylesheet" href="../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../index.html" title="Task">
+<link rel="up" href="../async_execution.html" title="Asynchronous Execution">
+<link rel="prev" href="async_completion_token/handle.html" title="Class template handle">
+<link rel="next" href="execution_policy/own_thread.html" title="Execute in Current Thread">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="async_completion_token/handle.html"><img src="../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_execution.html"><img src="../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="execution_policy/own_thread.html"><img src="../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="task.async_execution.execution_policy"></a><a class="link" href="execution_policy.html" title="Execution Policies"> Execution Policies</a>
+</h3></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="execution_policy/own_thread.html">
+        Execute in Current Thread</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="execution_policy/own_thread.html#task.async_execution.execution_policy.own_thread.own_thread">
+          Class <code class="computeroutput"><span class="identifier">own_thread</span></code></a></span></dt>
+<dd><dl><dt><span class="section"><a href="execution_policy/own_thread.html#task.async_execution.execution_policy.own_thread.own_thread._template__typename_r___handle__r___operator____task__r___t__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+            <span class="keyword">typename</span> <span class="identifier">R</span>
+            <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="keyword">operator</span><span class="special">()(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt></dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="execution_policy/new_thread.html">
+        Execute in Separat Thread</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="execution_policy/new_thread.html#task.async_execution.execution_policy.new_thread.new_thread">
+          Class <code class="computeroutput"><span class="identifier">new_thread</span></code></a></span></dt>
+<dd><dl><dt><span class="section"><a href="execution_policy/new_thread.html#task.async_execution.execution_policy.new_thread.new_thread._template__typename_r___handle__r___operator____task__r___t__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+            <span class="keyword">typename</span> <span class="identifier">R</span>
+            <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="keyword">operator</span><span class="special">()(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt></dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="execution_policy/as_sub_task.html">
+        Execute as Sub-Task</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="execution_policy/as_sub_task.html#task.async_execution.execution_policy.as_sub_task.as_sub_task">
+          Class <code class="computeroutput"><span class="identifier">as_sub_task</span></code></a></span></dt>
+<dd><dl><dt><span class="section"><a href="execution_policy/as_sub_task.html#task.async_execution.execution_policy.as_sub_task.as_sub_task._template__typename_r___handle__r___operator____task__r___t__"><code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+            <span class="keyword">typename</span> <span class="identifier">R</span>
+            <span class="special">&gt;</span> <span class="identifier">handle</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="keyword">operator</span><span class="special">()(</span> <span class="identifier">task</span><span class="special">&lt;</span> <span class="identifier">R</span> <span class="special">&gt;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt></dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="execution_policy/threadpool.html">
+        Execute in Thread-Pool</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.static_pool">
+          Thread-Pool with fixed </a></span></dt>
+<dd><dl><dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.static_pool.static_pool">
+            Class template <code class="computeroutput"><span class="identifier">static_pool</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions">
+          Meta functions</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.has_attribute">
+            Meta function <code class="computeroutput"><span class="identifier">has_attribute</span></code></a></span></dt>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.meta_functions.attribute_type">
+            Meta function <code class="computeroutput"><span class="identifier">attribute_type</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.queue">
+          Global Queue</a></span></dt>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.pool_shutdown">
+          Shutdown</a></span></dt>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.processor_binding">
+          Processor binding</a></span></dt>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.workstealing">
+          Work-Stealing</a></span></dt>
+<dt><span class="section"><a href="execution_policy/threadpool.html#task.async_execution.execution_policy.threadpool.forkjoin">
+          Fork/Join</a></span></dt>
+</dl></dd>
+</dl></div>
+<p>
+        In contrast to synchronous methods asynchronous methods do not block the
+        program flow when a time consuming operation is executed. The application
+        continues executing the current context and when the result of the asynchronous
+        method is required the <a class="link" href="async_completion_token.html" title="Asynchronous Completion Token"><span class="emphasis"><em>asynchronous-completion-token</em></span></a>
+        can be used.
+      </p>
+<p>
+        A <a class="link" href="execution_policy.html" title="Execution Policies"><span class="emphasis"><em>execution-policy</em></span></a>
+        describes how a <a class="link" href="../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+        gets asynchronously executed and provides a <a class="link" href="async_completion_token.html" title="Asynchronous Completion Token"><span class="emphasis"><em>asynchronous-completion-token</em></span></a>
+        to manage the <a class="link" href="../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="async_completion_token/handle.html"><img src="../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../async_execution.html"><img src="../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="execution_policy/own_thread.html"><img src="../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

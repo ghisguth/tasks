@@ -1,0 +1,64 @@
+* boost.task-0.4.2:
+-------------------
+- bugfix related to deactivating queues and channels
+- introduction of fast_semaphore for notification of worker-threads in a pool
+
+* boost.task-0.4.1:
+-------------------
+- corrections for intel compiler
+
+
+* boost.task-0.4.0:
+-------------------
+- boost.atomic, boost.fiber and boost.move integrated
+- worker-threads of thread-pools used fibers for yielding tasks
+- documentation re-work
+- sync. prmitives (using spin-wait) added for inter-task communication
+- async() with fiber-scheduler
+
+
+* boost.task-0.3.0:
+-------------------
+- worker creates fiber
+- worker with new function block()
+- this::reschedule_until(), this_task::yield(), this_task:delay() removed
+- pool_base catches thread_interrupted exception if worker gets interrupted while sleeping
+
+
+* boost.task-0.2.2:
+-------------------
+- allow user-defined execution policies
+- private inheritance from noncopyable removed from task< R > and static_pool< R >
+  copy-ctor and assignment-op private and unimplemented
+  allowing correct move-semantics
+- worker_group removes all worker-threads in join_all()
+  static_pool< R > does contain zero worker-threads after shutdown() or shutdown_now()
+- reintroduction of make_task()
+- internal refactoring/rework
+- documentation updated
+- tests updated
+- examples updated
+
+
+* boost.task-0.2.1:
+-------------------
+- bugfix related to FreeBSD
+
+
+* boost.task-0.2:
+-----------------
+- detail/atomic.hpp with atomic_exchange (gcc + x86|ppc)
+- handle< R > with new function get_future() returning reference to internal shared future
+- moved execution-policies new_thread, own_thread and as_sub_task in separat headers
+- async() with as_sub_task as default execution-policy
+- functions interrupt_and_wait_until() and interrupt_and_wait_for() from handle< R > returning
+  boolean indicating if op. succeeded or timed out
+- move sematics for task< R >
+- move sematics for static_pool< R >
+- new function interrupt_all_worker() for static_pool< Channel > in order to interrupt all 
+  worker-threads without invalidating the pool
+- default_pool() removed because thread_resource_error exceptions thrown by static pool
+- support of processor-binding for FreeBSD 7.1 >
+- tests updated
+- examples updated
+- documentation updated

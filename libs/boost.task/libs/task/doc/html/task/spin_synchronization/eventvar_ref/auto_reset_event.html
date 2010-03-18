@@ -1,0 +1,200 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Class auto_reset_event</title>
+<link rel="stylesheet" href="../../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../../index.html" title="Task">
+<link rel="up" href="../eventvar_ref.html" title="Event Variables">
+<link rel="prev" href="../eventvar_ref.html" title="Event Variables">
+<link rel="next" href="manual_reset_event.html" title="Class manual_reset_event">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../eventvar_ref.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../eventvar_ref.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="manual_reset_event.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event"></a><a class="link" href="auto_reset_event.html" title="Class auto_reset_event">
+        Class <code class="computeroutput"><span class="identifier">auto_reset_event</span></code></a>
+</h4></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.constructor">
+          <code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">auto_reset_event</span><span class="special">(</span> <span class="keyword">bool</span> <span class="identifier">isset</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">auto_reset_event</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.set">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.wait">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.try_wait">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_wait</span><span class="special">()</span></code></a></span></dt>
+</dl></div>
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event.synopsis"></a><h6>
+<a name="id576469"></a>
+          <a class="link" href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.synopsis">Synopsis</a>
+        </h6>
+<p>
+          When the <span class="emphasis"><em>auto_reset_event</em></span> gets signaled, any one task
+          will see this particular signal. When a task observes the signal by waiting
+          on the event, it is automatically transitioned back to non-signaled state.
+          Any tasks can subsequently set the event.
+        </p>
+<pre class="programlisting">  <span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">task</span><span class="special">/</span><span class="identifier">spin</span><span class="special">/</span><span class="identifier">auto_reset_event</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+  <span class="keyword">class</span> <span class="identifier">auto_reset_event</span> <span class="special">:</span> <span class="keyword">private</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">noncopyable</span>
+  <span class="special">{</span>
+  <span class="keyword">public</span><span class="special">:</span>
+      <span class="keyword">explicit</span> <span class="identifier">auto_reset_event</span><span class="special">(</span> <span class="keyword">bool</span> <span class="identifier">isset</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">);</span>
+
+      <span class="special">~</span><span class="identifier">auto_reset_event</span><span class="special">();</span>
+
+      <span class="keyword">void</span> <span class="identifier">set</span><span class="special">();</span>
+
+      <span class="keyword">void</span> <span class="identifier">wait</span><span class="special">();</span>
+
+      <span class="keyword">bool</span> <span class="identifier">try_wait</span><span class="special">();</span>
+
+<span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span> <span class="identifier">system_time</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">abs_time</span><span class="special">);</span>
+
+<span class="identifier">templatey</span> <span class="keyword">typename</span> <span class="identifier">TimeDuration</span> <span class="special">&gt;</span>
+<span class="keyword">bool</span> <span class="identifier">timed_wait</span><span class="special">(</span> <span class="identifier">TimeDuration</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">rel_time</span><span class="special">);</span>
+  <span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event.constructor"></a><a class="link" href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.constructor" title="explicit auto_reset_event( bool isset = false)">
+          <code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">auto_reset_event</span><span class="special">(</span> <span class="keyword">bool</span> <span class="identifier">isset</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Constructs an object of class <code class="computeroutput"><span class="identifier">auto_reset_event</span></code>.
+                If isset is <code class="computeroutput"><span class="keyword">true</span></code> the
+                variable is set.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event.destructor"></a><a class="link" href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.destructor" title="~auto_reset_event()">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">auto_reset_event</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Precondition:</span></dt>
+<dd><p>
+                All tasks waiting on <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code> have been notified by a call
+                to <code class="computeroutput"><span class="identifier">set</span></code> (though the
+                respective calls to <code class="computeroutput"><span class="identifier">wait</span></code>
+                need not have returned).
+              </p></dd>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Destroys the object.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event.set"></a><a class="link" href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.set" title="void set()">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                If any tasks are currently <span class="emphasis"><em>blocked</em></span> waiting on
+                <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                in a call to <code class="computeroutput"><span class="identifier">wait</span></code>,
+                unblocks one of those tasks.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event.wait"></a><a class="link" href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.wait" title="void wait()">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Blocks the current task. The task will unblock when notified by a
+                call to <code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">set</span><span class="special">()</span></code>.
+                When the task is unblocked, the variable is reset before <code class="computeroutput"><span class="identifier">wait</span></code> returns.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tasks</span><span class="special">::</span><span class="identifier">task_interrupted</span></code> if the wait was
+                interrupted by a call to <span class="underline">_interrupt</span>_
+                on the <a class="link" href="../../task_management/task.html" title="Class template task"><span class="emphasis"><em>task</em></span></a>
+                object associated with the current task of execution.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="task.spin_synchronization.eventvar_ref.auto_reset_event.try_wait"></a><a class="link" href="auto_reset_event.html#task.spin_synchronization.eventvar_ref.auto_reset_event.try_wait" title="bool try_wait()">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_wait</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Returns <code class="computeroutput"><span class="keyword">true</span></code> if the
+                event variable is set otherwise <code class="computeroutput"><span class="keyword">false</span></code>.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../eventvar_ref.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../eventvar_ref.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="manual_reset_event.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
