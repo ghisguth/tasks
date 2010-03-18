@@ -1,0 +1,84 @@
+0.3.10:
+------
+- bugfix related to notify all waiting fibers if channel is deactivated
+
+0.3.9:
+------
+- correction for intel compiler
+
+0.3.8:
+------
+- code formating
+
+0.3.7:
+------
+- warnings (4251, 4275) supressed for msvc 
+
+0.3.6:
+------
+- bound/unbounded-channel function bool active() const added
+- BOOST_FIBER_DECL added
+- BOOST_ABI_PREFIX/BOOST_ABI_SUFFIX added
+
+0.3.5:
+------
+- boudned/unbounded-fifo renamed to bounded/unbounded-channel
+- new function this_fiber::submit_fiber( fiber f) in order to pass
+  a new fiber to the scheduler running the active fiber
+
+0.3.4:
+------
+- spinning sync. primitives check if invoked in a fiber
+
+0.3.3:
+------
+- default_stacksize is public static member of fiber
+- stacksize mußt be given if a fiber is created
+
+0.3.2:
+------
+- default stacksize = 64kB because of seg fault if value is too small
+- using boost.move library for move support
+- using boost.atomic for atomic ops.
+
+0.3.1:
+------
+- scheduler< Strategy >::migrate_fiber() overloaded - passing only fiber to be migrated
+- documentation updated
+- default stacksize = 8kB
+
+0.3.0:
+------
+- support of barrier (more efficient in on scheduler) and spin::barrier
+  (sync .between threads possible)
+- support of future and packaged_task (example future_mt)
+- explicit migration of fibers between two schedulers
+  (even if schedulers are in different threads - see example migrate_mt)
+- locks replaced by locks implementation from boost.thread
+- introduction of spin::mutex, spin::condition, spin::auto_reset_event, ...
+  (can be used to sync fibers between threads see ping_pong_mt example)
+- introduction of mutex, condition, auto_reset_event, ...
+  (objects bounded to one scheduler, but more efficient than spin counter-parts)
+- refactoring of internal classes
+
+0.2.0:
+------
+- classes disable_interruption and restore_interruption moved into namespace boost::this_fiber
+- classes strategy and round robin moved into namespace boost::fibers
+- class strategy becomes an abstract base-class and provides protected member
+  functions in order to access private data of class boost::fiber
+- class scheduler becomes a template
+  the template argument must be derived from strategy and implements the scheduling strategy
+  the default is boost::fibers::round_robin
+- multiple schedulers in one thread supported
+- STATE macros in class boost::fibers::round_robin replaced by protected member function of
+  boost::fibers::strategy
+
+0.1.1 :
+-------
+- refactor STATE macros -> don't test and set only one bit
+- documentation corrected
+
+0.1.0 :
+-------
+- initial version

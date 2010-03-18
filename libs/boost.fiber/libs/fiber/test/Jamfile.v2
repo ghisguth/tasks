@@ -1,0 +1,51 @@
+# Boost.fiber Library Tests Jamfile
+
+#          Copyright Oliver Kowalke 2009.
+# Distributed under the Boost Software License, Version 1.0.
+#    (See accompanying file LICENSE_1_0.txt or copy at
+#          http://www.boost.org/LICENSE_1_0.txt)
+
+import testing ;
+
+project boost/fiber/test
+    : requirements
+        <library>../../test/build//boost_unit_test_framework
+        <library>../../thread/build//boost_thread
+        <library>../../system/build//boost_system
+        <library>../build//boost_fiber
+        <link>static
+        <threading>multi
+    ;
+
+rule fiber-test ( source )
+{
+    return
+        [ run $(source).cpp ]
+    ;
+}
+
+test-suite fiber :
+    [ fiber-test test_fiber ]
+    [ fiber-test test_scheduler ]
+    [ fiber-test test_utility ]
+    [ fiber-test test_cancel ]
+    [ fiber-test test_priority ]
+    [ fiber-test test_join ]
+    [ fiber-test test_interrupt ]
+    [ fiber-test test_at_exit ]
+    [ fiber-test test_mutex ]
+    [ fiber-test test_lock ]
+    [ fiber-test test_condition ]
+    [ fiber-test test_barrier ]
+    [ fiber-test test_auto_reset_event ]
+    [ fiber-test test_manual_reset_event ]
+    [ fiber-test test_count_down_event ]
+    [ fiber-test test_spin_mutex ]
+    [ fiber-test test_spin_lock ]
+    [ fiber-test test_spin_condition ]
+    [ fiber-test test_spin_barrier ]
+    [ fiber-test test_spin_future ]
+    [ fiber-test test_spin_auto_reset_event ]
+    [ fiber-test test_spin_manual_reset_event ]
+    [ fiber-test test_spin_count_down_event ]
+    ;

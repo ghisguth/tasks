@@ -1,0 +1,37 @@
+[/
+  (C) Copyright 2007-8 Anthony Williams.
+  Distributed under the Boost Software License, Version 1.0.
+  (See accompanying file LICENSE_1_0.txt or copy at
+  http://www.boost.org/LICENSE_1_0.txt).
+]
+
+[section:mutex_types Mutex Types]
+
+[section:mutex Class `mutex`]
+
+    #include <boost/fibers/mutex.hpp>
+
+    class mutex : private boost::noncopyable
+    {
+    public:
+        template< typename Strategy >
+        mutex( scheduler< Strategy > & sched);
+        ~mutex();
+
+        void lock();
+        bool try_lock();
+        void unlock();
+
+        typedef unique_lock< mutex > scoped_lock;
+    };
+
+__mutex__ implements the __lockable_concept__ to provide an exclusive-ownership mutex. At most one fiber can own the
+lock on a given instance of __mutex__ at any time. Multiple concurrent calls to __lock__, __try_lock__ and
+__unlock__ shall be permitted.
+
+[note __mutex__ is bound to the __scheduler__ passed to the constructor and can only be used by fibers
+managed by this scheduler.]
+
+[endsect]
+
+[endsect]

@@ -1,0 +1,148 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Overview</title>
+<link rel="stylesheet" href="../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../index.html" title="Fiber">
+<link rel="up" href="../index.html" title="Fiber">
+<link rel="prev" href="../index.html" title="Fiber">
+<link rel="next" href="fiber_management.html" title="Fiber Management">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../index.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="fiber_management.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="fiber.overview"></a><a class="link" href="overview.html" title="Overview"> Overview</a>
+</h2></div></div></div>
+<p>
+      <span class="bold"><strong>Boost.Fiber</strong></span> provides an framework utilizing
+      lightweight threads of execution - also known as user-space threads, microthreads
+      or fibers. The API of the library exposes an interface similiar to <a href="http://www.boost.org/libs/thread" target="_top"><span class="bold"><strong>Boost.Thread</strong></span></a> and contains classes, functions
+      to manage fibers and to synchronize fibers.
+    </p>
+<p>
+      A fiber is able to store the current execution state, including all registers
+      and CPU flags, the instruction pointer, and the stack pointer and later restore
+      this state. The idea is to have multiple execution paths running on a single
+      thread using a sort of cooperative scheduling (threads are preemptively scheduled)
+      - the running fiber decides explicitly when its yields to allow another fiber
+      to run (fiber switching). Fibers are less expensive than threads because the
+      kernel doesn't know anything about fibers - no kernel transitions are required
+      for scheduling (done in the user-space). A context switch between threads costs
+      usally thousends of CPU cycles on x86 compared to a fiber switch with few hundreds
+      of cycles. A fiber can only run on a single thread at any point in time but
+      may be migrated between threads. Because a thread can run many different fibers
+      during its life cycle the name <span class="emphasis"><em>fiber</em></span> was choosen.
+    </p>
+<p>
+      Beside fibers a conceptualy equivalent constructs are coroutines. A coroutine
+      can be seen as a language-level construct while a fiber is a system-level construct.
+    </p>
+<p>
+      In order to use the classes and functions described here, you can either include
+      the specific headers specified by the descriptions of each class or function,
+      or include the master library header:
+    </p>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">fiber</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+</pre>
+<p>
+      which includes all the other headers in turn.
+    </p>
+<p>
+      Used namespaces are:
+    </p>
+<pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span>
+<span class="keyword">namespace</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span>
+</pre>
+<div class="warning"><table border="0" summary="Warning">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" src="../../../../../doc/html/images/warning.png"></td>
+<th align="left">Warning</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        This library is <span class="emphasis"><em>not</em></span> an official Boost library
+      </p></td></tr>
+</table></div>
+<div class="note"><table border="0" summary="Note">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="../../../../../doc/html/images/note.png"></td>
+<th align="left">Note</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        <span class="bold"><strong>Boost.Fiber</strong></span> requires <span class="bold"><strong>Boost
+        Library 1.41.0</strong></span> .
+      </p></td></tr>
+</table></div>
+<p>
+      <span class="bold"><strong>Boost.Fiber</strong></span> depends uppon <a href="http://www.chaoticmind.net/~hcb/projects/boost.atomic" target="_top"><span class="bold"><strong>Boost.Atomic</strong></span></a>, <a href="http://svn.boost.org/svn/boost/sandbox/move" target="_top"><span class="bold"><strong>Boost.Move</strong></span></a> and uses some code from <a href="http://www.boost.org/libs/thread" target="_top"><span class="bold"><strong>Boost.Thread</strong></span></a> (especially a specialisation of
+      future).
+    </p>
+<a name="fiber.overview.tested_platforms"></a><h4>
+<a name="id421706"></a>
+      <a class="link" href="overview.html#fiber.overview.tested_platforms">Tested Platforms</a>
+    </h4>
+<p>
+      <span class="bold"><strong>Boost.Fiber</strong></span> has been tested on the following
+      platforms and compilers:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+        Debian GNU/Linux 2.6.31.6 (x86_64), GCC 4.3.4
+      </li>
+<li>
+        Ubuntu GNU/Linux 2.6.28.11 (x86), ICC 11.1
+      </li>
+<li>
+        FreeBSD 8.0 (x86), GCC 4.2.1
+      </li>
+<li>
+        OpenSolaris 2009.06 (x86_64), GCC 4.3.2
+      </li>
+<li>
+        Windows XP Professional (x86), MSVC 9.0
+      </li>
+</ul></div>
+<a name="fiber.overview.how_to_build_and_install"></a><h4>
+<a name="id421752"></a>
+      <a class="link" href="overview.html#fiber.overview.how_to_build_and_install">How to build and install</a>
+    </h4>
+<div class="itemizedlist"><ul type="disc">
+<li>
+        download the sources from <a href="http://www.boost-consulting.com/vault/index.php?directory=Concurrent%20Programming" target="_top">Boost
+        Vault</a>
+</li>
+<li>
+        extract the archive into the boost-source directory
+      </li>
+<li>
+        call <span class="emphasis"><em>'bjam toolset=&lt;compiler-name&gt; --with-fiber install'</em></span>
+        in order to build and install the library
+      </li>
+</ul></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../index.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="fiber_management.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

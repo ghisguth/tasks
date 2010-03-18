@@ -1,0 +1,96 @@
+# Boost.fiber Library Build Jamfile
+
+#          Copyright Oliver Kowalke 2009.
+# Distributed under the Boost Software License, Version 1.0.
+#    (See accompanying file LICENSE_1_0.txt or copy at
+#          http://www.boost.org/LICENSE_1_0.txt)
+
+import os ;
+import feature ;
+import indirect ;
+import path ;
+
+if [ os.name ] = HP
+{
+	lib atomic ;
+}
+
+project boost/fiber
+    : source-location
+        ../src
+    : requirements
+        <library>/boost/thread//boost_thread
+        <library>/boost/system//boost_system
+        <link>static:<define>BOOST_FIBER_BUILD_LIB=1
+        <link>shared:<define>BOOST_FIBER_BUILD_DLL=1
+        <threading>multi
+		<os>HPUX:<library>atomic
+    : default-build
+        <threading>multi
+    ;
+
+local rule default_fiberapi ( )
+{
+    local api = posix ;
+    if [ os.name ] = "NT" { api = win32 ; }
+    return $(api) ;
+}
+
+feature.feature fiberapi : posix win32 : propagated ;
+feature.set-default fiberapi : [ default_fiberapi ] ;
+
+alias fiber_sources
+    : ## win32 sources ##
+	auto_reset_event.cpp
+	barrier.cpp
+	condition.cpp
+	count_down_event.cpp
+	detail/fiber_windows.cpp
+	detail/info_base_windows.cpp
+	fiber.cpp
+	manual_reset_event.cpp
+	mutex.cpp
+	round_robin.cpp
+	spin/auto_reset_event.cpp
+	spin/barrier.cpp
+	spin/condition.cpp
+	spin/count_down_event.cpp
+	spin/manual_reset_event.cpp
+	spin/mutex.cpp
+	strategy.cpp
+    : ## requirements ##
+      <fiberapi>win32
+    ;
+
+alias fiber_sources
+    : ## posix sources ##
+	auto_reset_event.cpp
+	barrier.cpp
+	condition.cpp
+	count_down_event.cpp
+	detail/fiber_posix.cpp
+	detail/info_base_posix.cpp
+	fiber.cpp
+	manual_reset_event.cpp
+	mutex.cpp
+	round_robin.cpp
+	spin/auto_reset_event.cpp
+	spin/barrier.cpp
+	spin/condition.cpp
+	spin/count_down_event.cpp
+	spin/manual_reset_event.cpp
+	spin/mutex.cpp
+	strategy.cpp
+    : ## requirements ##
+      <fiberapi>posix
+    ;
+
+explicit fiber_sources ;
+
+lib boost_fiber
+    : fiber_sources
+    : <link>shared:<define>BOOST_FIBER_USE_DLL=1
+      <link>static:<define>BOOST_FIBER_USE_LIB=1
+   ;
+
+boost-install boost_fiber ;

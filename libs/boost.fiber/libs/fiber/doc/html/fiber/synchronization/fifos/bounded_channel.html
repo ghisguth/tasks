@@ -1,0 +1,255 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Template template&lt; typename T &gt; bounded_channel</title>
+<link rel="stylesheet" href="../../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../../index.html" title="Fiber">
+<link rel="up" href="../fifos.html" title="(Un)Bounded fifos">
+<link rel="prev" href="unbounded_channel.html" title="Template template&lt; typename T &gt; unbounded_channel">
+<link rel="next" href="../../spin_synchronization.html" title="Synchronization using spinwait">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="unbounded_channel.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../fifos.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../../spin_synchronization.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel"></a><a class="link" href="bounded_channel.html" title="Template template&lt; typename T &gt; bounded_channel"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">bounded_channel</span></code></a>
+</h4></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.constructor2">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.deactivate">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">deactivate</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.empty">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">empty</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.put">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">put</span><span class="special">(</span> <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.take">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.try_take">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">fiber</span><span class="special">/</span><span class="identifier">bounded_channel</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">T</span> <span class="special">&gt;</span>
+<span class="keyword">class</span> <span class="identifier">bounded_channel</span> <span class="special">:</span> <span class="keyword">private</span> <span class="identifier">noncopyable</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Strategy</span> <span class="special">&gt;</span>
+    <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">sched</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">);</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">Strategy</span> <span class="special">&gt;</span>
+    <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">sched</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">hwm</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">lwm</span><span class="special">);</span>
+
+    <span class="keyword">void</span> <span class="identifier">deactivate</span><span class="special">();</span>
+
+    <span class="keyword">bool</span> <span class="identifier">empty</span><span class="special">();</span>
+
+    <span class="keyword">void</span> <span class="identifier">put</span><span class="special">(</span> <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">);</span>
+
+    <span class="keyword">bool</span> <span class="identifier">take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">);</span>
+
+    <span class="keyword">bool</span> <span class="identifier">try_take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">);</span>
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.constructor"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.constructor" title="template&lt; typename Strategy &gt; bounded_channel( scheduler&lt; Strategy &gt; &amp; sched, std::size_t wm)">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Constructs an object of class <code class="computeroutput"><span class="identifier">bounded_channel</span></code>
+                which will contain a maximum of <code class="computeroutput"><span class="identifier">wm</span></code>
+                items.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.constructor2"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.constructor2" title="template&lt; typename Strategy &gt; bounded_channel( scheduler&lt; Strategy &gt; &amp; sched, std::size_t wm)">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Constructs an object of class <code class="computeroutput"><span class="identifier">bounded_channel</span></code>
+                which will contain a maximum of <code class="computeroutput"><span class="identifier">wm</span></code>
+                items.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.deactivate"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.deactivate" title="void deactivate()">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">deactivate</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Deactivates the fifo. No values can be put after calling <code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">deactivate</span></code>. Fibers blocked in
+                <code class="computeroutput"><span class="keyword">this</span><span class="special">-&gt;</span><span class="identifier">take</span><span class="special">()</span></code>
+                will be return.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.empty"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.empty" title="bool empty()">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">empty</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Returns <code class="computeroutput"><span class="keyword">true</span></code> if the
+                fifo currently contains no data.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.put"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.put" title="void put( T const&amp; t)">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">put</span><span class="special">(</span> <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Enqueues the value in the fifo and wakes up a fiber waiting for new
+                data available from the fifo. If the watermark has reached the fiber
+                putting the value will be supended until at least one item was dequeued.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.take"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.take" title="bool take( boost::optional&lt; T &gt; &amp; va)">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Dequeues a value from the fifo. If no data is available from the
+                fifo the fiber gets suspended until new data are enqueued (return
+                value <code class="computeroutput"><span class="keyword">true</span></code> and va contains
+                dequeued value) or the fifo gets deactiveted and the function returns
+                <code class="computeroutput"><span class="keyword">false</span></code>.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.synchronization.fifos.bounded_channel.try_take"></a><a class="link" href="bounded_channel.html#fiber.synchronization.fifos.bounded_channel.try_take" title="bool try_take( boost::optional&lt; T &gt; &amp; va)">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Dequeues a value from the fifo. If no data is available from the
+                fifo the function returns <code class="computeroutput"><span class="keyword">false</span></code>.
+                Otherwise it returns <code class="computeroutput"><span class="keyword">true</span></code>
+                and <code class="computeroutput"><span class="identifier">va</span></code> contains the
+                dequed value.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing.
+              </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="unbounded_channel.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../fifos.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../../spin_synchronization.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

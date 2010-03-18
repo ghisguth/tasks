@@ -1,0 +1,18 @@
+[/
+          Copyright Oliver Kowalke 2009.
+ Distributed under the Boost Software License, Version 1.0.
+    (See accompanying file LICENSE_1_0.txt or copy at
+          http://www.boost.org/LICENSE_1_0.txt
+]
+
+[section:todo Todo]
+
+* optimize memory ordering in atomic ops.
+
+* replace system calls related to fiber switching (like swapcontext()) by assembler
+
+* replace thread_specific_ptr by an specialiced implementation for class fiber
+
+* provide an scheduler which deals with priorities
+
+[endsect]

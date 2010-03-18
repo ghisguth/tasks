@@ -1,0 +1,247 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Class boost::fiber::id</title>
+<link rel="stylesheet" href="../../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../../index.html" title="Fiber">
+<link rel="up" href="../fiber.html" title="Class fiber">
+<link rel="prev" href="non_member_make_fiber.html" title="Non-member template function make_fiber()">
+<link rel="next" href="../this_fiber.html" title="Namespace this_fiber">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="non_member_make_fiber.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../fiber.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../this_fiber.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="fiber.fiber_management.fiber.id"></a><a class="link" href="id.html" title="Class boost::fiber::id"> Class <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span></code></a>
+</h4></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.constructor"> <code class="computeroutput"><span class="identifier">id</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.is_equal"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.not_equal"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.less_than"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.greater_than"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.less_than_or_equal">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.greater_than_or_equal">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="id.html#fiber.fiber_management.fiber.id.stream_out"> Non-member
+          template function <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;&lt;</span></code></a></span></dt>
+</dl></div>
+<pre class="programlisting"><span class="preprocessor">#include</span> <span class="special">&lt;</span><span class="identifier">boost</span><span class="special">/</span><span class="identifier">fiber</span><span class="special">/</span><span class="identifier">fiber</span><span class="special">.</span><span class="identifier">hpp</span><span class="special">&gt;</span>
+
+<span class="keyword">class</span> <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span>
+<span class="special">{</span>
+<span class="keyword">public</span><span class="special">:</span>
+    <span class="identifier">id</span><span class="special">();</span>
+
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+    <span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+
+    <span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">charT</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">traitsT</span> <span class="special">&gt;</span>
+    <span class="keyword">friend</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_ostream</span><span class="special">&lt;</span> <span class="identifier">charT</span><span class="special">,</span> <span class="identifier">traitsT</span> <span class="special">&gt;</span> <span class="special">&amp;</span> 
+    <span class="keyword">operator</span><span class="special">&lt;&lt;(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_ostream</span><span class="special">&lt;</span><span class="identifier">charT</span><span class="special">,</span> <span class="identifier">traitsT</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">os</span><span class="special">,</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">);</span>
+<span class="special">};</span>
+</pre>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.constructor"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.constructor" title="id()"> <code class="computeroutput"><span class="identifier">id</span><span class="special">()</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Constructs a <a class="link" href="id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+                instance that represents <span class="emphasis"><em>not-a-fiber</em></span>.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.is_equal"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.is_equal" title="bool operator==( id const&amp; y) const"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                and <code class="computeroutput"><span class="identifier">y</span></code> both represent
+                the same fiber of execution, or both represent <span class="emphasis"><em>not-a-fiber</em></span>,
+                <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.not_equal"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.not_equal" title="bool operator!=( id const&amp; y) const"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                and <code class="computeroutput"><span class="identifier">y</span></code> represent different
+                fibers of execution, or one represents a fiber of execution, and
+                the other represent <span class="emphasis"><em>not-a-fiber</em></span>, <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.less_than"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.less_than" title="bool operator&lt;( id const&amp; y) const"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="keyword">true</span></code> if <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span><span class="special">!=</span><span class="identifier">y</span></code>
+                is <code class="computeroutput"><span class="keyword">true</span></code> and the implementation-defined
+                total order of <a class="link" href="id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+                values places <code class="computeroutput"><span class="special">*</span><span class="keyword">this</span></code>
+                before <code class="computeroutput"><span class="identifier">y</span></code>, <code class="computeroutput"><span class="keyword">false</span></code> otherwise.
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+<dt><span class="term">Note:</span></dt>
+<dd><p>
+                A <a class="link" href="id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+                instance representing <span class="emphasis"><em>not-a-fiber</em></span> will always
+                compare less than an instance representing a fiber of execution.
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.greater_than"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.greater_than" title="bool operator&gt;( id const&amp; y) const"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">y</span><span class="special">&lt;*</span><span class="keyword">this</span></code>
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.less_than_or_equal"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.less_than_or_equal" title="bool operator&lt;=( id const&amp; y) const">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="special">!(</span><span class="identifier">y</span><span class="special">&lt;*</span><span class="keyword">this</span><span class="special">)</span></code>
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.greater_than_or_equal"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.greater_than_or_equal" title="bool operator&gt;=( id const&amp; y) const">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a>
+</h5></div></div></div>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="special">!(*</span><span class="keyword">this</span><span class="special">&lt;</span><span class="identifier">y</span><span class="special">)</span></code>
+              </p></dd>
+<dt><span class="term">Throws:</span></dt>
+<dd><p>
+                Nothing
+              </p></dd>
+</dl>
+</div>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="fiber.fiber_management.fiber.id.stream_out"></a><a class="link" href="id.html#fiber.fiber_management.fiber.id.stream_out" title="Non-member template function operator&lt;&lt;"> Non-member
+          template function <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;&lt;</span></code></a>
+</h5></div></div></div>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span> <span class="keyword">typename</span> <span class="identifier">charT</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">traitsT</span> <span class="special">&gt;</span>
+<span class="keyword">friend</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_ostream</span><span class="special">&lt;</span> <span class="identifier">charT</span><span class="special">,</span> <span class="identifier">traitsT</span> <span class="special">&gt;</span> <span class="special">&amp;</span> 
+<span class="keyword">operator</span><span class="special">&lt;&lt;(</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_ostream</span><span class="special">&lt;</span><span class="identifier">charT</span><span class="special">,</span> <span class="identifier">traitsT</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">os</span><span class="special">,</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">x</span><span class="special">);</span>
+</pre>
+<div class="variablelist">
+<p class="title"><b></b></p>
+<dl>
+<dt><span class="term">Effects:</span></dt>
+<dd><p>
+                Writes a representation of the <a class="link" href="id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+                instance <code class="computeroutput"><span class="identifier">x</span></code> to the
+                stream <code class="computeroutput"><span class="identifier">os</span></code>, such that
+                the representation of two instances of <a class="link" href="id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+                <code class="computeroutput"><span class="identifier">a</span></code> and <code class="computeroutput"><span class="identifier">b</span></code> is the same if <code class="computeroutput"><span class="identifier">a</span><span class="special">==</span><span class="identifier">b</span></code>, and different if <code class="computeroutput"><span class="identifier">a</span><span class="special">!=</span><span class="identifier">b</span></code>.
+              </p></dd>
+<dt><span class="term">Returns:</span></dt>
+<dd><p>
+                <code class="computeroutput"><span class="identifier">os</span></code>
+              </p></dd>
+</dl>
+</div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="non_member_make_fiber.html"><img src="../../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../fiber.html"><img src="../../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="../this_fiber.html"><img src="../../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

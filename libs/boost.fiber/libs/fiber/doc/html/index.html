@@ -1,0 +1,201 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Fiber</title>
+<link rel="stylesheet" href="../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="Fiber">
+<link rel="next" href="fiber/overview.html" title="Overview">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../boost.png"></td>
+<td align="center"><a href="../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="fiber/overview.html"><img src="../../../../doc/html/images/next.png" alt="Next"></a></div>
+<div class="article" lang="en">
+<div class="titlepage">
+<div>
+<div><h2 class="title">
+<a name="fiber"></a>Fiber</h2></div>
+<div><div class="authorgroup"><div class="author"><h3 class="author">
+<span class="firstname">Oliver</span> <span class="surname">Kowalke</span>
+</h3></div></div></div>
+<div><p class="copyright">Copyright © 2009 Oliver Kowalke</p></div>
+<div><div class="legalnotice">
+<a name="id421166"></a><p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></div>
+</div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="section"><a href="fiber/overview.html"> Overview</a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management.html"> Fiber Management</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/fiber_management/fiber.html"> Class <code class="computeroutput"><span class="identifier">fiber</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/default_constructor.html">
+        <code class="computeroutput"><span class="identifier">fiber</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/callable_constructor_stack.html">
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Fn</span>
+        <span class="special">&gt;</span> <span class="identifier">fiber</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">stack_size</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/multiple_argument_constructor.html">
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Fn</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">A1</span><span class="special">,</span> <span class="keyword">typename</span>
+        <span class="identifier">A2</span><span class="special">,...</span>
+        <span class="special">&gt;</span> <span class="identifier">fiber</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">A1</span> <span class="identifier">a1</span><span class="special">,</span> <span class="identifier">A2</span> <span class="identifier">a2</span><span class="special">,...,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">stack_size</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/destructor.html"> <code class="computeroutput"><span class="special">~</span><span class="identifier">fiber</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/get_id.html"> <code class="computeroutput"><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="identifier">get_id</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/join.html"> <code class="computeroutput"><span class="keyword">void</span>
+        <span class="identifier">join</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/interrupt.html"> <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/interruption_requested.html">
+        <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interruption_requested</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/cancel.html"> <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">cancel</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/is_alive.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_alive</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/unspec_operator.html"> <code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified</span><span class="special">-</span><span class="keyword">bool</span><span class="special">-</span><span class="identifier">type</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/not_operator.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/equals.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/not_equals.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/swap.html"> <code class="computeroutput"><span class="keyword">void</span>
+        <span class="identifier">swap</span><span class="special">(</span>
+        <span class="identifier">fiber</span> <span class="special">&amp;</span>
+        <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/non_member_swap.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">swap</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/non_member_make_fiber.html">
+        Non-member template function <code class="computeroutput"><span class="identifier">make_fiber</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/fiber/id.html"> Class <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber.html"> Namespace <code class="computeroutput"><span class="identifier">this_fiber</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/get_id.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">get_id</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/interruption_point.html">
+        Non-member function <code class="computeroutput"><span class="identifier">interruption_point</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/interruption_requested.html">
+        Non-member function <code class="computeroutput"><span class="identifier">interruption_requested</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/interruption_enabled.html">
+        Non-member function <code class="computeroutput"><span class="identifier">interruption_enabled</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/cancel.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">cancel</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/yield.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">yield</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/atfiberexit.html"> Non-member
+        template function <code class="computeroutput"><span class="identifier">at_fiber_exit</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/submit.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">submit_fiber</span><span class="special">(</span>
+        <span class="identifier">fiber</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/disable_interruption.html">
+        Class <code class="computeroutput"><span class="identifier">disable_interruption</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/this_fiber/restore_interruption.html">
+        Class <code class="computeroutput"><span class="identifier">restore_interruption</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber/fiber_management/scheduler.html"> Scheduler</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/fiber_management/scheduler/scheduler.html"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+        <span class="special">&gt;</span> <span class="identifier">scheduler</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/fiber_management/strategy.html"> Strategy</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/fiber_management/strategy/strategy.html"> Class <code class="computeroutput"><span class="identifier">strategy</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/fiber_management/strategy/round_robin.html"> Class
+        <code class="computeroutput"><span class="identifier">round_robin</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="fiber/synchronization.html"> Synchronization</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/synchronization/mutex_types.html"> Mutex Types</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/synchronization/mutex_types/mutex.html"> Class <code class="computeroutput"><span class="identifier">mutex</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/synchronization/conditions.html"> Condition Variables</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/synchronization/conditions/condition.html"> Class
+        <code class="computeroutput"><span class="identifier">condition</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/synchronization/barriers.html"> Barriers</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/synchronization/barriers/barrier.html"> Class <code class="computeroutput"><span class="identifier">barrier</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/synchronization/eventvar_ref.html"> Event Variables</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/synchronization/eventvar_ref/auto_reset_event.html">
+        Class <code class="computeroutput"><span class="identifier">auto_reset_event</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/synchronization/eventvar_ref/manual_reset_event.html">
+        Class <code class="computeroutput"><span class="identifier">manual_reset_event</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/synchronization/eventvar_ref/count_down_event.html">
+        Class <code class="computeroutput"><span class="identifier">count_down_event</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber/synchronization/fifos.html"> (Un)Bounded fifos</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/synchronization/fifos/unbounded_channel.html"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">unbounded_channel</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/synchronization/fifos/bounded_channel.html"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">bounded_channel</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="fiber/spin_synchronization.html"> Synchronization using spinwait</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/spin_synchronization/mutex_types.html"> Mutex Types</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/spin_synchronization/mutex_types/mutex.html"> Class
+        <code class="computeroutput"><span class="identifier">mutex</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/spin_synchronization/conditions.html"> Condition Variables</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/spin_synchronization/conditions/condition.html"> Class
+        <code class="computeroutput"><span class="identifier">condition</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/spin_synchronization/barriers.html"> Barriers</a></span></dt>
+<dd><dl><dt><span class="section"><a href="fiber/spin_synchronization/barriers/barrier.html"> Class
+        <code class="computeroutput"><span class="identifier">barrier</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="fiber/spin_synchronization/eventvar_ref.html"> Event Variables</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/spin_synchronization/eventvar_ref/auto_reset_event.html">
+        Class <code class="computeroutput"><span class="identifier">auto_reset_event</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/spin_synchronization/eventvar_ref/manual_reset_event.html">
+        Class <code class="computeroutput"><span class="identifier">manual_reset_event</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/spin_synchronization/eventvar_ref/count_down_event.html">
+        Class <code class="computeroutput"><span class="identifier">count_down_event</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber/spin_synchronization/fifos.html"> (Un)Bounded fifos</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/spin_synchronization/fifos/unbounded_channel.html">
+        Template <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">unbounded_channel</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber/spin_synchronization/fifos/bounded_channel.html">
+        Template <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">bounded_channel</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber/spin_synchronization/futures.html"> Futures</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber/spin_synchronization/futures/overview.html"> Overview</a></span></dt>
+<dt><span class="section"><a href="fiber/spin_synchronization/futures/creating.html"> Creating
+        asynchronous values</a></span></dt>
+<dt><span class="section"><a href="fiber/spin_synchronization/futures/lazy_futures.html"> Wait
+        Callbacks and Lazy Futures</a></span></dt>
+<dt><span class="section"><a href="fiber/spin_synchronization/futures/reference.html"> Futures
+        Reference</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="fiber/todo.html"> Todo</a></span></dt>
+<dt><span class="section"><a href="fiber/acknowledgements.html"> Acknowledgments</a></span></dt>
+</dl>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"><p><small>Last revised: January 23, 2010 at 19:13:56 GMT</small></p></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav"><a accesskey="n" href="fiber/overview.html"><img src="../../../../doc/html/images/next.png" alt="Next"></a></div>
+</body>
+</html>

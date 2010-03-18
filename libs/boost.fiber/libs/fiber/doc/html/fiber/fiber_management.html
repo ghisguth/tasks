@@ -1,0 +1,524 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Fiber Management</title>
+<link rel="stylesheet" href="../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../index.html" title="Fiber">
+<link rel="up" href="../index.html" title="Fiber">
+<link rel="prev" href="overview.html" title="Overview">
+<link rel="next" href="fiber_management/fiber.html" title="Class fiber">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overview.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="fiber_management/fiber.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="fiber.fiber_management"></a><a class="link" href="fiber_management.html" title="Fiber Management"> Fiber Management</a>
+</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="fiber_management/fiber.html"> Class <code class="computeroutput"><span class="identifier">fiber</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/fiber/default_constructor.html">
+        <code class="computeroutput"><span class="identifier">fiber</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/callable_constructor_stack.html">
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Fn</span>
+        <span class="special">&gt;</span> <span class="identifier">fiber</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">stack_size</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/multiple_argument_constructor.html">
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Fn</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">A1</span><span class="special">,</span> <span class="keyword">typename</span>
+        <span class="identifier">A2</span><span class="special">,...</span>
+        <span class="special">&gt;</span> <span class="identifier">fiber</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">A1</span> <span class="identifier">a1</span><span class="special">,</span> <span class="identifier">A2</span> <span class="identifier">a2</span><span class="special">,...,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">stack_size</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/destructor.html"> <code class="computeroutput"><span class="special">~</span><span class="identifier">fiber</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/get_id.html"> <code class="computeroutput"><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="identifier">get_id</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/join.html"> <code class="computeroutput"><span class="keyword">void</span>
+        <span class="identifier">join</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/interrupt.html"> <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">interrupt</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/interruption_requested.html">
+        <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interruption_requested</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/cancel.html"> <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">cancel</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/is_alive.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_alive</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/unspec_operator.html"> <code class="computeroutput"><span class="keyword">operator</span> <span class="identifier">unspecified</span><span class="special">-</span><span class="keyword">bool</span><span class="special">-</span><span class="identifier">type</span><span class="special">()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/not_operator.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!()</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/equals.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/not_equals.html"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">other</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/swap.html"> <code class="computeroutput"><span class="keyword">void</span>
+        <span class="identifier">swap</span><span class="special">(</span>
+        <span class="identifier">fiber</span> <span class="special">&amp;</span>
+        <span class="identifier">other</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/non_member_swap.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">swap</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/non_member_make_fiber.html">
+        Non-member template function <code class="computeroutput"><span class="identifier">make_fiber</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html"> Class <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.constructor"> <code class="computeroutput"><span class="identifier">id</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.is_equal"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">==(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.not_equal"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">!=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.less_than"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.greater_than"> <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.less_than_or_equal">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&lt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.greater_than_or_equal">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="keyword">operator</span><span class="special">&gt;=(</span> <span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">y</span><span class="special">)</span> <span class="keyword">const</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/fiber/id.html#fiber.fiber_management.fiber.id.stream_out"> Non-member
+          template function <code class="computeroutput"><span class="keyword">operator</span><span class="special">&lt;&lt;</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="fiber_management/this_fiber.html"> Namespace <code class="computeroutput"><span class="identifier">this_fiber</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/this_fiber/get_id.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">get_id</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/interruption_point.html">
+        Non-member function <code class="computeroutput"><span class="identifier">interruption_point</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/interruption_requested.html">
+        Non-member function <code class="computeroutput"><span class="identifier">interruption_requested</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/interruption_enabled.html">
+        Non-member function <code class="computeroutput"><span class="identifier">interruption_enabled</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/cancel.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">cancel</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/yield.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">yield</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/atfiberexit.html"> Non-member
+        template function <code class="computeroutput"><span class="identifier">at_fiber_exit</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/submit.html"> Non-member
+        function <code class="computeroutput"><span class="identifier">submit_fiber</span><span class="special">(</span>
+        <span class="identifier">fiber</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/disable_interruption.html">
+        Class <code class="computeroutput"><span class="identifier">disable_interruption</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/this_fiber/disable_interruption.html#fiber.fiber_management.this_fiber.disable_interruption.constructor">
+          <code class="computeroutput"><span class="identifier">disable_interruption</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/disable_interruption.html#fiber.fiber_management.this_fiber.disable_interruption.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">disable_interruption</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber_management/this_fiber/restore_interruption.html">
+        Class <code class="computeroutput"><span class="identifier">restore_interruption</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/this_fiber/restore_interruption.html#fiber.fiber_management.this_fiber.restore_interruption.constructor">
+          <code class="computeroutput"><span class="keyword">explicit</span> <span class="identifier">restore_interruption</span><span class="special">(</span><span class="identifier">disable_interruption</span><span class="special">&amp;</span> <span class="identifier">disabler</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/this_fiber/restore_interruption.html#fiber.fiber_management.this_fiber.restore_interruption.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">restore_interruption</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="fiber_management/scheduler.html"> Scheduler</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+        <span class="special">&gt;</span> <span class="identifier">scheduler</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.ctor">
+          <code class="computeroutput"><span class="identifier">scheduler</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.dtor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">scheduler</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.run">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">run</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.empty">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">empty</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.size">
+          <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.ready">
+          <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">ready</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.submit_fiber">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">submit_fiber</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="identifier">f</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.make_fiber2">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Fn</span>
+          <span class="special">&gt;</span> <span class="keyword">void</span>
+          <span class="identifier">make_fiber</span><span class="special">(</span>
+          <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">stack_size</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.make_fiber3">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Fn</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">A1</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">A2</span><span class="special">,...,</span> <span class="keyword">typename</span>
+          <span class="identifier">A10</span> <span class="special">&gt;</span>
+          <span class="keyword">void</span> <span class="identifier">make_fiber</span><span class="special">(</span> <span class="identifier">Fn</span> <span class="identifier">fn</span><span class="special">,</span> <span class="identifier">A0</span> <span class="identifier">a0</span><span class="special">,</span> <span class="identifier">A1</span> <span class="identifier">a1</span><span class="special">,...,</span> <span class="identifier">A10</span> <span class="identifier">a10</span><span class="special">,</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">stack_size</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.migrate_fiber">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">migrate_fiber</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="identifier">f</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/scheduler/scheduler.html#fiber.fiber_management.scheduler.scheduler.migrate_fiber_t">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">OtherStrategy</span>
+          <span class="special">&gt;</span> <span class="keyword">void</span>
+          <span class="identifier">migrate_fiber</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">id</span><span class="special">,</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">OtherStrategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">)</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="fiber_management/strategy.html"> Strategy</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html"> Class <code class="computeroutput"><span class="identifier">strategy</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.attach">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">attach</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.detach">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">detach</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.switch_between">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">switch_between</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;</span> <span class="identifier">from</span><span class="special">,</span> <span class="identifier">fiber</span> <span class="special">&amp;</span> <span class="identifier">to</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.enable_interruption">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">enable_interruption</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.interruption_enabled">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interruption_enabled</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.is_master">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_master</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_not_started">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_not_started</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_ready">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_ready</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_running">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_running</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_wait_for_fiber">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_wait_for_fiber</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_wait_for_object">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_wait_for_object</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_terminated">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_terminated</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_ready">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_ready</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_running">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_running</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_wait_for_fiber">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_wait_for_fiber</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_wait_for_object">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_wait_for_object</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_terminated">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_terminated</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.ctor">
+          <code class="computeroutput"><span class="identifier">strategy</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.add"> <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="identifier">add</span><span class="special">(</span> <span class="identifier">fiber</span><span class="special">)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.join">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">join</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.interrupt">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">interrupt</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.reschedule">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">reschedule</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.cancel">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">cancel</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.yield">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">yield</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.register_object">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">register_object</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.unregister_object">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">unregister_object</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.wait_for_object">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">wait_for_object</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.object_notify_one">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">object_notify_one</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.object_notify_all">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">object_notify_all</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.release">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">release</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.migrate">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">migrate</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">)</span>
+          <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.detach_all">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">detach_all</span><span class="special">()</span>
+          <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.run"> <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="identifier">run</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.empty">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">bool</span>
+          <span class="identifier">empty</span><span class="special">()</span>
+          <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.size">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="fiber_management/strategy/strategy.html#fiber.fiber_management.strategy.strategy.ready">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">ready</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="fiber_management/strategy/round_robin.html"> Class
+        <code class="computeroutput"><span class="identifier">round_robin</span></code></a></span></dt>
+</dl></dd>
+</dl></div>
+<a name="fiber.fiber_management.synopsis"></a><h4>
+<a name="id462528"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.synopsis">Synopsis</a>
+    </h4>
+<p>
+      Each <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      class represents a user-space context of execution which will be launched and
+      managed by the <a class="link" href="fiber_management/scheduler.html" title="Scheduler"><span class="emphasis"><em>scheduler</em></span></a>
+      class. Objects of type <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      are copy- and moveable.
+    </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">f</span><span class="special">;</span> <span class="comment">// not-a-fiber
+</span>
+<span class="keyword">void</span> <span class="identifier">f</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">f1</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">make_fiber</span><span class="special">(</span> <span class="identifier">some_fn</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">default_stacksize</span><span class="special">)</span> <span class="special">);</span>
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">f2</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">make_fiber</span><span class="special">(</span> <span class="identifier">another_fn</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">default_stacksize</span><span class="special">)</span> <span class="special">);</span>
+
+	<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">scheduler</span><span class="special">&lt;&gt;</span> <span class="identifier">s</span><span class="special">;</span>
+	<span class="identifier">s</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span> <span class="identifier">f1</span><span class="special">);</span> <span class="comment">// f1 gets copied
+</span>	<span class="identifier">s</span><span class="special">.</span><span class="identifier">submit</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">move</span><span class="special">(</span> <span class="identifier">f2</span><span class="special">)</span> <span class="special">);</span> <span class="comment">// f2 gets moved
+</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">f1</span><span class="special">.</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+	<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="identifier">f2</span><span class="special">.</span><span class="identifier">get_id</span><span class="special">()</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<a name="fiber.fiber_management.launching"></a><h4>
+<a name="id463042"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.launching">Launching</a>
+    </h4>
+<p>
+      A new fiber is launched by passing an object of a callable type that can be
+      invoked with no parameters to the constructor and submiting the fiber (copy-
+      or move-op.) to an instance of <a class="link" href="fiber_management/scheduler.html" title="Scheduler"><span class="emphasis"><em>scheduler</em></span></a>.
+      The object is then copied into internal storage, and invoked on the newly-created
+      fiber. If the object must not (or cannot) be copied, then <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">ref</span></code> can
+      be used to pass in a reference to the function object. In this case, the user
+      of <span class="bold"><strong>Boost.Fiber</strong></span> must ensure that the referred-to
+      object outlives the newly-created fiber.
+    </p>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">callable</span>
+<span class="special">{</span> <span class="keyword">void</span> <span class="keyword">operator</span><span class="special">()();</span> <span class="special">};</span>
+
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">copies_are_safe</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">callable</span> <span class="identifier">x</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">(</span> <span class="identifier">x</span><span class="special">);</span>
+<span class="special">}</span> <span class="comment">// x is destroyed, but the newly-created fiber has a copy, so this is OK
+</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">oops</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="identifier">callable</span> <span class="identifier">x</span><span class="special">;</span>
+	<span class="keyword">return</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">ref</span><span class="special">(</span> <span class="identifier">x</span><span class="special">),</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">default_stacksize</span><span class="special">);</span>
+<span class="special">}</span> <span class="comment">// x is destroyed, but the newly-created fiber still has a reference
+</span>  <span class="comment">// this leads to undefined behaviour
+</span></pre>
+<p>
+      If you wish to construct an instance of <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      with a function or callable object that requires arguments to be supplied,
+      this can be done by passing additional arguments to the <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      constructor:
+    </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">find_the_question</span><span class="special">(</span> <span class="keyword">int</span> <span class="identifier">the_answer</span><span class="special">);</span>
+
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">deep_thought_2</span><span class="special">(</span> <span class="identifier">find_the_question</span><span class="special">,</span> <span class="number">42</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">default_stacksize</span><span class="special">);</span>
+</pre>
+<p>
+      The arguments are <span class="emphasis"><em>copied</em></span> into the internal fiber structure:
+      if a reference is required, use <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">ref</span></code>, just
+      as for references to callable functions.
+    </p>
+<p>
+      For convinience <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">make_fiber</span><span class="special">()</span></code>
+      is provided:
+    </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">f</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">make_fiber</span><span class="special">(</span> <span class="identifier">new_fn</span><span class="special">,</span> <span class="identifier">arg1</span><span class="special">,</span> <span class="identifier">arg2</span><span class="special">,</span> <span class="identifier">arg3</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">default_stacksize</span><span class="special">)</span> <span class="special">);</span>
+</pre>
+<p>
+      Another alternative is to use <code class="computeroutput"><span class="identifier">scheduler</span><span class="special">&lt;&gt;::</span><span class="identifier">make_fiber</span><span class="special">()</span></code> which creates and stores the new fiber inside
+      the scheduler.
+    </p>
+<pre class="programlisting"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">scheduler</span><span class="special">&lt;&gt;</span> <span class="identifier">sched</span><span class="special">;</span>
+<span class="identifier">sched</span><span class="special">.</span><span class="identifier">make_fiber</span><span class="special">(</span> <span class="identifier">new_fn</span><span class="special">,</span> <span class="identifier">arg1</span><span class="special">,</span> <span class="identifier">arg2</span><span class="special">,</span> <span class="identifier">arg3</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber_default_stacksize</span><span class="special">);</span>
+</pre>
+<div class="caution"><table border="0" summary="Caution">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Caution]" src="../../../../../doc/html/images/caution.png"></td>
+<th align="left">Caution</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        If you encounter segmentation faults or bus errors it may be possible that
+        the stacksize for the fibers is too small.
+      </p></td></tr>
+</table></div>
+<a name="fiber.fiber_management.exceptions"></a><h4>
+<a name="id463790"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.exceptions">Exceptions</a>
+    </h4>
+<p>
+      Exceptions thrown by the function or callable object passed to the <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      constructor are consumed by the framework (if it required to know which exceptions
+      was thrown use <span class="underline">_future</span>_ and __packaged<span class="underline">task</span>_).
+    </p>
+<div class="warning"><table border="0" summary="Warning">
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" src="../../../../../doc/html/images/warning.png"></td>
+<th align="left">Warning</th>
+</tr>
+<tr><td align="left" valign="top"><p>
+        Don't use the sjlj exception model.
+      </p></td></tr>
+</table></div>
+<a name="fiber.fiber_management.joining"></a><h4>
+<a name="id463833"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.joining">Joining</a>
+    </h4>
+<p>
+      In order to wait for a fiber to finish, the <a class="link" href="fiber_management/fiber/join.html" title="void join()"><code class="computeroutput"><span class="identifier">join</span><span class="special">()</span></code></a>
+      member functions of the <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      object can be used. <a class="link" href="fiber_management/fiber/join.html" title="void join()"><code class="computeroutput"><span class="identifier">join</span><span class="special">()</span></code></a>
+      will block the calling fiber until the fiber represented by the <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      object has completed. If the fiber has already completed, or the <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      object represents <span class="emphasis"><em>not-a-fiber</em></span>, then <a class="link" href="fiber_management/fiber/join.html" title="void join()"><code class="computeroutput"><span class="identifier">join</span><span class="special">()</span></code></a>
+      returns immediately.
+    </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">some_fn</span><span class="special">()</span>
+<span class="special">{}</span>
+
+<span class="keyword">void</span> <span class="identifier">joining_fiber_fn</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">f</span><span class="special">)</span>
+<span class="special">{</span> <span class="identifier">f</span><span class="special">.</span><span class="identifier">join</span><span class="special">();</span> <span class="special">}</span>
+
+<span class="identifier">boost</span><span class="special">:.</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">scheduler</span><span class="special">&lt;&gt;</span> <span class="identifier">sched</span><span class="special">;</span>
+<span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span> <span class="identifier">f</span><span class="special">(</span> <span class="identifier">some_fn</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber_default_stacksize</span><span class="special">);</span>
+<span class="identifier">sched</span><span class="special">.</span><span class="identifier">submit_fiber</span><span class="special">(</span> <span class="identifier">f</span><span class="special">);</span>
+<span class="identifier">sched</span><span class="special">.</span><span class="identifier">make_fiber</span><span class="special">(</span> <span class="identifier">joining_fiber</span><span class="special">,</span> <span class="identifier">f</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber_default_stacksize</span><span class="special">);</span>
+<span class="keyword">for</span> <span class="special">(;;)</span>
+<span class="special">{</span>
+	<span class="keyword">while</span> <span class="special">(</span> <span class="identifier">sched</span><span class="special">.</span><span class="identifier">run</span><span class="special">()</span> <span class="special">);</span>
+	<span class="keyword">if</span> <span class="special">(</span> <span class="identifier">sched</span><span class="special">.</span><span class="identifier">empty</span><span class="special">()</span> <span class="special">)</span> <span class="keyword">break</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<a name="fiber.fiber_management.interruption"></a><h4>
+<a name="id464272"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.interruption">Interruption</a>
+    </h4>
+<p>
+      A running fiber can be <span class="emphasis"><em>interrupted</em></span> by invoking the <a class="link" href="fiber_management/fiber/interrupt.html" title="void interrupt()"><code class="computeroutput"><span class="identifier">interrupt</span><span class="special">()</span></code></a> member function. When the interrupted
+      fiber next executes one of the specified <a class="link" href="fiber_management.html#fiber.fiber_management.predefined_interruption_points"><span class="emphasis"><em>interruption
+      points</em></span></a> (or if it is currently <span class="emphasis"><em>blocked</em></span>
+      whilst executing one) with interruption enabled, then a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">fiber_interrupted</span></code>
+      exception will be thrown in the interrupted fiber. If not caught, this will
+      cause the execution of the interrupted fiber to terminate.
+    </p>
+<p>
+      If a fiber wishes to avoid being interrupted, it can create an instance of
+      <a class="link" href="fiber_management/this_fiber/disable_interruption.html" title="Class disable_interruption"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span></code></a>.
+      Objects of this class disable interruption for the fiber that created them
+      on construction, and restore the interruption state to whatever it was before
+      on destruction:
+    </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">f</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// interruption enabled here
+</span>	<span class="special">{</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span> <span class="identifier">disabler1</span><span class="special">;</span>
+		<span class="comment">// interruption disabled
+</span>		<span class="special">{</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span> <span class="identifier">disabler2</span><span class="special">;</span>
+			<span class="comment">// interruption still disabled
+</span>		<span class="special">}</span> <span class="comment">// disabler2 destroyed, interruption state restored
+</span>		<span class="comment">// interruption still disabled
+</span>	<span class="special">}</span> <span class="comment">// disabler1 destroyed, interruption state restored
+</span>	<span class="comment">// interruption now enabled
+</span><span class="special">}</span>
+</pre>
+<p>
+      The effects of an instance of <a class="link" href="fiber_management/this_fiber/disable_interruption.html" title="Class disable_interruption"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span></code></a>
+      can be temporarily reversed by constructing an instance of <a class="link" href="fiber_management/this_fiber/restore_interruption.html" title="Class restore_interruption"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">restore_interruption</span></code></a>,
+      passing in the <a class="link" href="fiber_management/this_fiber/disable_interruption.html" title="Class disable_interruption"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span></code></a>
+      object in question. This will restore the interruption state to what it was
+      when the <a class="link" href="fiber_management/this_fiber/disable_interruption.html" title="Class disable_interruption"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span></code></a>
+      object was constructed, and then disable interruption again when the <a class="link" href="fiber_management/this_fiber/restore_interruption.html" title="Class restore_interruption"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">restore_interruption</span></code></a>
+      object is destroyed.
+    </p>
+<pre class="programlisting"><span class="keyword">void</span> <span class="identifier">g</span><span class="special">()</span>
+<span class="special">{</span>
+	<span class="comment">// interruption enabled here
+</span>	<span class="special">{</span>
+		<span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">disable_interruption</span> <span class="identifier">disabler</span><span class="special">;</span>
+		<span class="comment">// interruption disabled
+</span>		<span class="special">{</span>
+			<span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">restore_interruption</span> <span class="identifier">restorer</span><span class="special">(</span> <span class="identifier">disabler</span><span class="special">);</span>
+			<span class="comment">// interruption now enabled
+</span>		<span class="special">}</span> <span class="comment">// restorer destroyed, interruption disable again
+</span>	<span class="special">}</span> <span class="comment">// disabler destroyed, interruption state restored
+</span>	<span class="comment">// interruption now enabled
+</span><span class="special">}</span>
+</pre>
+<p>
+      At any point, the interruption state for the current fiber can be queried by
+      calling <a class="link" href="fiber_management/this_fiber/interruption_enabled.html" title="Non-member function interruption_enabled()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">interruption_enabled</span><span class="special">()</span></code></a>.
+    </p>
+<a name="fiber.fiber_management.predefined_interruption_points"></a><h4>
+<a name="id464859"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.predefined_interruption_points">Predefined
+      Interruption Points</a>
+    </h4>
+<p>
+      The following functions are <span class="emphasis"><em>interruption points</em></span>, which
+      will throw <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">fiber_interrupted</span></code> if interruption is enabled
+      for the current fiber, and interruption is requested for the current fiber:
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li><a class="link" href="fiber_management/fiber/join.html" title="void join()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fiber</span><span class="special">::</span><span class="identifier">join</span><span class="special">()</span></code></a></li>
+<li><a class="link" href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.wait" title="void wait( boost::unique_lock&lt; boost::fibers::mutex &gt; &amp; lk)"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">condition</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></a></li>
+<li><a class="link" href="synchronization/eventvar_ref/auto_reset_event.html#fiber.synchronization.eventvar_ref.auto_reset_event.wait" title="void wait()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">auto_reset_event</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></a></li>
+<li><a class="link" href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.wait" title="void wait()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">manual_reset_event</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></a></li>
+<li><a class="link" href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.wait" title="void wait()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">count_down_event</span><span class="special">::</span><span class="identifier">wait</span><span class="special">()</span></code></a></li>
+<li><a class="link" href="fiber_management/this_fiber/interruption_point.html" title="Non-member function interruption_point()"><code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">interruption_point</span><span class="special">()</span></code></a></li>
+</ul></div>
+<a name="fiber.fiber_management.fiber_ids"></a><h4>
+<a name="id465158"></a>
+      <a class="link" href="fiber_management.html#fiber.fiber_management.fiber_ids">Fiber IDs</a>
+    </h4>
+<p>
+      Objects of class <a class="link" href="fiber_management/fiber/id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+      can be used to identify fibers. Each running fiber has a unique ID obtainable
+      from the corresponding <a class="link" href="fiber_management/fiber.html" title="Class fiber"><span class="emphasis"><em>fiber</em></span></a>
+      by calling the <code class="computeroutput"><span class="identifier">get_id</span><span class="special">()</span></code>
+      member function, or by calling <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">this_fiber</span><span class="special">::</span><span class="identifier">get_id</span><span class="special">()</span></code> from within the fiber. Objects of class
+      <a class="link" href="fiber_management/fiber/id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+      can be copied, and used as keys in associative containers: the full range of
+      comparison operators is provided. Fiber IDs can also be written to an output
+      stream using the stream insertion operator, though the output format is unspecified.
+    </p>
+<p>
+      Each instance of <a class="link" href="fiber_management/fiber/id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+      either refers to some fiber, or <span class="emphasis"><em>not-a-fiber</em></span>. Instances
+      that refer to <span class="emphasis"><em>not-a-fiber</em></span> compare equal to each other,
+      but not equal to any instances that refer to an actual fiber. The comparison
+      operators on <a class="link" href="fiber_management/fiber/id.html" title="Class boost::fiber::id"><span class="emphasis"><em>fiber-id</em></span></a>
+      yield a total order for every non-equal fiber ID.
+    </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="overview.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="fiber_management/fiber.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

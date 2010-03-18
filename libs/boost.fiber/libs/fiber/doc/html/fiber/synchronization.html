@@ -1,0 +1,228 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Synchronization</title>
+<link rel="stylesheet" href="../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../index.html" title="Fiber">
+<link rel="up" href="../index.html" title="Fiber">
+<link rel="prev" href="fiber_management/strategy/round_robin.html" title="Class round_robin">
+<link rel="next" href="synchronization/mutex_types.html" title="Mutex Types">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="fiber_management/strategy/round_robin.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="synchronization/mutex_types.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="fiber.synchronization"></a><a class="link" href="synchronization.html" title="Synchronization"> Synchronization</a>
+</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="synchronization/mutex_types.html"> Mutex Types</a></span></dt>
+<dd><dl><dt><span class="section"><a href="synchronization/mutex_types/mutex.html"> Class <code class="computeroutput"><span class="identifier">mutex</span></code></a></span></dt></dl></dd>
+<dt><span class="section"><a href="synchronization/conditions.html"> Condition Variables</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/conditions/condition.html"> Class
+        <code class="computeroutput"><span class="identifier">condition</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">condition</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">condition</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.notify_one">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">notify_one</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.notify_all">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">notify_all</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.wait">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">mutex</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">lk</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.wait_predicate">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Pred</span>
+          <span class="special">&gt;</span> <span class="keyword">void</span>
+          <span class="identifier">wait</span><span class="special">(</span>
+          <span class="identifier">boost</span><span class="special">::</span><span class="identifier">unique_lock</span><span class="special">&lt;</span>
+          <span class="identifier">boost</span><span class="special">::</span><span class="identifier">fibers</span><span class="special">::</span><span class="identifier">mutex</span> <span class="special">&gt;</span>
+          <span class="special">&amp;</span> <span class="identifier">lk</span><span class="special">,</span> <span class="identifier">Pred</span> <span class="identifier">pred</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.wait_t">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">LockType</span>
+          <span class="special">&gt;</span> <span class="keyword">void</span>
+          <span class="identifier">wait</span><span class="special">(</span>
+          <span class="identifier">LockType</span> <span class="special">&amp;</span>
+          <span class="identifier">lk</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/conditions/condition.html#fiber.synchronization.conditions.condition.wait_predicate_t">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">LockType</span><span class="special">,</span> <span class="keyword">typename</span> <span class="identifier">Pred</span> <span class="special">&gt;</span> <span class="keyword">void</span> <span class="identifier">wait</span><span class="special">(</span> <span class="identifier">LockType</span>
+          <span class="special">&amp;</span> <span class="identifier">lk</span><span class="special">,</span> <span class="identifier">Pred</span> <span class="identifier">pred</span><span class="special">)</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="synchronization/barriers.html"> Barriers</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/barriers/barrier.html"> Class <code class="computeroutput"><span class="identifier">barrier</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/barriers/barrier.html#fiber.synchronization.barriers.barrier.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">barrier</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="keyword">unsigned</span> <span class="keyword">int</span>
+          <span class="identifier">initial</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/barriers/barrier.html#fiber.synchronization.barriers.barrier.wait"> <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="synchronization/eventvar_ref.html"> Event Variables</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/eventvar_ref/auto_reset_event.html">
+        Class <code class="computeroutput"><span class="identifier">auto_reset_event</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/eventvar_ref/auto_reset_event.html#fiber.synchronization.eventvar_ref.auto_reset_event.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="keyword">explicit</span>
+          <span class="identifier">auto_reset_event</span><span class="special">(</span>
+          <span class="identifier">scheduler</span><span class="special">&lt;</span>
+          <span class="identifier">Strategy</span> <span class="special">&gt;</span>
+          <span class="special">&amp;</span> <span class="identifier">sched</span><span class="special">,</span> <span class="keyword">bool</span> <span class="identifier">isset</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/auto_reset_event.html#fiber.synchronization.eventvar_ref.auto_reset_event.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">auto_reset_event</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/auto_reset_event.html#fiber.synchronization.eventvar_ref.auto_reset_event.set">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/auto_reset_event.html#fiber.synchronization.eventvar_ref.auto_reset_event.wait">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/auto_reset_event.html#fiber.synchronization.eventvar_ref.auto_reset_event.try_wait">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_wait</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html">
+        Class <code class="computeroutput"><span class="identifier">manual_reset_event</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="keyword">explicit</span>
+          <span class="identifier">manual_reset_event</span><span class="special">(</span>
+          <span class="identifier">scheduler</span><span class="special">&lt;</span>
+          <span class="identifier">Strategy</span> <span class="special">&gt;</span>
+          <span class="special">&amp;</span> <span class="identifier">sched</span><span class="special">,</span> <span class="keyword">bool</span> <span class="identifier">isset</span> <span class="special">=</span> <span class="keyword">false</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">manual_reset_event</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.set">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.reset">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">reset</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.wait">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/manual_reset_event.html#fiber.synchronization.eventvar_ref.manual_reset_event.trywait">
+          <code class="computeroutput"><span class="identifier">boo</span> <span class="identifier">try_wait</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html">
+        Class <code class="computeroutput"><span class="identifier">count_down_event</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="keyword">explicit</span>
+          <span class="identifier">count_down_event</span><span class="special">(</span>
+          <span class="identifier">scheduler</span><span class="special">&lt;</span>
+          <span class="identifier">Strategy</span> <span class="special">&gt;</span>
+          <span class="special">&amp;</span> <span class="identifier">sched</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="identifier">initial</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.destructor">
+          <code class="computeroutput"><span class="special">~</span><span class="identifier">count_down_event</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.initial">
+          <code class="computeroutput"><span class="keyword">unsigned</span> <span class="keyword">int</span>
+          <span class="identifier">initial</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.current">
+          <code class="computeroutput"><span class="keyword">unsigned</span> <span class="keyword">int</span>
+          <span class="identifier">current</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.is_set">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_set</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.set">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/eventvar_ref/count_down_event.html#fiber.synchronization.eventvar_ref.count_down_event.wait">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">wait</span><span class="special">()</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="section"><a href="synchronization/fifos.html"> (Un)Bounded fifos</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">unbounded_channel</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html#fiber.synchronization.fifos.unbounded_channel.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">unbounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html#fiber.synchronization.fifos.unbounded_channel.deactivate">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">deactivate</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html#fiber.synchronization.fifos.unbounded_channel.empty">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">empty</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html#fiber.synchronization.fifos.unbounded_channel.put">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">put</span><span class="special">(</span> <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html#fiber.synchronization.fifos.unbounded_channel.take">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/unbounded_channel.html#fiber.synchronization.fifos.unbounded_channel.try_take">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html"> Template
+        <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+        <span class="keyword">typename</span> <span class="identifier">T</span>
+        <span class="special">&gt;</span> <span class="identifier">bounded_channel</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.constructor">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.constructor2">
+          <code class="computeroutput"><span class="keyword">template</span><span class="special">&lt;</span>
+          <span class="keyword">typename</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="identifier">bounded_channel</span><span class="special">(</span> <span class="identifier">scheduler</span><span class="special">&lt;</span> <span class="identifier">Strategy</span>
+          <span class="special">&gt;</span> <span class="special">&amp;</span>
+          <span class="identifier">sched</span><span class="special">,</span>
+          <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">wm</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.deactivate">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">deactivate</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.empty">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">empty</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.put">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">put</span><span class="special">(</span> <span class="identifier">T</span> <span class="keyword">const</span><span class="special">&amp;</span> <span class="identifier">t</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.take">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="synchronization/fifos/bounded_channel.html#fiber.synchronization.fifos.bounded_channel.try_take">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">try_take</span><span class="special">(</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span> <span class="identifier">T</span> <span class="special">&gt;</span> <span class="special">&amp;</span> <span class="identifier">va</span><span class="special">)</span></code></a></span></dt>
+</dl></dd>
+</dl></dd>
+</dl></div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="fiber_management/strategy/round_robin.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="synchronization/mutex_types.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

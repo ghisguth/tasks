@@ -1,0 +1,197 @@
+[/
+          Copyright Oliver Kowalke 2009.
+ Distributed under the Boost Software License, Version 1.0.
+    (See accompanying file LICENSE_1_0.txt or copy at
+          http://www.boost.org/LICENSE_1_0.txt
+]
+
+[section:fifos (Un)Bounded fifos]
+
+__boost_fiber__ provides a bounded and a unbounded fifo suitable to synchonize fibers via message passing.
+
+[note fifos are bound to the __scheduler__ passed to the construtor and can only be used by fibers
+managed by this scheduler.]
+
+    typedef boost::fibers::unbounded_channel< int > fifo_t;
+
+    void send( fifo_t fifo)
+    {
+        for ( int i = 0; i < 5; ++i)
+            fifo.put( i);
+        fifo.deactivate();
+    }
+
+    void recv( fifo_t fifo)
+    {
+        boost::optional< int > value;
+        while ( fifo.take( value) )
+        { std::cout << "received " << * value << std::endl; }
+    }
+
+    boost::fibers::scheduler<> sched;
+    fifo_t fifo( sched);
+    sched.make_fiber( send, fifo);
+    sched.make_fiber( recv, fifo);
+
+    for (;;)
+    {
+        while ( sched.run() );
+        if ( sched.empty() ) break;
+    }
+
+
+[section:unbounded_channel Template `template< typename T > unbounded_channel`]
+
+    #include <boost/fiber/unbounded_channel.hpp>
+
+    template< typename T >
+    class unbounded_channel : private noncopyable
+    {
+    public:
+        template< typename Strategy >
+        unbounded_channel( scheduler< Strategy > & sched);
+
+        void deactivate();
+
+        bool empty();
+
+        void put( T const& t);
+
+        bool take( boost::optional< T > & va);
+
+        bool try_take( boost::optional< T > & va);
+    };
+
+[section:constructor `template< typename Strategy > unbounded_channel( scheduler< Strategy > & sched)`]
+[variablelist
+[[Effects:] [Constructs an object of class `unbounded_channel`.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:deactivate `void deactivate()`]
+[variablelist
+[[Effects:] [Deactivates the fifo. No values can be put after calling `this->deactivate`. Fibers blocked in
+`this->take()` will be return.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:empty `bool empty()`]
+[variablelist
+[[Effects:] [Returns `true` if the fifo currently contains no data.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:put `void put( T const& t)`]
+[variablelist
+[[Effects:] [Enqueues the value in the fifo and wakes up a fiber waiting for new data available from the
+fifo.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:take `bool take( boost::optional< T > & va)`]
+[variablelist
+[[Effects:] [Dequeues a value from the fifo. If no data is available from the fifo the fiber gets suspended until
+new data are enqueued (return value `true` and va contains dequeued value) or the fifo gets deactiveted and
+the function returns `false`.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:try_take `bool try_take( boost::optional< T > & va)`]
+[variablelist
+[[Effects:] [Dequeues a value from the fifo. If no data is available from the fifo the function returns `false`.
+Otherwise it returns `true` and `va` contains the dequed value.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[endsect]
+
+
+[section:bounded_channel Template `template< typename T > bounded_channel`]
+
+    #include <boost/fiber/bounded_channel.hpp>
+
+    template< typename T >
+    class bounded_channel : private noncopyable
+    {
+    public:
+        template< typename Strategy >
+        bounded_channel( scheduler< Strategy > & sched, std::size_t wm);
+
+        template< typename Strategy >
+        bounded_channel( scheduler< Strategy > & sched, std::size_t hwm, std::size_t lwm);
+
+        void deactivate();
+
+        bool empty();
+
+        void put( T const& t);
+
+        bool take( boost::optional< T > & va);
+
+        bool try_take( boost::optional< T > & va);
+    };
+
+[section:constructor `template< typename Strategy > bounded_channel( scheduler< Strategy > & sched, std::size_t wm)`]
+[variablelist
+[[Effects:] [Constructs an object of class `bounded_channel` which will contain a maximum of `wm` items.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:constructor2 `template< typename Strategy > bounded_channel( scheduler< Strategy > & sched, std::size_t wm)`]
+[variablelist
+[[Effects:] [Constructs an object of class `bounded_channel` which will contain a maximum of `wm` items.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:deactivate `void deactivate()`]
+[variablelist
+[[Effects:] [Deactivates the fifo. No values can be put after calling `this->deactivate`. Fibers blocked in
+`this->take()` will be return.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:empty `bool empty()`]
+[variablelist
+[[Effects:] [Returns `true` if the fifo currently contains no data.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:put `void put( T const& t)`]
+[variablelist
+[[Effects:] [Enqueues the value in the fifo and wakes up a fiber waiting for new data available from the
+fifo. If the watermark has reached the fiber putting the value will be supended until at least one item
+was dequeued.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:take `bool take( boost::optional< T > & va)`]
+[variablelist
+[[Effects:] [Dequeues a value from the fifo. If no data is available from the fifo the fiber gets suspended until
+new data are enqueued (return value `true` and va contains dequeued value) or the fifo gets deactiveted and
+the function returns `false`.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[section:try_take `bool try_take( boost::optional< T > & va)`]
+[variablelist
+[[Effects:] [Dequeues a value from the fifo. If no data is available from the fifo the function returns `false`.
+Otherwise it returns `true` and `va` contains the dequed value.]]
+[[Throws:] [Nothing.]]
+]
+[endsect]
+
+[endsect]
+
+[endsect]

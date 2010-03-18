@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Strategy</title>
+<link rel="stylesheet" href="../../../../../../doc/html/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="../../index.html" title="Fiber">
+<link rel="up" href="../fiber_management.html" title="Fiber Management">
+<link rel="prev" href="scheduler/scheduler.html" title="Template template&lt; typename Strategy &gt; scheduler">
+<link rel="next" href="strategy/strategy.html" title="Class strategy">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="scheduler/scheduler.html"><img src="../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../fiber_management.html"><img src="../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="strategy/strategy.html"><img src="../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="fiber.fiber_management.strategy"></a><a class="link" href="strategy.html" title="Strategy"> Strategy</a>
+</h3></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="strategy/strategy.html"> Class <code class="computeroutput"><span class="identifier">strategy</span></code></a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.attach">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">attach</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.detach">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">detach</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.switch_between">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">switch_between</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;</span> <span class="identifier">from</span><span class="special">,</span> <span class="identifier">fiber</span> <span class="special">&amp;</span> <span class="identifier">to</span><span class="special">)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.enable_interruption">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">enable_interruption</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.interruption_enabled">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">interruption_enabled</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.is_master">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">is_master</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_not_started">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_not_started</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_ready">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_ready</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_running">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_running</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_wait_for_fiber">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_wait_for_fiber</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_wait_for_object">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_wait_for_object</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.in_state_terminated">
+          <code class="computeroutput"><span class="keyword">bool</span> <span class="identifier">in_state_terminated</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="keyword">const</span><span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_ready">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_ready</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_running">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_running</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_wait_for_fiber">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_wait_for_fiber</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_wait_for_object">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_wait_for_object</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.set_state_terminated">
+          <code class="computeroutput"><span class="keyword">void</span> <span class="identifier">set_state_terminated</span><span class="special">(</span> <span class="identifier">fiber</span> <span class="special">&amp;)</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.ctor">
+          <code class="computeroutput"><span class="identifier">strategy</span><span class="special">()</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.add"> <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="identifier">add</span><span class="special">(</span> <span class="identifier">fiber</span><span class="special">)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.join">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">join</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.interrupt">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">interrupt</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.reschedule">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">reschedule</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.cancel">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">cancel</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.yield">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">yield</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.register_object">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">register_object</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.unregister_object">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">unregister_object</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.wait_for_object">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">wait_for_object</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.object_notify_one">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">object_notify_one</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.object_notify_all">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">object_notify_all</span><span class="special">(</span>
+          <span class="identifier">object</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.release">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">release</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">::</span><span class="identifier">id</span> <span class="keyword">const</span><span class="special">&amp;)</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.migrate">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">migrate</span><span class="special">(</span>
+          <span class="identifier">fiber</span><span class="special">)</span>
+          <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.detach_all">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">void</span>
+          <span class="identifier">detach_all</span><span class="special">()</span>
+          <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.run"> <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">bool</span> <span class="identifier">run</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.empty">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="keyword">bool</span>
+          <span class="identifier">empty</span><span class="special">()</span>
+          <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.size">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">size</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+<dt><span class="section"><a href="strategy/strategy.html#fiber.fiber_management.strategy.strategy.ready">
+          <code class="computeroutput"><span class="keyword">virtual</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">ready</span><span class="special">()</span> <span class="special">=</span> <span class="number">0</span></code></a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="strategy/round_robin.html"> Class
+        <code class="computeroutput"><span class="identifier">round_robin</span></code></a></span></dt>
+</dl></div>
+<a name="fiber.fiber_management.strategy.synopsis"></a><h5>
+<a name="id475943"></a>
+        <a class="link" href="strategy.html#fiber.fiber_management.strategy.synopsis">Synopsis</a>
+      </h5>
+<p>
+        The template <a class="link" href="scheduler.html" title="Scheduler"><span class="emphasis"><em>scheduler</em></span></a>
+        accepts the implementation of the scheduling algorithm as a template argument
+        (currently <a class="link" href="strategy/round_robin.html" title="Class round_robin"><span class="emphasis"><em>round_robin</em></span></a>
+        is the choosen as the default). Each class destined to implement a scheduling
+        algorithm must derive from <a class="link" href="strategy.html" title="Strategy"><span class="emphasis"><em>strategy</em></span></a>.
+        The member <code class="computeroutput"><span class="identifier">active_fiber</span></code> holds
+        the current (running) fiber and <code class="computeroutput"><span class="identifier">master_fiber</span></code>
+        executes the scheduling logic.
+      </p>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 Oliver Kowalke<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="scheduler/scheduler.html"><img src="../../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../fiber_management.html"><img src="../../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../../index.html"><img src="../../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="strategy/strategy.html"><img src="../../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
