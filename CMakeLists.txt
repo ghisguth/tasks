@@ -18,6 +18,11 @@ else(Boost_FOUND)
   message( FATAL_ERROR " boost 1.41 not installed" )
 endif(Boost_FOUND)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/boost.move/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/boost.atomic/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/boost.fiber/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/boost.task/)
+
 
 subdirs(libs)
 subdirs(src)
