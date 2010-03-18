@@ -1,0 +1,138 @@
+[/
+ / Copyright (c) 2009-2009 Ion Gaztanaga
+ /
+ / Distributed under the Boost Software License, Version 1.0. (See accompanying
+ / file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ /]
+
+[library Boost.Container
+    [quickbook 1.3]
+    [authors [Gazta&ntilde;aga, Ion]]
+    [copyright 2009-2009 Ion Gazta&ntilde;aga]
+    [id container]
+    [dirname container]
+    [purpose Containers library]
+    [license
+        Distributed under the Boost Software License, Version 1.0.
+        (See accompanying file LICENSE_1_0.txt or copy at
+        [@http://www.boost.org/LICENSE_1_0.txt])
+    ]
+]
+
+[warning This library is NOT an official Boost library]
+
+[important To be able to use this library you also need [*Boost.Move] ]
+
+[section:intro Introduction]
+
+[*Boost.Container] library implements several well-known containers, including
+STL containers. The aim of the library is to offers advanced features not present
+in standard containers or to offer the latest standard draft features for compilers
+that comply with C++03.
+
+In short, what does [*Boost.Container] offer?
+
+* Move semantics are implemented, including move emulation for pre-C++0x compilers.
+* New advanced features (e.g. placement insertion, recursive containers) are present.
+* Containers support stateful allocators and are compatible with [*Boost.Interprocess]
+  (they can be safely placed in shared memory).
+* The library offers new useful containers:
+  * [classref boost::container::flat_map flat_map],
+    [classref boost::container::flat_map flat_set],
+    [classref boost::container::flat_map flat_multiset] and
+    [classref boost::container::flat_map flat_multiset]: drop-in
+    replacements for standard associative containers but more memory friendly and with faster
+    searches.
+  * [classref boost::container::stable_vector stable_vector]: a std::list and std::vector hybrid
+    with random-access iterators that offers iterator stability in insertions and erasures.
+  * [classref boost::container::slist slist]: the classic pre-standard singly linked list container.
+
+[section:introduction_building_container Building Boost.Container]
+
+There is no need to compile [*Boost.Container], since it's
+a header only library. Just include your Boost header directory in your
+compiler include path.
+
+[endsect]
+
+[section:tested_compilers Tested compilers]
+
+[*Boost.Container] requires a decent C++98 compatibility. Some compilers known to work are:
+
+*  Visual C++ >= 7.1.
+*  GCC >= 3.4.
+*  Intel C++ >= 9.0
+
+[endsect]
+
+[endsect]
+
+[section:move_containers Move-aware containers]
+
+All containers offered by [*Boost.Container] can store movable-only types
+and actual requirements for `value_type` depend on each container operations.
+Following C++0x draft, many operations now require movable or default constructible
+types instead of copy constructible types.
+
+Containers themselves are also movable, with no-throw guarantee if allocator
+or predicate (if present) copy operations are no-throw. This allows
+high performance operations when transfering data between vectors.
+Let's see an example:
+
+[import ../example/doc_move_containers.cpp]
+[doc_move_containers]
+
+[endsect]
+
+[section:emplace Emplace: Placement insertion]
+
+All containers offered by [*Boost.Container] implement placement insertion,
+which means that the objects can be built directly from user arguments
+without creating any temporary object. Expensive to move types are perfect
+candidates for these emplace functions and in case of node containers
+([classref boost::container::list list], [classref boost::container::set set], ...)
+emplace allows storing non-movable and non-copyable types in containers! Let's
+see an example:
+
+[import ../example/doc_emplace.cpp]
+[doc_emplace]
+
+[endsect]
+
+
+[section:recursive_containers Recursive containers]
+
+All containers offered by [*Boost.Container] can be used in recursive data
+structures, something that is not guaranteed by the standard. Programmers
+can write the following data structures:
+
+[import ../example/doc_recursive_containers.cpp]
+[doc_recursive_containers]
+
+[endsect]
+
+
+[section:other_features Other features]
+
+* Default constructors don't allocate memory which improves performance and
+  usually implies a no-throw guarantee (if predicate's default constructor doesn't throw).
+
+* Small string optimization for [classref boost::container::basic_string basic_string],
+  with an internal buffer of 11/23 bytes (32/64 bit systems)
+  [*without] increasing the usual `sizeof` of the string (3 words).
+
+[endsect]
+
+[section:acknowledgements_notes Acknowledgements, notes and links]
+
+[section:thanks_to Thanks to...]
+
+[endsect]
+
+[endsect]
+
+[section:release_notes Release Notes]
+
+[endsect]
+
+[xinclude autodoc.xml]

@@ -1,0 +1,3 @@
+boost.move revision 60689
+
+http://svn.boost.org/svn/boost/sandbox/move/

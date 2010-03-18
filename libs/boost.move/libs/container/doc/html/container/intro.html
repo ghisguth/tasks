@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title> Introduction</title>
+<link rel="stylesheet" href="../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.67.0">
+<link rel="start" href="../index.html" title="Chapter 1. Boost.Container">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.Container">
+<link rel="prev" href="../index.html" title="Chapter 1. Boost.Container">
+<link rel="next" href="move_containers.html" title=" Move-aware containers">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../index.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="move_containers.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="container.intro"></a><a href="intro.html" title=" Introduction"> Introduction</a></h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="intro.html#container.intro.introduction_building_container"> Building
+      Boost.Container</a></span></dt>
+<dt><span class="section"><a href="intro.html#container.intro.tested_compilers"> Tested compilers</a></span></dt>
+</dl></div>
+<p>
+      <span class="bold"><strong>Boost.Container</strong></span> library implements several
+      well-known containers, including STL containers. The aim of the library is
+      to offers advanced features not present in standard containers or to offer
+      the latest standard draft features for compilers that comply with C++03.
+    </p>
+<p>
+      In short, what does <span class="bold"><strong>Boost.Container</strong></span> offer?
+    </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+        Move semantics are implemented, including move emulation for pre-C++0x compilers.
+      </li>
+<li>
+        New advanced features (e.g. placement insertion, recursive containers) are
+        present.
+      </li>
+<li>
+        Containers support stateful allocators and are compatible with <span class="bold"><strong>Boost.Interprocess</strong></span> (they can be safely placed in shared
+        memory).
+      </li>
+<li>
+        The library offers new useful containers:
+        <div class="itemizedlist"><ul type="circle">
+<li>
+<code class="computeroutput"><a href="../boost/container/flat_map.html" title="Class template flat_map">flat_map</a></code>, <code class="computeroutput"><a href="../boost/container/flat_map.html" title="Class template flat_map">flat_set</a></code>, <code class="computeroutput"><a href="../boost/container/flat_map.html" title="Class template flat_map">flat_multiset</a></code>
+            and <code class="computeroutput"><a href="../boost/container/flat_map.html" title="Class template flat_map">flat_multiset</a></code>:
+            drop-in replacements for standard associative containers but more memory
+            friendly and with faster searches.
+          </li>
+<li>
+<code class="computeroutput"><a href="../boost/container/stable_vector.html" title="Class template stable_vector">stable_vector</a></code>:
+            a std::list and std::vector hybrid with random-access iterators that
+            offers iterator stability in insertions and erasures.
+          </li>
+<li>
+<code class="computeroutput"><a href="../boost/container/slist.html" title="Class template slist">slist</a></code>: the classic
+            pre-standard singly linked list container.
+          </li>
+</ul></div>
+</li>
+</ul></div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="container.intro.introduction_building_container"></a><a href="intro.html#container.intro.introduction_building_container" title=" Building
+      Boost.Container"> Building
+      Boost.Container</a></h3></div></div></div>
+<p>
+        There is no need to compile <span class="bold"><strong>Boost.Container</strong></span>,
+        since it's a header only library. Just include your Boost header directory
+        in your compiler include path.
+      </p>
+</div>
+<div class="section" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="container.intro.tested_compilers"></a><a href="intro.html#container.intro.tested_compilers" title=" Tested compilers"> Tested compilers</a></h3></div></div></div>
+<p>
+        <span class="bold"><strong>Boost.Container</strong></span> requires a decent C++98
+        compatibility. Some compilers known to work are:
+      </p>
+<div class="itemizedlist"><ul type="disc">
+<li>
+          Visual C++ &gt;= 7.1.
+        </li>
+<li>
+          GCC &gt;= 3.4.
+        </li>
+<li>
+          Intel C++ &gt;= 9.0
+        </li>
+</ul></div>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer">Copyright © 2009 -2009 Ion Gaztañaga<p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../index.html"><img src="../../../../../doc/html/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/html/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/html/images/home.png" alt="Home"></a><a accesskey="n" href="move_containers.html"><img src="../../../../../doc/html/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
