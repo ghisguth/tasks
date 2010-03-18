@@ -2,3 +2,4 @@ tasks
 =======================
 task shcheduling experiments with boost.task
 boost.task library (cmake) compiled using cmake
+boost 1.41 is requiered to compile this libraries
