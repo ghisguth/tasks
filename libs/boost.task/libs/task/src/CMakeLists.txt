@@ -1,0 +1,10 @@
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+file(GLOB files detail/*.cpp spin/*.cpp)
+set(files ${files} callable.cpp context.cpp fast_semaphore.cpp poolsize.cpp semaphore_posix.cpp stacksize.cpp watermark.cpp)
+
+if(WIN32)
+  add_library(boost-task STATIC ${files})
+  set_target_properties(boost-task PROPERTIES PREFIX "../")
+else(WIN32)
+  add_library(boost-task SHARED ${files})
+endif(WIN32)
